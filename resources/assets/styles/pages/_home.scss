@@ -1,0 +1,137 @@
+.hero-section {
+    @include media-breakpoint-down(lg) {
+        height: 500px !important;
+    }
+
+    .bg-layer {
+        background-color: rgba($color: $black, $alpha: 0.3);
+    }
+
+    .hero-logo {
+        height: 165px;
+
+        @include media-breakpoint-down(lg) {
+            height: 82px;
+        }
+    }
+
+    .header-menu-logo {
+        height: 103px;
+
+        @include media-breakpoint-down(lg) {
+            height: 115px;
+        }
+
+        .hover-image {
+            opacity: 0;
+        }
+
+        &:hover {
+            .hover-image {
+                opacity: 1;
+            }
+
+            .default-image {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.curve-blue-image {
+    height: 70px;
+    margin-top: -70px;
+    z-index: 1;
+
+    img {
+        @include media-breakpoint-down(lg) {
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+
+.left-right-pattern-section {
+    .left-right-b-pattern {
+        height: 725px;
+
+        @include media-breakpoint-down(lg) {
+            height: 370px;
+        }
+    }
+}
+
+.left-right-section {
+    background-color: $color-4371E7;
+
+    .left-right-img {
+        height: 500px;
+
+        @include media-breakpoint-down(lg) {
+            height: 345px;
+        }
+    }
+
+    .title,
+    .desc {
+        color: $color-F2F0E5 ;
+    }
+
+    .btnA {
+        background-color: transparent;
+        border: 1px solid $color-F2F0E5;
+        color: $color-F2F0E5;
+
+        &:hover {
+            background-color: $color-F2F0E5;
+            color: $black;
+        }
+    }
+
+    &.bg-F2F0E5-section {
+        background-color: $color-F2F0E5;
+
+        .title {
+            color: $color-4371E7 ;
+        }
+
+        .desc {
+            color: $color-0F122E ;
+        }
+
+        .btnA {
+            background-color: transparent;
+            border: 1px solid $color-4371E7;
+            color: $color-0F122E;
+
+            &:hover {
+                background-color: $color-4371E7;
+                border: 1px solid transparent;
+                color: $color-F2F0E5;
+            }
+        }
+    }
+}
+
+.right-image-section {
+    .right-img {
+        height: 502px;
+
+        @include media-breakpoint-down(lg) {
+            height: 345px;
+        }
+    }
+}
+
+.bottom-line {
+    .close-icon {
+        height: 11px;
+    }
+}
+
+.full-banner-section {
+    @include media-breakpoint-down(lg) {
+        height: 325px !important;
+    }
+}

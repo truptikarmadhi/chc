@@ -1,0 +1,110 @@
+.header {
+    z-index: 999;
+
+    .black-logo,
+    .white-logo {
+        width: 188px;
+
+        @include media-breakpoint-down(lg) {
+            width: 140px;
+        }
+    }
+
+    .header-btn {
+        height: 85px;
+
+        @include media-breakpoint-down(lg) {
+            height: 70px;
+        }
+
+        .header-table-btn {
+            border-radius: 0px 0px 0px 5px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .burger-menu {
+            background-color: $color-0F122E;
+            width: 90px;
+
+            @include media-breakpoint-down(lg) {
+                width: 70px;
+            }
+
+            img {
+                height: 14px;
+
+                @include media-breakpoint-down(lg) {
+                    height: 22px;
+                }
+            }
+        }
+    }
+
+    &.black-header {
+        .header-logo {
+            .black-logo {
+                display: block !important;
+            }
+
+            .white-logo {
+                display: none !important;
+            }
+        }
+    }
+
+    &.white-header {
+        .header-logo {
+
+            .black-logo {
+                display: none !important;
+            }
+
+            .white-logo {
+                display: block !important;
+            }
+
+            @include media-breakpoint-down(lg) {
+                .black-logo {
+                    display: block !important;
+                }
+
+                .white-logo {
+                    display: none !important;
+                }
+            }
+        }
+
+    }
+
+    &.menu-header {
+
+        .header-logo {
+            display: none !important;
+        }
+
+        .header-btn {
+            display: flex !important;
+            justify-content: end !important;
+            width: 100%;
+        }
+
+        @include media-breakpoint-down(lg) {
+            background-color: transparent!important;
+            .header-fixed {
+                background-color: transparent !important;
+            }
+        }
+    }
+
+    &.header-fixed {
+        @include media-breakpoint-down(lg) {
+            background-color: $color-F2F0E5;
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        background-color: $color-F2F0E5;
+    }
+
+}

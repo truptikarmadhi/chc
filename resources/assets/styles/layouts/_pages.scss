@@ -1,0 +1,43 @@
+.white-border {
+    border-top: 1px solid rgba($color: $white, $alpha: 0.3);
+}
+
+.border-201E21 {
+    border-bottom: 1px solid rgba($color: $color-201E21, $alpha: 0.1);
+}
+
+.border-10122E {
+    border: 1px solid rgba($color: $color-10122E, $alpha: 0.2);
+}
+
+.divider {
+    border: 1px solid $color-0F122E;
+}
+
+.social-icon-content {
+    &.left-icon-content {
+        .social-bg {
+            height: 38px;
+            width: 38px;
+        }
+    }
+
+    .social-bg {
+        height: 45px;
+        width: 45px;
+        background-color: rgba($color: $white, $alpha: 0.3);
+
+        .social-icon {
+            width: 18px;
+
+            @include media-breakpoint-down(lg) {
+                width: 14px;
+            }
+        }
+
+        @include media-breakpoint-down(lg) {
+            height: 35px;
+            width: 35px;
+        }
+    }
+}

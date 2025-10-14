@@ -1,0 +1,39 @@
+.privacy-section {
+
+    .bg-pattern {
+        height: 1040px;
+        top: 20%;
+        left: -12%;
+
+        @include media-breakpoint-down(lg) {
+            height: 366px;
+            left: -25%;
+        }
+    }
+
+    .left-content {
+        top: 190px;
+        overflow-x: visible;
+
+        ul {
+            overflow-x: visible;
+            
+            li {
+                border-left: 1px solid rgba($color: $white, $alpha: 0.2);
+
+
+                &.active {
+                    border-left: 1px solid $white;
+
+                    a {
+                        opacity: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .single-content:first-child {
+        padding-top: 0 !important;
+    }
+}
