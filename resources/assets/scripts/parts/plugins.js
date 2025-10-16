@@ -3,61 +3,81 @@ import "slick-carousel";
 export class Plugins {
 
   init() {
-    this.TestimonialSlider();
-    this.AboutSlider();
-    this.HappeningSlider();
+    this.SectorSlider();
+    this.ValueSlider();
   }
 
-  TestimonialSlider() {
-    $('.testimonial-slider').slick({
-      dots: true,
-      infinite: false,
-      speed: 300,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            slidesToShow: 1,
-          },
-        },
-      ],
-    });
-  }
-
-  AboutSlider() {
-    $('.about-hero-slider').slick({
-      dots: true,
-      infinite: false,
-      speed: 300,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      fade: true,
-    });
-  }
-
-  HappeningSlider() {
-    $('.happening-slider').slick({
+  SectorSlider() {
+    $('.sectors-slider').slick({
       dots: false,
       infinite: false,
       speed: 300,
-      slidesToShow: 3,
-      slidesToScroll: 3,
-      arrows: false,
+      slidesToShow: 6,
+      slidesToScroll: 4,
+      prevArrow: '.sectors-slider-section .prev-arrow',
+      nextArrow: '.sectors-slider-section .next-arrow',
       responsive: [
         {
-          breakpoint: 768,
+          breakpoint: 1024,
           settings: {
-            arrows: false,
-            slidesToShow: 1,
-          },
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
         },
-      ],
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     });
   }
 
+  ValueSlider() {
+    $('.value-slider').slick({
+      dots: false,
+      arrows: false,
+      infinite: false,
+      autoplay: true,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      // responsive: [
+      //   {
+      //     breakpoint: 1024,
+      //     settings: {
+      //       slidesToShow: 3,
+      //       slidesToScroll: 3,
+      //       infinite: true,
+      //       dots: true
+      //     }
+      //   },
+      //   {
+      //     breakpoint: 600,
+      //     settings: {
+      //       slidesToShow: 2,
+      //       slidesToScroll: 2
+      //     }
+      //   },
+      //   {
+      //     breakpoint: 480,
+      //     settings: {
+      //       slidesToShow: 1,
+      //       slidesToScroll: 1
+      //     }
+      //   }
+      // ]
+    });
+  }
 }

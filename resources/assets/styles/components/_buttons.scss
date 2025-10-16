@@ -7,93 +7,41 @@ button,
     -webkit-appearance: none !important;
 }
 
-.btnA {
-    height: 75px;
+.btnA{
+    height: 48px;
+    border-radius: 3px;
+    padding: 0px 16px;
 
-    &.header-btn {
-        height: 85px;
-        background-color: $color-F2F0E5;
+    span{
+        padding-left: 15px;
     }
 
-    &.bg-4371E7-btn {
-        background-color: $color-4371E7;
-        border: 1px solid transparent;
-        color: $color-F2F0E5;
-
-        &:hover {
-            border: 1px solid $color-4371E7;
-            background-color: transparent;
-            color: $color-4371E7;
-        }
+    .arrow{
+        height: 8px;
     }
 
-    &.bg-4371E7-white-btn {
-        background-color: $color-4371E7;
-        border: 1px solid transparent;
-        color: $color-F2F0E5;
-
-        &:hover {
-            border: 1px solid $color-F2F0E5;
-            background-color: transparent;
-        }
+    .arrow-2{
+        opacity: 0; 
+        right: 15px;
+        top: 21px;
     }
 
-    &.bg-F2F0E5-btn {
-        background-color: $color-F2F0E5;
-        border: 1px solid transparent;
-        color: $color-4371E7;
-
-        &:hover {
-            border: 1px solid $color-4371E7;
-            background-color: transparent;
-            color: $color-4371E7;
-        }
+    &.bg-EBFF99-btn{
+        background-color: $color-EBFF99;
     }
+}
 
-    &.bg-F2F0E5-black-btn {
-        background-color: $color-F2F0E5;
-        border: 1px solid transparent;
-        color: $black;
-
-        &:hover {
-            border: 1px solid $color-F2F0E5;
-            background-color: transparent;
+.btnA{
+    &:hover{
+        span{
+            padding-left: 0px;
+            padding-right: 15px;
         }
-    }
-
-    &.border-F2F0E5-btn {
-        background-color: transparent;
-        border: 1px solid $color-F2F0E5;
-        color: $color-F2F0E5;
-
-        &:hover {
-            background-color: $color-F2F0E5;
-            color: $black;
+        .arrow-1{
+            opacity: 0;
         }
-    }
-
-    &.border-4371E7-btn {
-        background-color: transparent;
-        border: 1px solid $color-4371E7;
-        color: $color-0F122E;
-
-        &:hover {
-            background-color: $color-4371E7;
-            border: 1px solid transparent;
-            color: $color-F2F0E5;
+        .arrow-2{
+            opacity: 1; 
         }
-    }
-
-    &.light-4371E7-text-btn {
-        background-color: $color-F2F0E5;
-        color: $color-4371E7;
-        border: 1px solid transparent;
-
-        &:hover {
-            background-color: transparent;
-            border: 1px solid $color-F2F0E5;
-            color: $color-F2F0E5;
-        }
-
     }
 }

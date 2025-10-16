@@ -9,6 +9,7 @@ import { Truncate } from './parts/truncate.js';
 import { Accordion } from './parts/accordion.js';
 import { Privacy } from './parts/privacy.js';
 import { Video } from './parts/video.js';
+import { HandleBars } from './parts/handlebar.js';
 
 
 // export for others scripts to use
@@ -46,6 +47,9 @@ $(function () {
 
   window.video = new Video();
   window.video.init();
+
+  window.handlebar = new HandleBars();
+  window.handlebar.init();
 });
 
 // ===========================================================================

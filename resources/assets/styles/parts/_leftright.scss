@@ -1,0 +1,30 @@
+.left-right-content-section {
+    .left-right-bg-img {
+        height: 768px;
+        bottom: -40%;
+        left: -8%;
+        z-index: 4;
+
+        @media screen and (max-width:1920px) {
+            bottom: -95%;
+            left: -10%;
+        }
+
+        &.bg-img-white {
+            filter: invert(1);
+        }
+    }
+}
+
+.left-content-hero-section {
+    .left-content-hero-bg-layer {
+        height: 228px;
+        background: linear-gradient(180deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
+    }
+}
+
+.left-right-section {
+    .left-right-img {
+        height: 576px;
+    }
+}

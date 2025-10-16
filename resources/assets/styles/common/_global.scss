@@ -13,18 +13,13 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  margin-bottom: 0;
-  font-size: inherit;
-}
-
+h6,
 p {
   margin-bottom: 0;
 }
 
 body {
   overflow-x: hidden;
-  background-color: $color-F2F0E5;
 }
 
 button:focus {

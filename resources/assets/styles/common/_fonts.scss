@@ -1,71 +1,59 @@
 @font-face {
-    font-family: "barlow-black";
-    src: url("/wp-content/themes/Boathouse-wp/assets/fonts/barlow-black.ttf") format('truetype');
+    font-family: "hankengrotesk-bold";
+    src: url("/wp-content/themes/chc/assets/fonts/hankengrotesk-bold.ttf") format('truetype');
+    font-weight: 400;
 }
 
 @font-face {
-    font-family: "barlow-bold";
-    src: url("/wp-content/themes/Boathouse-wp/assets/fonts/barlow-bold.ttf") format('truetype');
+    font-family: "hankengrotesk-light";
+    src: url("/wp-content/themes/chc/assets/fonts/hankengrotesk-light.ttf") format('truetype');
+    font-weight: 400;
 }
 
 @font-face {
-    font-family: "barlow-extrabold";
-    src: url("/wp-content/themes/Boathouse-wp/assets/fonts/barlow-extrabold.ttf") format('truetype');
+    font-family: "hankengrotesk-medium";
+    src: url("/wp-content/themes/chc/assets/fonts/hankengrotesk-medium.ttf") format('truetype');
+    font-weight: 400;
 }
 
 @font-face {
-    font-family: "barlow-medium";
-    src: url("/wp-content/themes/Boathouse-wp/assets/fonts/barlow-medium.ttf") format('truetype');
+    font-family: "hankengrotesk-regular";
+    src: url("/wp-content/themes/chc/assets/fonts/hankengrotesk-regular.ttf") format('truetype');
+    font-weight: 400;
 }
 
 @font-face {
-    font-family: "barlow-regular";
-    src: url("/wp-content/themes/Boathouse-wp/assets/fonts/barlow-regular.ttf") format('truetype');
+    font-family: "hankengrotesk-semibold";
+    src: url("/wp-content/themes/chc/assets/fonts/hankengrotesk-semibold.ttf") format('truetype');
+    font-weight: 400;
 }
 
 @font-face {
-    font-family: "barlowsemicondensed-bold";
-    src: url("/wp-content/themes/Boathouse-wp/assets/fonts/barlowsemicondensed-bold.ttf") format('truetype');
+    font-family: "spacegrotesk-regular";
+    src: url("/wp-content/themes/chc/assets/fonts/spacegrotesk-regular.ttf") format('truetype');
+    font-weight: 400;
 }
 
-@font-face {
-    font-family: "helvetica-bold";
-    src: url("/wp-content/themes/Boathouse-wp/assets/fonts/helvetica-bold.ttf") format('truetype');
+.hg-bold{
+    font-family: "hankengrotesk-bold";
 }
 
-@font-face {
-    font-family: "helvetica";
-    src: url("/wp-content/themes/Boathouse-wp/assets/fonts/helvetica.ttf") format('truetype');
+.hg-light{
+    font-family: "hankengrotesk-light";
 }
 
-.barlow-black {
-    font-family: "barlow-black";
+.hg-medium{
+    font-family: "hankengrotesk-medium";
 }
 
-.barlow-bold {
-    font-family: "barlow-bold";
+.hg-regular{
+    font-family: "hankengrotesk-regular";
 }
 
-.barlow-extrabold {
-    font-family: "barlow-extrabold";
+.hg-semibold{
+    font-family: "hankengrotesk-semibold";
 }
 
-.barlow-medium {
-    font-family: "barlow-medium";
-}
-
-.barlow-regular {
-    font-family: "barlow-regular";
-}
-
-.barlow-semibold {
-    font-family: "barlowsemicondensed-bold";
-}
-
-.helvetica-bold {
-    font-family: "helvetica-bold";
-}
-
-.barlow-semibold {
-    font-family: "helvetica";
+.sg-regular{
+    font-family: "spacegrotesk-regular";
 }

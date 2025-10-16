@@ -1,9 +1,0 @@
-.about-hero-section {
-    @include media-breakpoint-down(lg) {
-        height: 545px !important;
-    }
-
-    .bg-layer {
-        background: rgba($color: $black, $alpha: 0.3);
-    }
-}

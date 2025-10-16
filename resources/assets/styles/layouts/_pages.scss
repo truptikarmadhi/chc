@@ -1,43 +1,80 @@
-.white-border {
-    border-top: 1px solid rgba($color: $white, $alpha: 0.3);
+.prefix {
+    height: 33px;
+    padding: 0px 18px;
+
+    &.bg-B4B4B4-btn {
+        background-color: rgba($color: $color-B4B4B4, $alpha: 0.1);
+        backdrop-filter: blur(10px) brightness(1.1);
+        -webkit-backdrop-filter: blur(10px) brightness(1.1);
+    }
 }
 
-.border-201E21 {
-    border-bottom: 1px solid rgba($color: $color-201E21, $alpha: 0.1);
+.main-title {
+    z-index: 7;
+    position: relative;
+
+    strong {
+        color: $color-20994A;
+        font-weight: 600 !important;
+    }
 }
 
-.border-10122E {
-    border: 1px solid rgba($color: $color-10122E, $alpha: 0.2);
-}
-
-.divider {
-    border: 1px solid $color-0F122E;
-}
-
-.social-icon-content {
-    &.left-icon-content {
-        .social-bg {
-            height: 38px;
-            width: 38px;
-        }
+.filter-btns {
+    @include media-breakpoint-down(lg) {
+        overflow-x: auto;
+        padding-left: 15px;
     }
 
-    .social-bg {
-        height: 45px;
-        width: 45px;
-        background-color: rgba($color: $white, $alpha: 0.3);
+    .filter {
+        margin-right: 12px;
+        background-color: $color-E0E0E0;
+        color: $color-0F120A;
 
-        .social-icon {
-            width: 18px;
-
-            @include media-breakpoint-down(lg) {
-                width: 14px;
-            }
+        &.active {
+            background-color: $color-20994A;
+            color: $white;
         }
+    }
+}
 
-        @include media-breakpoint-down(lg) {
-            height: 35px;
-            width: 35px;
-        }
+.testimonial-slider-section {
+    .testimonial-icon {
+        height: 25px;
+        width: 25px;
+    }
+
+    .testimonial-heading {
+        color: rgba($color: $color-0F120A, $alpha: 0.48);
+    }
+
+    .testimonial-client {
+        color: $color-0F120A;
+    }
+}
+
+.counter-section {
+    .counter-top-layer {
+        background: linear-gradient(0deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
+        height: 170px;
+    }
+
+    .counter-bottom-layer {
+        background: linear-gradient(180deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
+        height: 290px;
+    }
+}
+
+.center-content-section {
+    .center-bg-img {
+        z-index: 9;
+        height: 768px;
+        left: -28%;
+        top: -15%;
+    }
+}
+
+.our-app-banner-section {
+    .app-banner-logo {
+        height: 53px;
     }
 }

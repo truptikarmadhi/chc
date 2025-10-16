@@ -1,44 +1,30 @@
-export class Parts{
+export class Parts {
 
     init() {
-        this.BottomLine();
-        this.formSubmit();
-        this.calenadrHeading();
+        this.CaseStudyTags();
     }
 
-    BottomLine(){
-        $('.close-icon').on('click', function () {
-            $('.bottom-line').addClass('d-none');
-        });
-    }
-    formSubmit(){
-        $(document).ready(function() {
-            document.addEventListener('wpcf7submit', function(event) {
-                if (event.target.closest('.my-form')) {
-                    if (event.detail.apiResponse && event.detail.apiResponse.status === 'mail_sent') {
-                        $('.thankyou-button').trigger('click');
-                    }
+    CaseStudyTags() {
+        $(document).ready(function () {
+            $('.category-tags').each(function () {
+                const $tags = $(this).find('.prefix').not('.prefix--more');
+                const total = $tags.length;
+
+                $(this).find('.prefix--more').remove();
+
+                if (total > 2) {
+                    $tags.slice(0, 2).show();
+                    $tags.slice(2).removeClass('d-inline-flex').addClass('d-none');
+
+                    const remaining = total - 2;
+
+                    $(this).append(
+                        `<div class="prefix prefix--more bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2">+${remaining}</div>`
+                    );
+                } else {
+                    $tags.show();
                 }
-            }, false);
+            });
         });
-    }
-    calenadrHeading(){
-        $(document).ready(function() {
-        if ($('body').hasClass('post-type-archive-tribe_events') || $('body').hasClass('events-archive')) {
-            var checkExist = setInterval(function() {
-                var calendarContainer = $('.tribe-events-view');
-                var heading = $('.calendar-heading');
-
-                if (calendarContainer.length && heading.length) {
-                    clearInterval(checkExist);
-
-                    // Move heading above calendar
-                    heading.insertBefore(calendarContainer.first()).show();
-                }
-            }, 200);
-        } else {
-            $('.calendar-heading').hide();
-        }
-    });
     }
 }

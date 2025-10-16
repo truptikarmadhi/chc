@@ -1,98 +1,28 @@
+.offcanvas-backdrop {
+    background-color: #00000000 !important;
+
+    &.show {
+        opacity: 1;
+    }
+
+    &.fade {
+        backdrop-filter: blur(21px);
+    }
+}
+
 .offcanvas {
-    padding-left: 85px;
-    width: 494px !important;
+    &.offer-modal {
+        width: 712px;
+        border-left: 0px !important;
+        border-top-left-radius: $radius30;
+        border-bottom-left-radius: $radius30;
 
-    @include media-breakpoint-down(lg) {
-        padding-left: 24px !important;
-    }
+        .offcanvas-body {
+            padding: 110px 93px 75px 74px;
 
-    .btn-close {
-        margin-top: 25px;
-        margin-right: 25px;
-        height: 20px;
-        width: 20px;
-        opacity: 100%;
-
-        @include media-breakpoint-down(lg) {
-            height: 25px;
-            width: 25px;
-        }
-    }
-
-    .header-btn {
-        height: 75px;
-        padding-left: 30px;
-        padding-right: 30px;
-        border-radius: $radius5;
-    }
-
-    .menu-li {
-        &:last-child {
-            margin-bottom: 0px !important;
-        }
-    }
-}
-
-.offcanvas-backdrop.show {
-    background-color: rgba($color: $black, $alpha: 0.3);
-}
-
-.modal {
-    .modal-dialog {
-        @include media-breakpoint-down(lg) {
-            min-width: 100%;
-            margin: 0;
-        }
-
-        .modal-content {
-            @include media-breakpoint-down(lg) {
-                height: 100vh !important;
-                overflow-y: auto;
+            .close-btn {
+                height: 26px;
             }
         }
     }
-
-    &.enquiry-modal {
-        .modal-dialog {
-            min-width: 988px;
-
-            @include media-breakpoint-down(xl) {
-                min-width: 970px;
-            }
-
-            @include media-breakpoint-down(lg) {
-                min-width: 100%;
-                margin: 0;
-            }
-
-            .modal-content {
-                height: 340px;
-
-                @include media-breakpoint-down(lg) {
-                    padding: 0;
-                    height: 100vh !important;
-                    border-radius: 0;
-                }
-
-                .close-div {
-                    height: 47px;
-                    width: 47px;
-                }
-
-                .btn-close {
-                    opacity: 100%;
-                    width: 16px;
-                    height: 16px;
-                }
-            }
-
-            .modal-member-content {
-
-                @include media-breakpoint-down(lg) {
-                    padding: 65px 25px 40px;
-                }
-            }
-        }
-    }
-
 }
