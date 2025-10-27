@@ -53,15 +53,17 @@
 }
 
 .counter-section {
-    .counter-top-layer {
-        background: linear-gradient(0deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
-        height: 170px;
-    }
+    z-index: 5;
 
-    .counter-bottom-layer {
-        background: linear-gradient(180deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
-        height: 290px;
-    }
+    // .counter-top-layer {
+    //     background: linear-gradient(0deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
+    //     height: 170px;
+    // }
+
+    // .counter-bottom-layer {
+    //     background: linear-gradient(180deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
+    //     height: 290px;
+    // }
 }
 
 .center-content-section {
@@ -69,7 +71,7 @@
         z-index: 9;
         height: 768px;
         left: -28%;
-        top: -15%;
+        top: 15%;
     }
 }
 

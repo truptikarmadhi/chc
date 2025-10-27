@@ -79,6 +79,12 @@
 }
 
 .included-section {
+    .included-blur-layer {
+        background: linear-gradient(180deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 0.9));
+        height: 228px;
+        margin-top: 2px;
+    }
+
     .included-left-content {
         position: sticky;
         top: 200px;
@@ -145,4 +151,8 @@
             height: 20px;
         }
     }
+}
+
+.case-studies-section {
+    z-index: 6;
 }

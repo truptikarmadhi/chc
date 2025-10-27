@@ -10,6 +10,7 @@ import { Accordion } from './parts/accordion.js';
 import { Privacy } from './parts/privacy.js';
 import { Video } from './parts/video.js';
 import { HandleBars } from './parts/handlebar.js';
+import { Gsap } from './parts/gsap.js';
 
 
 // export for others scripts to use
@@ -50,6 +51,9 @@ $(function () {
 
   window.handlebar = new HandleBars();
   window.handlebar.init();
+
+  window.gsap = new Gsap();
+  window.gsap.init();
 });
 
 // ===========================================================================

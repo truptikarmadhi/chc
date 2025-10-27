@@ -16,7 +16,7 @@
             $youtube = get_sub_field('youtube');
 ?>
             <!-- hero-section -->
-            <section class="hero-section bg-20994A 100vh">
+            <section class="hero-section bg-20994A 100vh dpt-280 dpb-70">
                 <div class="container">
                     <div class="col-10 text-center mx-auto">
                         <?php if (!empty($title)): ?>
@@ -150,7 +150,7 @@
             $select_case_studies = get_sub_field('select_case_studies');
         ?>
             <!-- case-studies-section  -->
-            <section class="case-studies-section position-relative z-3 <?php echo $background_color; ?>">
+            <section class="case-studies-section position-relative <?php echo $background_color; ?>">
                 <div class="container">
                     <div class="d-flex align-items-center justify-content-between dmb-35">
                         <div class="main-title hg-light font44 leading62 space-0_88 text-0F120A"><?php echo $title; ?></div>
@@ -345,24 +345,27 @@
             $description = get_sub_field('description');
         ?>
             <!-- center-content-section  -->
-            <section class="center-content-section bg-0F120A position-relative">
+            <section class="center-content-section position-relative dpb-225">
                 <div class="center-bg-img position-absolute">
                     <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/center-content.svg" class="h-100" alt="">
                 </div>
-                <div class="container">
-                    <div class="col-7 mx-auto text-center">
-                        <?php if (!empty($heading)): ?>
-                            <div class="hg-medium font30 leading36 text-white dmb-30">
-                                <?php echo $heading; ?>
-                            </div>
-                        <?php endif; ?>
-                        <?php if (!empty($description)): ?>
-                            <div class="hg-regular font16 leading26 text-white opacity80 col-11 mx-auto px-2">
-                                <?php echo $description; ?>
-                            </div>
-                        <?php endif; ?>
+                <div class="bg-0F120A dpt-135 dpb-160">
+                    <div class="container">
+                        <div class="col-7 mx-auto text-center">
+                            <?php if (!empty($heading)): ?>
+                                <div class="hg-medium font30 leading36 text-white dmb-30">
+                                    <?php echo $heading; ?>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (!empty($description)): ?>
+                                <div class="hg-regular font16 leading26 text-white opacity80 col-11 mx-auto px-2">
+                                    <?php echo $description; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
+                <div class="sub-hero-blur-layer bottom-layer position-absolute bottom-0 w-100 z-3"></div>
             </section>
 
         <?php elseif (get_row_layout() == 'counter_section'):
@@ -372,7 +375,6 @@
         ?>
             <!-- counter-section -->
             <section class="counter-section <?php echo $background_color; ?> position-relative">
-                <!-- <div class="counter-top-layer position-absolute top-0 w-100"></div> -->
                 <div class="container">
                     <div class="row row8">
                         <?php if (!empty($card_group)):
@@ -409,7 +411,6 @@
                         endif; ?>
                     </div>
                 </div>
-                <!-- <div class="counter-bottom-layer position-absolute bottom-0 w-100"></div> -->
             </section>
 
         <?php elseif (get_row_layout() == 'included_section'):
@@ -418,44 +419,47 @@
             $include_cards = get_sub_field('include_cards');
         ?>
             <!-- included-section  -->
-            <section class="included-section bg-0F120A position-relative">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="included-left-content">
-                                <?php if (!empty($title)): ?>
-                                    <div class="main-title hg-light font44 leading54 space-0_88 text-white dmb-20"><?php echo $title; ?></div>
-                                <?php endif; ?>
-                                <?php if (!empty($link)): ?>
-                                    <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
-                                <?php endif; ?>
+            <section class="included-section position-relative dpt-230">
+                <div class="included-blur-layer position-absolute top-0 w-100 z-3"></div>
+                <div class="included-card-section bg-0F120A opacity90 dpt-15 dpb-170">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="included-left-content">
+                                    <?php if (!empty($title)): ?>
+                                        <div class="main-title hg-light font44 leading54 space-0_88 text-white dmb-20"><?php echo $title; ?></div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($link)): ?>
+                                        <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                                    <?php endif; ?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-8 ps-4">
-                            <div class="row row8">
-                                <?php if (!empty($include_cards)):
-                                    foreach ($include_cards as $include):
-                                        $image = $include['image'];
-                                        $title = $include['title'];
-                                        $description = $include['description'];
-                                ?>
-                                        <div class="col-6 included-col">
-                                            <div class="included-card radius20 d-flex align-items-center">
-                                                <div class="included-card-img radius10 overflow-hidden">
-                                                    <img src="<?php echo $image['url']; ?>" class="w-100 h-100 object-cover" alt="">
-                                                </div>
-                                                <div>
-                                                    <div class="hg-regular font20 leading26 space-0_4 text-white text-capitalize dmb-5">
-                                                        <?php echo $title; ?>
+                            <div class="col-8 ps-4">
+                                <div class="row row8">
+                                    <?php if (!empty($include_cards)):
+                                        foreach ($include_cards as $include):
+                                            $image = $include['image'];
+                                            $title = $include['title'];
+                                            $description = $include['description'];
+                                    ?>
+                                            <div class="col-6 included-col">
+                                                <div class="included-card radius20 d-flex align-items-center">
+                                                    <div class="included-card-img radius10 overflow-hidden">
+                                                        <img src="<?php echo $image['url']; ?>" class="w-100 h-100 object-cover" alt="">
                                                     </div>
-                                                    <div class="hg-light font14 leading18 space-0_28 text-white pe-5">
-                                                        <?php echo $description; ?>
+                                                    <div>
+                                                        <div class="hg-regular font20 leading26 space-0_4 text-white text-capitalize dmb-5">
+                                                            <?php echo $title; ?>
+                                                        </div>
+                                                        <div class="hg-light font14 leading18 space-0_28 text-white pe-5">
+                                                            <?php echo $description; ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                <?php endforeach;
-                                endif; ?>
+                                    <?php endforeach;
+                                    endif; ?>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1020,6 +1024,22 @@
             $account_mail = get_sub_field('account_mail');
             $social_group = get_sub_field('social_group');
         ?>
+            <section class="contact-section bg-20994A">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <div>
+
+                            </div>
+                            <?php if (!empty($title)): ?>
+                                <div>
+                                    <?php echo $title; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         <?php elseif (get_row_layout() == 'faq_section'):
             $prefix = get_sub_field('prefix');

@@ -1,6 +1,21 @@
-.sub-hero-section {
     .sub-hero-blur-layer {
         background: linear-gradient(180deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
         height: 228px;
+
+        &.bottom-layer {
+            background: linear-gradient(0deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
+        }
     }
-}
+
+    .hero-section {
+        background-image: url('/wp-content/themes/chc/templates/icons/hero-bg.svg');
+        background-size: 98%;
+        background-repeat: no-repeat;
+        background-position: bottom left;
+        background-attachment: fixed;
+
+        .hero-bg-layer {
+            background: linear-gradient(180deg, rgba(32, 153, 74, 0), rgba(32, 153, 74, 1));
+            height: 228px;
+        }
+    }
