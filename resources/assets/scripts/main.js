@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import '@popperjs/core';
-import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/js/bootstrap'; 
+import '../../node_modules/swiper/swiper-bundle.js';
 
 import { App } from './parts/app.js'
 import { Plugins } from './parts/plugins.js'
@@ -11,6 +12,8 @@ import { Privacy } from './parts/privacy.js';
 import { Video } from './parts/video.js';
 import { HandleBars } from './parts/handlebar.js';
 import { Gsap } from './parts/gsap.js';
+import { Header } from './parts/header.js';
+import { Counter } from './parts/Counter.js';
 
 
 // export for others scripts to use
@@ -54,6 +57,12 @@ $(function () {
 
   window.gsap = new Gsap();
   window.gsap.init();
+
+  window.header = new Header();
+  window.header.init();
+
+  window.counter = new Counter();
+  window.counter.init();
 });
 
 // ===========================================================================

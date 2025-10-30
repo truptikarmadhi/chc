@@ -1,0 +1,188 @@
+.header {
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+
+    .top-header {
+        .header-search-icon {
+            height: 14px;
+        }
+
+        .header-search-input {
+            background-color: transparent;
+            border: none;
+        }
+
+        .user-icon {
+            height: 13px;
+        }
+
+        .header-search-input {
+            &::placeholder {
+                font-family: "hankengrotesk-regular";
+                font-size: $font14;
+                line-height: $leading18;
+                letter-spacing: $space-0_28;
+                color: $color-0F120A;
+                text-transform: capitalize;
+            }
+        }
+
+        .header-center-data {
+            p {
+                a {
+                    text-decoration: none;
+                    color: $color-0F120A !important;
+                }
+            }
+        }
+    }
+
+    .header-section {
+        .header-logo {
+            height: 45px;
+        }
+
+        .black-logo,
+        .black-arrow {
+            display: none !important;
+        }
+
+        .nav {
+            .navigation {
+                .menu-item {
+                    margin-right: 44px;
+
+                    &:last-child {
+                        margin-right: 0px !important;
+                    }
+
+                    &.active {
+                        .mega-menu {
+                            &.menu-active {
+                                display: block !important;
+                            }
+                        }
+
+                        .menu-anchor {
+                            opacity: 40%;
+
+                            .header-arrow {
+                                transform: rotate(180deg);
+                                transition: all 0.3s ease-in-out;
+                            }
+                        }
+                    }
+
+                    .menu-anchor {
+                        color: $white;
+
+                        .header-arrow {
+                            transition: all 0.3s ease-in-out;
+                            height: 6px;
+                        }
+                    }
+
+                    .mega-menu {
+                        .menu-links-heading {
+                            color: rgba($color: $white, $alpha: 0.38);
+
+                            .arrow {
+                                height: 21px;
+                                opacity: 0;
+                                visibility: visible;
+                                transform: translateX(-10px);
+                            }
+
+                            &.active {
+                                color: rgba($color: $white, $alpha: 1.0);
+
+                                .arrow {
+                                    opacity: 1;
+                                    visibility: visible;
+                                    transform: translateX(0px);
+                                }
+                            }
+                        }
+
+                        .mega-menu-links {
+                            border-left: 1px solid $white;
+                            padding-left: 57px;
+                        }
+
+                        .header-information-box {
+                            background-color: rgba($color: $white, $alpha: 0.1);
+                            backdrop-filter: blur(30px);
+                            padding: 47px 43px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.header-black,
+    &.header-fixed {
+
+        .black-logo,
+        .black-arrow {
+            display: block !important;
+        }
+
+        .white-logo,
+        .white-arrow {
+            display: none !important;
+        }
+
+        .nav {
+            .navigation {
+                .menu-item {
+                    .menu-anchor {
+                        color: $color-0F120A;
+                    }
+                }
+            }
+        }
+    }
+
+    &.header-fixed.header-active,
+    &.header-active {
+        background-color: rgba($color: $white, $alpha: 0);
+        backdrop-filter: blur(32px) brightness(0.5);
+        height: 100vh;
+    }
+
+    &.header-fixed.header-active {
+
+        .white-logo,
+        .white-arrow {
+            display: block !important;
+        }
+
+        .black-logo,
+        .black-arrow {
+            display: none !important;
+        }
+
+        .nav {
+            .navigation {
+                .menu-item {
+                    .menu-anchor {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    &.header-fixed-os {
+        transform: translateY(0px);
+    }
+
+    &.hidden {
+        transform: translateY(-150px);
+    }
+
+    &.header-fixed {
+        background-color: $white;
+    }
+}

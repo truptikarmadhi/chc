@@ -1,10 +1,52 @@
 import "slick-carousel";
+import Swiper from "../../../node_modules/swiper/swiper-bundle";
 
 export class Plugins {
 
   init() {
+    this.CaseSlider();
     this.SectorSlider();
     this.ValueSlider();
+  }
+  CaseSlider() {
+    // var swiper = new Swiper('.center-slider', {
+    //   slidesPerView: 3,
+    //   loop: true,
+    //   centeredSlides: true,
+    //   spaceBetween: 42,
+    //   navigation: {
+    //     nextEl: '.center-slider-section .swiper-button-next',
+    //     prevEl: '.center-slider-section .swiper-button-prev',
+    //   },
+    // });
+
+
+    // var swiper = new Swiper(".center-slider", {
+    //   slidesPerView: "auto",
+    //   spaceBetween: 42,
+    //   centeredSlides: true,
+    //   loop: true, // ✅ important
+    //   autoplay: {
+    //     delay: 3000,
+    //     disableOnInteraction: false,
+    //   },
+    //   navigation: {
+    //     nextEl: '.center-slider-section .swiper-button-next',
+    //     prevEl: '.center-slider-section .swiper-button-prev',
+    //   },
+    // });
+
+    $('.center-slider').slick({
+      centerMode: true,
+      slidesToShow: 3,
+      dots: false,
+      infinite: true,
+      arrows: true,
+      swipe: true,
+      swipeToSlide: true,
+      prevArrow: '.center-slider-section .prev-arrow',
+      nextArrow: '.center-slider-section .next-arrow',
+    });
   }
 
   SectorSlider() {

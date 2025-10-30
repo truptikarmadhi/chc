@@ -1,0 +1,20 @@
+.contact-form {
+    background-color: rgba($color: $white, $alpha: 0.1);
+    backdrop-filter: blur(11px) brightness(0.89);
+    padding: 53px 60px 63px;
+}
+
+.contact-textarea,
+.contact-input {
+    border-bottom: 1px solid $white !important;
+
+    &::placeholder {
+        color: $white;
+    }
+}
+
+.contact-input {
+    &:last-child {
+        margin-bottom: 0px !important;
+    }
+}

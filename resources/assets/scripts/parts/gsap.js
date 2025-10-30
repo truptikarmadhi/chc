@@ -6,24 +6,30 @@ export class Gsap {
         this.HeroSection();
     }
     HeroSection() {
-        $(document).ready(function () {
-            if ($('.hero-section')) {
-                gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger);
 
-                gsap.to(".hero-img", {
+        const heroSection = document.querySelector(".hero-section");
+        const heroImg = document.querySelector(".hero-img");
+
+        if (heroSection && heroImg) {
+            gsap.fromTo(heroImg,
+                {
+                    maxWidth: "1166px",
+                },
+                {
+                    width: "100%",
+                    maxWidth: "100%",
+                    ease: "power2.inOut",
                     scrollTrigger: {
-                        trigger: ".hero-section",
-                        start: "top top",
-                        end: "bottom+=100% top", // how long to scale
+                        trigger: heroSection,
+                        start: "top-=75% top",
+                        end: "bottom top",
                         scrub: true,
-                        markers: false
-                    },
-                    scale: 2,
-                    y: -300, 
-                    ease: "none"
-                });
-            }
-        })
+                        markers: true,
+                    }
+                }
+            );
+        }
 
     }
 }

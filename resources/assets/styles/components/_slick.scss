@@ -26,7 +26,7 @@
     }
 }
 
-
+.center-slider-section,
 .sectors-slider-section {
     .slick-arrows {
         .slick-arrow {
@@ -45,7 +45,9 @@
             }
         }
     }
+}
 
+.sectors-slider-section {
     .slick-list {
         margin-left: -8px !important;
         margin-right: -8px !important;
@@ -61,6 +63,105 @@
     .slick-list {
         .slick-slide {
             border-right: 1px solid $color-0F120A;
+        }
+    }
+}
+
+// .center-slider-section {
+//     padding-left: 50px;
+//     padding-right: 50px;
+
+//     .center-slider {
+//         height: 605px;
+
+//         @include media-breakpoint-down(lg) {
+//             height: 365px;
+//         }
+
+//         .swiper-wrapper {
+//             align-items: center;
+
+//             .swiper-slide {
+
+//                 &.swiper-slide-active {
+//                     height: 100% !important;
+//                     width: 56% !important;
+//                 }
+
+//                 &.swiper-slide-prev,
+//                 &.swiper-slide-next {
+//                     height: fit-content;
+//                     width: 18.9% !important;
+//                     filter: blur(5px);
+//                     opacity: 0.3;
+//                 }
+
+//                 &.swiper-slide-next {
+//                     margin-right: 0px !important;
+//                 }
+//             }
+//         }
+//     }
+
+//     .custom-arrows {
+
+//         .swiper-button-prev,
+//         .swiper-button-next {
+//             height: 48px;
+//             width: 48px;
+
+//             .icon {
+//                 height: 12px;
+//             }
+
+//             .swiper-navigation-icon {
+//                 display: none;
+//             }
+//         }
+//     }
+// }    
+.center-slider-section {
+    .center-slider {
+        height: 605px;
+
+        .slick-list,
+        .slick-track {
+            height: 100%;
+        }
+
+        .slick-list {
+            margin-left: -21px;
+            margin-right: -21px;
+            padding: 0px !important;
+
+            .slick-track {
+                .slick-slide {
+                    padding-left: 21px;
+                    padding-right: 21px;
+                    display: flex;
+                    align-items: center;
+
+                    &.slick-active {
+                        width: 5.28% !important;
+                        filter: blur(5px);
+                        opacity: 0.3;
+                    }
+
+                    &.slick-current,
+                    &.slick-center {
+                        width: 14.09% !important;
+                        height: 100%;
+                        opacity: 1;
+                        filter: none;
+
+                        div {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                }
+            }
         }
     }
 }

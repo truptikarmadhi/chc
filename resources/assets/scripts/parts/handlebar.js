@@ -4,13 +4,14 @@ export class HandleBars {
     init() {
         this.CaseHandlebar();
         this.TestimonialSlider();
-        this.ServiceSlider();
+        this.ServiceHandlebar();
+        this.SearchHandlebar();
     }
 
     CaseHandlebar() {
         $(document).ready(function () {
             let currentPage = 1;
-            const postsPerPage = 2;
+            const postsPerPage = 4;
 
             function loadCases(category, page) {
                 $.ajax({
@@ -144,8 +145,8 @@ export class HandleBars {
             loadTestimonial('all', currentPage);
         });
     }
-    
-    ServiceSlider() {
+
+    ServiceHandlebar() {
         $(document).ready(function () {
             let currentPage = 1;
             const postsPerPage = -1;
@@ -181,5 +182,50 @@ export class HandleBars {
             // Initial load
             loadService('all', currentPage);
         });
+    }
+
+    SearchHandlebar() {
+        jQuery(document).ready(function ($) {
+            var $searchInput = $('.header-search-input'); // change to your search input selector
+
+            if (!$searchInput.length) {
+                $searchInput = $('input[type="search"]').first();
+            }
+
+            $searchInput.on('keydown', function (e) {
+                if (e.key === 'Enter' || e.keyCode === 13) {
+                    e.preventDefault();
+
+                    var term = $.trim($(this).val());
+                    if (!term.length) return;
+
+                    $.ajax({
+                        url: tpSearchRedirect.ajax_url,
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            action: 'tp_search_redirect',
+                            term: term,
+                            nonce: tpSearchRedirect.nonce,
+                        },
+                        success: function (resp) {
+                            if (resp && resp.success && resp.data && resp.data.url) {
+                                window.location.href = resp.data.url;
+                            } else {
+                                window.location.href =
+                                    tpSearchRedirect.fallback_search_url +
+                                    encodeURIComponent(term);
+                            }
+                        },
+                        error: function () {
+                            window.location.href =
+                                tpSearchRedirect.fallback_search_url +
+                                encodeURIComponent(term);
+                        },
+                    });
+                }
+            });
+        });
+
     }
 }

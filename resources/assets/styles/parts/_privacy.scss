@@ -1,0 +1,85 @@
+.privacy-section {
+    .privacy-links {
+        top: 230px;
+
+        .privacy-container {
+            padding-left: 40px;
+            padding-right: 40px;
+
+            ul {
+                li {
+                    a {
+                        margin-left: -16px;
+
+                        .arrow {
+                            height: 9px;
+                            width: 9px;
+                            margin-right: 7px;
+                        }
+
+                        &.active {
+                            opacity: 1 !important;
+                        }
+                    }
+
+                    &.active {
+                        a {
+                            margin-left: 0px;
+                            opacity: 1 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .single-content {
+        margin-bottom: 80px;
+        font-size: $font16;
+        font-family: "hankengrotesk-regular";
+        letter-spacing: $space-0_16;
+        line-height: $leading21;
+        font-weight: 400;
+
+        h4 {
+            font-size: $font28;
+            font-family: "hankengrotesk-medium";
+            letter-spacing: $space-0_56;
+            line-height: $leading34;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: $font16;
+            font-family: "hankengrotesk-regular";
+            letter-spacing: $space-0_16;
+            line-height: $leading21;
+            font-weight: 400;
+        }
+
+        h6 {
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: $font20;
+            font-family: "hankengrotesk-medium";
+            letter-spacing: $space-0_4;
+            line-height: $leading34;
+            font-weight: 400;
+        }
+
+        &:last-child {
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 0px !important;
+            }
+        }
+    }
+
+    .policy-bg-logo {
+        height: 356px;
+        z-index: -1;
+
+        img {
+            transform: translate(-40px, 40px);
+        }
+    }
+}

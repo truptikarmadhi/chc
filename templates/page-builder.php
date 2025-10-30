@@ -16,39 +16,42 @@
             $youtube = get_sub_field('youtube');
 ?>
             <!-- hero-section -->
-            <section class="hero-section bg-20994A 100vh dpt-280 dpb-70">
-                <div class="container">
-                    <div class="col-10 text-center mx-auto">
-                        <?php if (!empty($title)): ?>
-                            <div class="hg-semibold font80 leading79 space-1_6 text-white dmb-25">
-                                <?php echo $title; ?>
-                            </div>
-                        <?php endif; ?>
-                        <?php if (!empty($button)): ?>
-                            <a href="<?php echo $button['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none dmb-95 position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $button['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
-                        <?php endif; ?>
-                    </div>
-                    <div class="hero-img radius20 overflow-hidden">
-                        <?php if (!empty($media_type) && $media_type == 'Image'): ?>
-                            <img src="<?php echo $image['url']; ?>" class="w-100 h-100 object-cover" alt="">
-                        <?php elseif (!empty($media_type) && $media_type == 'Video'): ?>
-                            <video id="hero-video" loop autoplay muted playsinline preload="auto"
-                                class="w-100 h-100 object-cover">
-                                <source src="<?php echo $video['url']; ?>" type="video/mp4">
-                            </video>
-                        <?php elseif (!empty($media_type) && $media_type == 'Vimeo'): ?>
-                            <iframe class="w-100 h-100 object-cover"
-                                src="https://player.vimeo.com/video/<?php echo $vimeo; ?>?autoplay=1&loop=1&background=1&controls=0&rel=0&mute=1"
-                                allow="autoplay" allowfullscreen>
-                            </iframe>
-                        <?php elseif (!empty($media_type) && $media_type == 'Youtube'): ?>
-                            <iframe class="w-100 h-100 object-cover"
-                                src="https://www.youtube.com/embed/<?php echo $youtube; ?>?playlist=<?php echo $youtube; ?>&autoplay=1&loop=1&background=1&controls=0&rel=0&mute=1"
-                                allow="autoplay; fullscreen">
-                            </iframe>
-                        <?php endif; ?>
+            <section class="hero-section bg-20994A position-relative dpt-280">
+                <div class="hero-heading position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center z-2">
+                    <div class="container">
+                        <div class="col-10 text-center mx-auto">
+                            <?php if (!empty($title)): ?>
+                                <div class="hg-semibold font80 leading79 space-1_6 text-white dmb-25">
+                                    <?php echo $title; ?>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (!empty($button)): ?>
+                                <a href="<?php echo $button['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none dmb-95 position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $button['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
+                <div class="hero-img mx-auto">
+                    <?php if (!empty($media_type) && $media_type == 'Image'): ?>
+                        <img src="<?php echo $image['url']; ?>" class="w-100 h-100 object-cover radius20 overflow-hidden" alt="">
+                    <?php elseif (!empty($media_type) && $media_type == 'Video'): ?>
+                        <video id="hero-video" loop autoplay muted playsinline preload="auto"
+                            class="w-100 h-100 object-cover">
+                            <source src="<?php echo $video['url']; ?>" type="video/mp4">
+                        </video>
+                    <?php elseif (!empty($media_type) && $media_type == 'Vimeo'): ?>
+                        <iframe class="w-100 h-100 object-cover"
+                            src="https://player.vimeo.com/video/<?php echo $vimeo; ?>?autoplay=1&loop=1&background=1&controls=0&rel=0&mute=1"
+                            allow="autoplay" allowfullscreen>
+                        </iframe>
+                    <?php elseif (!empty($media_type) && $media_type == 'Youtube'): ?>
+                        <iframe class="w-100 h-100 object-cover"
+                            src="https://www.youtube.com/embed/<?php echo $youtube; ?>?playlist=<?php echo $youtube; ?>&autoplay=1&loop=1&background=1&controls=0&rel=0&mute=1"
+                            allow="autoplay; fullscreen">
+                        </iframe>
+                    <?php endif; ?>
+                </div>
+                <div class="hero-bg-layer position-absolute bottom-0 w-100 z-2"></div>
             </section>
 
         <?php elseif (get_row_layout() == 'small_card_section'):
@@ -164,7 +167,7 @@
 
                         <script id="case-template" type="text/x-handlebars-template">
                             {{#each posts}}
-                                <div class="col-6 case-studies-cards">
+                                <div class="col-6 case-studies-cards dmb-70">
                                     <a href="{{link}}" class="case-studies-card d-inline-block text-decoration-none">
                                         <div class="case-studies-img dmb-25 card-hover radius20 overflow-hidden position-relative">
                                             <img src="{{image}}" class="w-100 h-100 object-cover img" alt="{{title}}">
@@ -193,7 +196,7 @@
                                     $categories = get_the_terms($case_id, 'case_studies_cat');
                                     $location = get_field('location', $case_id);
                             ?>
-                                    <div class="col-6 case-studies-cards">
+                                    <div class="col-6 case-studies-cards dmb-70">
                                         <a href="<?php echo get_permalink($case_id); ?>" class="case-studies-card w-100 d-inline-block text-decoration-none">
                                             <div class="case-studies-img dmb-25 card-hover radius20 overflow-hidden position-relative">
                                                 <img src="<?php echo esc_url($image); ?>" class="w-100 h-100 object-cover img" alt="">
@@ -384,11 +387,15 @@
                                 $arrow = $cards['arrow'];
                         ?>
                                 <div class="col-4">
-                                    <div class="counter-cards <?php echo $card_background == 'Background Blur' ? '' : 'bg-20994A-cards' ?> radius20">
+                                    <div id="counter" class="counter-cards <?php echo $card_background == 'Background Blur' ? '' : 'bg-20994A-cards' ?> radius20">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <?php if (!empty($count)): ?>
-                                                <div class="hg-bold font74 leading96 space-1_48 counter-heading mb-1">
-                                                    <?php echo $count; ?>%</div>
+                                                <div class="mb-1 counter-heading hg-bold font74 leading96 space-1_48 d-flex align-items-center">
+                                                    <div class="count" data-number="<?php echo $count; ?>">
+                                                        <?php echo $count; ?>
+                                                    </div>
+                                                    %
+                                                </div>
                                             <?php endif; ?>
                                             <?php if ($arrow == 'Up'): ?>
                                                 <div class="counter-arrow">
@@ -421,7 +428,7 @@
             <!-- included-section  -->
             <section class="included-section position-relative dpt-230">
                 <div class="included-blur-layer position-absolute top-0 w-100 z-3"></div>
-                <div class="included-card-section bg-0F120A opacity90 dpt-15 dpb-170">
+                <div class="included-card-section dpt-15 dpb-170">
                     <div class="container">
                         <div class="row">
                             <div class="col-4">
@@ -477,7 +484,7 @@
                 <div class="container">
                     <div class="our-app-content bg-20994A radius28 overflow-hidden position-relative dpt-50 dpb-60">
                         <div class="position-absolute top-0 start-0 h-100">
-                            <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/banner.svg" alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/banner.svg" alt="" class="h-100">
                         </div>
                         <div class="col-7 px-3 mx-auto text-center">
                             <?php if (!empty($title)): ?>
@@ -1011,10 +1018,6 @@
                 </div>
             </section>
 
-        <?php elseif (get_row_layout() == 'center_slider_section'):
-            $slider_image = get_sub_field('slider_image');
-        ?>
-
         <?php elseif (get_row_layout() == 'contact_section'):
             $prefix = get_sub_field('prefix');
             $title = get_sub_field('title');
@@ -1024,18 +1027,85 @@
             $account_mail = get_sub_field('account_mail');
             $social_group = get_sub_field('social_group');
         ?>
-            <section class="contact-section bg-20994A">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <div>
-
-                            </div>
+            <section class="contact-section h-vh bg-20994A">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-between">
+                        <div class="col-4">
+                            <?php if (!empty($prefix)): ?>
+                                <div class="prefix bg-FFFFFC-prefix d-inline-flex align-items-center hg-regular font14 leading18 space-0_28 text-white dmb-5 radius5">
+                                    <?php echo $prefix; ?>
+                                </div>
+                            <?php endif; ?>
                             <?php if (!empty($title)): ?>
-                                <div>
+                                <div class="col-8 main-title main-white-title hg-light font64 leading71 space-1_28 text-white dmb-10">
                                     <?php echo $title; ?>
                                 </div>
                             <?php endif; ?>
+                            <?php if (!empty($call)): ?>
+                                <div class="hg-regular font20 leading28 text-FFFFFF80">
+                                    Call:
+                                    <a href="tel:<?php echo $call; ?>" class="text-decoration-none text-white">
+                                        <?php echo $call; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (!empty($general_mail)): ?>
+                                <div class="hg-regular font20 leading28 text-FFFFFF80">
+                                    General:
+                                    <a href="mailto:<?php echo $general_mail; ?>" class="text-decoration-none text-white">
+                                        <?php echo $general_mail; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (!empty($sales_mail)): ?>
+                                <div class="hg-regular font20 leading28 text-FFFFFF80">
+                                    Sales:
+                                    <a href="mailto:<?php echo $sales_mail; ?>" class="text-decoration-none text-white">
+                                        <?php echo $sales_mail; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (!empty($account_mail)): ?>
+                                <div class="hg-regular font20 leading28 text-FFFFFF80">
+                                    Accounts:
+                                    <a href="mailto:<?php echo $account_mail; ?>" class="text-decoration-none text-white">
+                                        <?php echo $account_mail; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            <div class="social-menus dmt-25">
+                                <?php if (!empty($social_group)):
+                                    foreach ($social_group as $social):
+                                        $social_icon = $social['social_icon'];
+                                        $social_link = $social['social_link'];
+                                ?>
+                                        <a href="<?php echo $social_link; ?>" class="text-decoration-none social-icon bg-white d-inline-flex align-items-center justify-content-center rounded-pill me-2">
+                                            <img src="<?php echo $social_icon['url']; ?>" alt="">
+                                        </a>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <div class="col-7 ps-1">
+                            <div class="contact-form radius20 overflow-hidden">
+                                <div class="row row30">
+                                    <div class="col-6">
+                                        <input type="text" placeholder="Name…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
+                                        <input type="email" placeholder="Email address…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
+                                        <input type="email" placeholder="Phone Number…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
+                                        <input type="email" placeholder="Enquiry Type…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
+                                    </div>
+                                    <div class="col-6">
+                                        <textarea name="" id="" placeholder="Message…" class="contact-textarea bg-transparent border-0 w-100 h-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45"></textarea>
+                                    </div>
+                                    <div class="dmt-60 d-flex align-items-center">
+                                        <a href="<?php echo $button['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> Submit </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                                        <div class="ms-4 hg-regular font12 leading18 space-0_24 text-white">
+                                            By clicking the button, you agree to the Terms of Use and Privacy Policy
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1046,12 +1116,107 @@
             $heading = get_sub_field('heading');
             $faq_accordion = get_sub_field('faq_accordion');
         ?>
+            <!-- faq-accordion-section -->
+            <section class="faq-accordion-section">
+                <div class="container">
+                    <div class="col-lg-4 dmb-70">
+                        <div class="left-side position-sticky bottom-0 top-0 d-flex flex-column">
+                            <div class="d-flex dmb-25">
+                                <?php if (!empty($prefix)): ?>
+                                    <div class="prefix bg-FFFFFC-prefix d-inline-flex align-items-center hg-regular font14 leading18 space-0_28 text-0F120A radius5">
+                                        <?php echo $prefix; ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                            <?php if (!empty($heading)): ?>
+                                <div class="col-8 main-title hg-light font44 leading54 space-0_88 text-0F120A">
+                                    <?php echo $heading; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 ms-auto">
+                        <?php if (!empty($faq_accordion)):
+                            foreach ($faq_accordion as $acc):
+                                $accordion_heading = $acc['accordion_heading'];
+                                $accordion_description = $acc['accordion_description'];
+                        ?>
+                                <div class="accrodion-wrapper">
+                                    <div
+                                        class="closet-header d-flex align-items-center justify-content-between dpt-20 dpb-20 cursor-pointer">
+                                        <div class="hg-regular font28 leading34 space-0_56 text-0F120A">
+                                            <?php echo $accordion_heading; ?>
+                                        </div>
+                                        <div class="bottom-arrow d-flex">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/accordion-arrow.svg" alt="faq-arrow" class="w-100 h-100">
+                                        </div>
+                                    </div>
+                                    <div class="closet-content tpb-15 dpt-20 dpb-60 pe-3 pe-lg-0">
+                                        <div
+                                            class="col-lg-10 hg-regular font16 leading24 space-0_16 text-0F120A">
+                                            <?php echo $accordion_description; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                        <?php endforeach;
+                        endif; ?>
+                    </div>
+                </div>
+            </section>
 
         <?php elseif (get_row_layout() == 'privacy_policy'):
             $policy_data = get_sub_field('policy_data');
+            $privacy_img = get_sub_field('privacy_img');
         ?>
+            <section class="privacy-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="position-sticky privacy-links">
+                                <div class="privacy-container">
+                                    <ul class="list-none mb-0 ps-0" id="privacy-links">
+                                        <?php if (!empty($policy_data)):
+                                            foreach ($policy_data as $policy):
+                                                $prefix = $policy['prefix'];
+                                                $heading = $policy['heading'];
+                                        ?>
+                                                <li class="overflow-hidden">
+                                                    <a href="#<?php echo $prefix; ?>"
+                                                        class="privacy-link text-decoration-none font16 space-0_32 leading21 text-0F120A dmb-10 opacity40 d-flex align-items-center hg-semibold transition">
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" alt="button-arrow" class="arrow">
+                                                        <?php echo $heading; ?>
+                                                    </a>
+                                                </li>
+                                        <?php endforeach;
+                                        endif; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 dpt-200">
+                            <div class="col-lg-10 pe-5">
+                                <?php if (!empty($policy_data)):
+                                    foreach ($policy_data as $policy):
+                                        $prefix = $policy['prefix'];
+                                        $content = $policy['content'];
+                                ?>
+                                        <div class="single-content" id="<?php echo $prefix; ?>">
+                                            <?php echo $content; ?>
+                                        </div>
+                                <?php endforeach;
+                                endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-fixed bottom-0 policy-bg-logo">
+                    <img src="<?php echo $privacy_img['url'] ?>" alt="policy-bg-logo" class="h-100">
+                </div>
+            </section>
+
 
         <?php elseif (get_row_layout() == 'spacing'):
+            $background_radius = get_sub_field('background_radius');
             $background_color = get_sub_field('background_color');
             $desktop = get_sub_field('desktop');
             $tablet = get_sub_field('tablet');
@@ -1062,15 +1227,25 @@
             $tablet_mb_main = !empty($tablet['margin_bottom']) ? " tpb-" : "";
             $mobile_mb = $mobile['margin_bottom'];
             $mobile_mb_main = !empty($mobile['margin_bottom']) ? " mpb-" : "";
+
+            $bg_radius = '';
+
+            if ($background_radius == 'Default') {
+                $bg_radius = '';
+            } elseif ($background_radius == 'Radius Top') {
+                $bg_radius = 'bg-radius-top';
+            } elseif ($background_radius == 'Radius Bottom') {
+                $bg_radius = 'bg-radius-bottom';
+            }
         ?>
-            <div class="spacing position-relative z-3 <?php echo $background_color; ?> <?php
-                                                                                        echo $desktop_mb_main;
-                                                                                        echo $desktop_mb;
-                                                                                        echo $tablet_mb_main;
-                                                                                        echo $tablet_mb;
-                                                                                        echo $mobile_mb_main;
-                                                                                        echo $mobile_mb;
-                                                                                        ?>  "></div>
+            <div class="spacing position-relative z-3 <?php echo $bg_radius; ?> <?php echo $background_color; ?> <?php
+                                                                                                                    echo $desktop_mb_main;
+                                                                                                                    echo $desktop_mb;
+                                                                                                                    echo $tablet_mb_main;
+                                                                                                                    echo $tablet_mb;
+                                                                                                                    echo $mobile_mb_main;
+                                                                                                                    echo $mobile_mb;
+                                                                                                                    ?>  "></div>
         <?php endif; ?>
 <?php
     endwhile;

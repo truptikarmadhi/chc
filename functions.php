@@ -351,3 +351,64 @@ function load_service()
 }
 add_action('wp_ajax_load_service', 'load_service');
 add_action('wp_ajax_nopriv_load_service', 'load_service');
+
+
+// functions.php
+
+// 1) enqueue script and localize ajax data
+function tp_enqueue_search_redirect_script()
+{
+  wp_enqueue_script(
+    'tp-search-redirect',
+    get_stylesheet_directory_uri() . '/js/tp-search-redirect.js',
+    array('jquery'),
+    '1.1',
+    true
+  );
+
+  wp_localize_script('tp-search-redirect', 'tpSearchRedirect', array(
+    'ajax_url' => admin_url('admin-ajax.php'),
+    'nonce'    => wp_create_nonce('tp_search_redirect_nonce'),
+    'fallback_search_url' => home_url('/?s='),
+  ));
+}
+add_action('wp_enqueue_scripts', 'tp_enqueue_search_redirect_script');
+
+
+// 2) AJAX handler for logged-in and not-logged-in users
+function tp_ajax_search_redirect()
+{
+  if (
+    ! isset($_POST['nonce']) ||
+    ! wp_verify_nonce($_POST['nonce'], 'tp_search_redirect_nonce')
+  ) {
+    wp_send_json_error(array('message' => 'Invalid nonce'), 403);
+  }
+
+  $term = isset($_POST['term']) ? sanitize_text_field(wp_unslash($_POST['term'])) : '';
+
+  if (empty($term)) {
+    wp_send_json_error(array('message' => 'Empty search term'), 400);
+  }
+
+  // 🔹 Query ALL public post types (post, page, custom post types, etc.)
+  $args = array(
+    'post_type'      => 'any', // <-- all post types
+    's'              => $term,
+    'posts_per_page' => 1,
+    'post_status'    => 'publish',
+  );
+
+  $query = new WP_Query($args);
+
+  if ($query->have_posts()) {
+    $query->the_post();
+    $url = get_permalink();
+    wp_reset_postdata();
+    wp_send_json_success(array('url' => esc_url_raw($url)));
+  } else {
+    wp_send_json_error(array('message' => 'No results'), 404);
+  }
+}
+add_action('wp_ajax_tp_search_redirect', 'tp_ajax_search_redirect');
+add_action('wp_ajax_nopriv_tp_search_redirect', 'tp_ajax_search_redirect');

@@ -4,14 +4,17 @@ export class Accordion {
     }
     Accordion() {
         $(document).ready(function () {
-            // Open the first child by default
+            $('.closet-header').removeClass('active').next('.closet-content').slideUp();
             $('.closet-header').first().addClass('active').next('.closet-content').slideDown();
 
-            // Handle click events for closet headers
             $('.closet-header').click(function () {
-                $(this).toggleClass('active').next('.closet-content').slideToggle();
-                $('.closet-header').not(this).removeClass('active').next('.closet-content').slideUp();
+                if (!$(this).hasClass('active')) {
+                    $('.closet-header').removeClass('active').next('.closet-content').slideUp();
+
+                    $(this).addClass('active').next('.closet-content').slideDown();
+                }
             });
         });
+
     }
 }

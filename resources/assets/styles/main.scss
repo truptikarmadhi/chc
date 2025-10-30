@@ -2,6 +2,7 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 //sick
 @import "../../node_modules/slick-carousel/slick/slick.scss";
+@import "../../node_modules/swiper/swiper-bundle.css";
 
 @import '../../node_modules/bootstrap/scss/functions';
 @import '../../node_modules/bootstrap/scss/variables';
@@ -17,7 +18,6 @@ $grid-breakpoints: (
 @import '../../node_modules/bootstrap/scss/reboot';
 @import '../../node_modules/bootstrap/scss/grid';
 @import '../../node_modules/bootstrap/scss/utilities';
-@import "../../node_modules/slick-carousel/slick/slick.scss";
 
 // endbower
 @import "common/_fonts";
@@ -38,3 +38,5 @@ $grid-breakpoints: (
 // parts css
 @import "parts/hero";
 @import "parts/leftright";
+@import "parts/accordion";
+@import "parts/privacy";

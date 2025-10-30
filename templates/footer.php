@@ -27,7 +27,7 @@ if ($footer_color == 'default') {
             <?php if (!empty($get_in_touch_section)): ?>
                 <div class="footer-banner bg-20994A radius20 overflow-hidden ps-5 d-flex align-items-center">
                     <div class="col-8 ms-4">
-                        <div class="footer-banner-title hg-light font54 leading62 space-1_08 text-white dmb-20">
+                        <div class="main-title main-white-title hg-light font54 leading62 space-1_08 text-white dmb-20">
                             <?php echo $get_in_touch_section['content']; ?>
                         </div>
                         <?php echo do_shortcode('[contact-form-7 id="c2cba21" title="Footer banner form"]'); ?>
