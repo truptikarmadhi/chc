@@ -1088,7 +1088,8 @@
                         </div>
                         <div class="col-7 ps-1">
                             <div class="contact-form radius20 overflow-hidden">
-                                <div class="row row30">
+                                 <?php echo do_shortcode('[contact-form-7 id="a487ced" title="Contact form 1"]'); ?>
+                                <!-- <div class="row row30">
                                     <div class="col-6">
                                         <input type="text" placeholder="Name…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
                                         <input type="email" placeholder="Email address…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
@@ -1104,8 +1105,9 @@
                                             By clicking the button, you agree to the Terms of Use and Privacy Policy
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
+                            <div class="dmb-45"></div>
                         </div>
                     </div>
                 </div>

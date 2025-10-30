@@ -2,6 +2,23 @@
     background-color: rgba($color: $white, $alpha: 0.1);
     backdrop-filter: blur(11px) brightness(0.89);
     padding: 53px 60px 63px;
+
+    .submit-btn {
+        input{
+            padding-left: 16px !important;
+            padding-right: 0px !important;
+        }
+        &:hover {
+            input {
+                padding-left: 0px !important;
+                padding-right: 16px !important;
+            }
+        }
+    }
+}
+
+.wpcf7-spinner {
+    display: none !important;
 }
 
 .contact-textarea,
@@ -13,7 +30,7 @@
     }
 }
 
-.contact-input {
+.form-input {
     &:last-child {
         margin-bottom: 0px !important;
     }
