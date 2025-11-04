@@ -309,3 +309,71 @@
 .radius30{
     border-radius: $radius30;
 }
+
+
+@include media-breakpoint-down(lg){
+    .res-font12{
+        font-size: $font12;
+    }
+
+    .res-font14{
+        font-size: $font14;
+    }
+    .res-font16{
+        font-size: $font16;
+    }
+    .res-font18{
+        font-size: $font18;
+    }
+    .res-font20{
+        font-size: $font20;
+    }
+    .res-font22{
+        font-size: $font22;
+    }
+    .res-font23{
+        font-size: $font23;
+    }
+    .res-font28{
+        font-size: $font28;
+    }
+    .res-font30{
+        font-size: $font30;
+    }
+    .res-font32{
+        font-size: $font32;
+    }
+    .res-font34{
+        font-size: $font34;
+    }
+    .res-font38{
+        font-size: $font38;
+    }
+    .res-font44{
+        font-size: $font44;
+    }
+    .res-font45{
+        font-size: $font45;
+    }
+    .res-font48{
+        font-size: $font48;
+    }
+    .res-font64{
+        font-size: $font64;
+    }
+    .res-font50{
+        font-size: $font50;
+    }
+    .res-font54{
+        font-size: $font54;
+    }
+    .res-font64{
+        font-size: $font64;
+    }
+    .res-font74{
+        font-size: $font74;
+    }
+    .res-font80{
+        font-size: $font80;
+    }
+}
