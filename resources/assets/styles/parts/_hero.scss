@@ -4,6 +4,10 @@
 
         &.bottom-layer {
             background: linear-gradient(0deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
+
+            @include media-breakpoint-down(lg){
+                height: 80px;
+            }
         }
     }
 
@@ -25,6 +29,12 @@
             margin-top: 25%;
             transform-origin: center center;
             transition: none;
+            @include media-breakpoint-down(md){
+                margin-top: 40%;
+            }
+            @include media-breakpoint-down(lg){
+                margin-top: 72%;
+            }
         }
     }
 

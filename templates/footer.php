@@ -21,7 +21,8 @@ if ($footer_color == 'default') {
 }
 
 ?>
-<footer class="footer <?php echo $main_footer_color; ?> position-relative z-3 dpt-150 dpb-50">
+
+<!-- <footer class="footer <?php echo $main_footer_color; ?> position-relative z-3 dpt-150 dpb-50">
     <div class="container">
         <div class="footer-banner-section position-relative">
             <?php if (!empty($get_in_touch_section)): ?>
@@ -191,4 +192,4 @@ if ($footer_color == 'default') {
             </div>
         </div>
     </div>
-</footer>
+</footer> -->

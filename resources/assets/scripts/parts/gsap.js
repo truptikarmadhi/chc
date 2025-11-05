@@ -25,7 +25,7 @@ export class Gsap {
                         start: "top-=75% top",
                         end: "bottom top",
                         scrub: true,
-                        markers: true,
+                        markers: false,
                     }
                 }
             );

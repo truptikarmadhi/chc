@@ -312,6 +312,10 @@
 
 
 @include media-breakpoint-down(lg){
+
+    .res-font10{
+        font-size: $res-font10;
+    }
     .res-font12{
         font-size: $font12;
     }
@@ -333,6 +337,12 @@
     }
     .res-font23{
         font-size: $font23;
+    }
+    .res-font25{
+        font-size: $res-font25;
+    }
+    .res-font26{
+        font-size: $res-font26;
     }
     .res-font28{
         font-size: $font28;
@@ -375,5 +385,166 @@
     }
     .res-font80{
         font-size: $font80;
+    }
+    .res-font40{
+        font-size: $res-font40;
+    }
+    .res-font35{
+        font-size: $res-font35;
+    }
+
+
+    .res-leading18{
+        line-height: $leading18;
+    }
+    .res-leading21{
+        line-height: $leading21;
+    }
+    .res-leading24{
+        line-height: $leading24;
+    }
+    .res-leading26{
+        line-height: $leading26;
+    }
+    .res-leading28{
+        line-height: $leading28;
+    }
+    .res-leading30{
+        line-height: $leading30;
+    }
+    .res-leading32{
+        line-height: $leading32;
+    }
+    .res-leading34{
+        line-height: $leading34;
+    }
+    .res-leading36{
+        line-height: $leading36;
+    }
+    .res-leading45{
+        line-height: $leading45;
+    }
+    .res-leading48{
+        line-height: $leading48;
+    }
+    .res-leading50{
+        line-height: $leading50;
+    }
+    .res-leading54{
+        line-height: $leading54;
+    }
+    .res-leading62{
+        line-height: $leading62;
+    }
+    .res-leading71{
+        line-height: $leading71;
+    }
+    .res-leading75{
+        line-height: $leading75;
+    }
+    .res-leading79{
+        line-height: $leading79;
+    }
+    .res-leading96{
+        line-height: $leading96;
+    }
+    .res-leading104{
+        line-height: $leading104;
+    }
+    .res-leading45{
+        line-height: $res-leading45;
+    }
+    .res-leading40{
+        line-height: $res-leading40;
+    }
+    .res-leading16{
+        line-height: $res-leading16;
+    }
+
+    
+    .res-space-1{
+        letter-spacing: $space-1;
+    }
+    .res-space-0_4{
+        letter-spacing: $space-0_4;
+    }
+    .res-space-0_6{
+        letter-spacing: $space-0_6;
+    }
+    .res-space-1_6{
+        letter-spacing: $space-1_6;
+    }
+    .res-space-0_9{
+        letter-spacing: $space-0_9;
+    }
+    .res-space-1_08{
+        letter-spacing: $space-1_08;
+    }
+    .res-space-0_24{
+        letter-spacing: $space-0_24;
+    }
+    .res-space-0_28{
+        letter-spacing: $space-0_28;
+    }
+    .res-space-0_32{
+        letter-spacing: $space-0_32;
+    }
+    .res-space-0_36{
+        letter-spacing: $space-0_36;
+    }
+    .res-space-0_44{
+        letter-spacing: $space-0_44;
+    }
+    .res-space-0_56{
+        letter-spacing: $space-0_56;
+    }
+    .res-space-0_68{
+        letter-spacing: $space-0_68;
+    }
+    .res-space-0_76{
+        letter-spacing: $space-0_76;
+    }
+    .res-space-0_88{
+        letter-spacing: $space-0_88;
+    }
+    .res-space-0_96{
+        letter-spacing: $space-0_96;
+    }
+    .res-space-1_28{
+        letter-spacing: $space-1_28;
+    }
+    .res-space-1_48{
+        letter-spacing: $space-1_48;
+    }
+    .res-space-0_16{
+        letter-spacing: $space-0_16;
+    }
+    .res-space-0_8{
+        letter-spacing: $res-space-0_8;
+    }
+    .res-space-0_5{
+        letter-spacing: $res-space-0_5;
+    }
+    .res-space-0_7{
+        letter-spacing: $res-space-0_7;
+    }
+
+    .res-radius3 {
+        border-radius: $radius3 ;
+    }
+    .res-radius5 {
+        border-radius: $radius5 ;
+    }
+    .res-radius10{
+        border-radius: $radius10;
+    }
+    .res-radius20{
+        border-radius: $radius20;
+    }
+    .res-radius28{
+        border-radius: $radius28;
+    }
+    .res-radius30{
+        border-radius: $radius30;
     }
 }

@@ -13,6 +13,9 @@
         backdrop-filter: blur(7px) brightness(0.89);
         -webkit-backdrop-filter: blur(7px) brightness(0.89);
     }
+    @include media-breakpoint-down(lg){
+        height: 25px;
+    }
 }
 
 .main-title {
@@ -37,7 +40,6 @@
 .filter-btns {
     @include media-breakpoint-down(lg) {
         overflow-x: auto;
-        padding-left: 15px;
     }
 
     .filter {
@@ -77,12 +79,20 @@
         height: 768px;
         left: -28%;
         top: 15%;
+        @include media-breakpoint-down(lg){
+            height: 460px;
+            left: -49%;
+            top: 26%;
+        }
     }
 }
 
 .our-app-banner-section {
     .app-banner-logo {
         height: 53px;
+        &:last-child{
+            margin-bottom: 0px !important;
+        }
     }
 }
 

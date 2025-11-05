@@ -17,7 +17,7 @@ if ($header_color == 'Default') {
 }
 ?>
 
-<header class="header <?php echo $main_header_color; ?> position-fixed w-100">
+<!-- <header class="header <?php echo $main_header_color; ?> position-fixed w-100">
     <div class="top-header bg-EBFF99 dpt-10 dpb-10">
         <div class="container">
             <?php if (!empty($top_header)): ?>
@@ -155,4 +155,4 @@ if ($header_color == 'Default') {
             </div>
         </div>
     </div>
-</header>
+</header> -->

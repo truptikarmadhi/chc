@@ -16,12 +16,12 @@
             $youtube = get_sub_field('youtube');
 ?>
             <!-- hero-section -->
-            <section class="hero-section bg-20994A position-relative dpt-280">
+            <section class="hero-section bg-20994A position-relative dpt-280 tpt-195">
                 <div class="hero-heading position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center z-2">
                     <div class="container">
-                        <div class="col-10 text-center mx-auto">
+                        <div class="col-lg-10 col-11 text-center mx-auto">
                             <?php if (!empty($title)): ?>
-                                <div class="hg-semibold font80 leading79 space-1_6 text-white dmb-25">
+                                <div class="hg-semibold font80 leading79 space-1_6 text-white dmb-25 res-font40 res-leading45 res-space-0_8">
                                     <?php echo $title; ?>
                                 </div>
                             <?php endif; ?>
@@ -60,15 +60,15 @@
             $select_service = get_sub_field('select_service');
         ?>
             <!-- small-card-section -->
-            <section class="small-card-section position-relative z-3 <?php echo $background_color; ?>">
+            <section class="small-card-section position-relative z-3 <?php echo $background_color; ?> overflow-hidden">
                 <div class="container">
                     <?php if ($display_service == 'All'): ?>
-                        <div class="row row8" id="servicecontainer">
+                        <div class="col-10 col-lg-12 pe-2" id="servicecontainer">
                         </div>
                         <script id="service-template" type="text/x-handlebars-template">
                             {{#each posts}}
-                                <div class="col-3">
-                                    <a href="{{link}}" class="small-card w-100 d-inline-block radius20 overflow-hidden position-relative card-hover">
+                                <div class=" ">
+                                    <a href="{{link}}" class="small-card w-100 d-inline-block radius20 res-radius10 overflow-hidden position-relative card-hover">
                                         <img src="{{image}}" class="w-100 h-100 object-cover img" alt="">
                                         <div class="small-bg-layer position-absolute bottom-0 start-0 w-100"></div>
                                         <div class="position-absolute small-card-content">
@@ -81,7 +81,7 @@
                             {{/each}}
                         </script>
                     <?php elseif ($display_service == 'Select'): ?>
-                        <div class="row row8">
+                        <div class="small-card-slider col-10 col-lg-12 pe-2">
                             <?php if (!empty($select_service)):
                                 foreach ($select_service as $service):
                                     $post_id = $service->ID;
@@ -89,13 +89,13 @@
                                     $image = get_the_post_thumbnail_url($post_id, 'full');
                                     $description = get_the_excerpt($post_id); // ya get_the_content($post_id)
                             ?>
-                                    <div class="col-3">
-                                        <a href="<?php echo get_permalink($post_id); ?>" class="small-card w-100 d-inline-block radius20 overflow-hidden position-relative card-hover">
+                                    <div class="">
+                                        <a href="<?php echo get_permalink($post_id); ?>" class="small-card w-100 d-inline-block radius20 res-radius10 overflow-hidden position-relative card-hover">
                                             <img src="<?php echo esc_url($image); ?>" class="w-100 h-100 object-cover img" alt="">
                                             <div class="small-bg-layer position-absolute bottom-0 start-0 w-100"></div>
                                             <div class="position-absolute small-card-content">
                                                 <div class="hg-semibold font20 leading26 space-0_4 text-white"><?php echo esc_html($title); ?></div>
-                                                <div class="hg-regular font14 leading18 space-0_28 text-white"><?php echo esc_html($description); ?></div>
+                                                <div class="hg-regular font14 leading18 space-0_28 text-white dmb-10"><?php echo esc_html($description); ?></div>
                                                 <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/white-right-arrow.svg" class="small-arrow" alt="">
                                             </div>
                                         </a>
@@ -116,23 +116,23 @@
             <!-- left-right-content-section  -->
             <section class="left-right-content-section <?php echo $background_color; ?> position-relative">
                 <div class="container">
-                    <div class="col-8">
+                    <div class="col-lg-8">
                         <?php if (!empty($heading)): ?>
-                            <div class="hg-semibold font45 leading48 space-0_9 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : 'text-0F120A'; ?> dmb-50">
+                            <div class="hg-semibold font45 leading48 space-0_9 res-font30 res-leading40 pe-1 pe-lg-0 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : 'text-0F120A'; ?> dmb-50 tmb-20">
                                 <?php echo $heading; ?>
                             </div>
                         <?php endif; ?>
                     </div>
-                    <div class="row">
-                        <div class="col-6">
+                    <div class="row flex-column-reverse flex-lg-row">
+                        <div class="col-lg-6 col-12">
                             <?php if (!empty($link)): ?>
-                                <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none dmb-95 position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"><?php echo $link['title']; ?></span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                                <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none dmb-95 position-relative transition tmb-0"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"><?php echo $link['title']; ?></span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                             <?php endif; ?>
                         </div>
-                        <div class="col-6">
-                            <div class="col-10 pe-2">
+                        <div class="col-lg-6 col-12">
+                            <div class="col-lg-10 pe-lg-2">
                                 <?php if (!empty($description)): ?>
-                                    <div class="hg-regular font16 leading26 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : 'text-0F120A'; ?> opacity80">
+                                    <div class="hg-regular font16 leading26 res-font14 res-leading24 tmb-40 pe-1 pe-lg-0 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : 'text-0F120A'; ?> opacity80">
                                         <?php echo $description; ?>
                                     </div>
                                 <?php endif; ?>
@@ -153,40 +153,40 @@
             $select_case_studies = get_sub_field('select_case_studies');
         ?>
             <!-- case-studies-section  -->
-            <section class="case-studies-section position-relative <?php echo $background_color; ?>">
+            <section class="case-studies-section position-relative overflow-hidden <?php echo $background_color; ?>">
                 <div class="container">
-                    <div class="d-flex align-items-center justify-content-between dmb-35">
-                        <div class="main-title hg-light font44 leading62 space-0_88 text-0F120A"><?php echo $title; ?></div>
+                    <div class="d-flex align-items-center justify-content-between dmb-35 tmb-20">
+                        <div class="main-title hg-light font44 leading62 space-0_88 text-0F120A res-font30 res-leading40 res-space-0_6"><?php echo $title; ?></div>
                         <?php if (!empty($link)): ?>
-                            <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                            <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-lg-inline-flex d-none align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                         <?php endif; ?>
                     </div>
                     <?php if ($case_studies_display == 'All'): ?>
-                        <div class="row row8" id="caseContainer">
+                        <div class=" col-11 col-lg-12 pe-3 pe-lg-0" id="caseContainer">
                         </div>
 
                         <script id="case-template" type="text/x-handlebars-template">
                             {{#each posts}}
-                                <div class="col-6 case-studies-cards dmb-70">
+                                <div class="case-studies-cards">
                                     <a href="{{link}}" class="case-studies-card d-inline-block text-decoration-none">
-                                        <div class="case-studies-img dmb-25 card-hover radius20 overflow-hidden position-relative">
+                                        <div class="case-studies-img dmb-25 card-hover radius20 res-radius10 overflow-hidden position-relative">
                                             <img src="{{image}}" class="w-100 h-100 object-cover img" alt="{{title}}">
                                             <div class="case-layer position-absolute bottom-0 start-0 w-100 opacity40"></div>
-                                            <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-3">
+                                            <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-lg-3 ms-2">
                                                 {{#each categories}}
-                                                    <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2">{{name}}</div>
+                                                    <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10">{{name}}</div>
                                                 {{/each}}
                                             </div>
                                         </div>
                                         <div class="hg-medium font20 leading24 space-0_4 text-0F120A mb-1">{{title}}</div>
-                                        <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize">{{location}}
+                                        <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28">{{location}}
                                         </div>
                                     </a>
                                 </div>
                             {{/each}}
                         </script>
                     <?php elseif ($case_studies_display == 'Select'): ?>
-                        <div class="row row8">
+                        <div class="case-studies-slider col-11 col-lg-12 pe-3 pe-lg-0">
                             <?php if (!empty($select_case_studies)):
                                 foreach ($select_case_studies as $casestudies):
                                     $case_id = $casestudies->ID;
@@ -196,27 +196,33 @@
                                     $categories = get_the_terms($case_id, 'case_studies_cat');
                                     $location = get_field('location', $case_id);
                             ?>
-                                    <div class="col-6 case-studies-cards dmb-70">
+                                    <div class="case-studies-cards">
                                         <a href="<?php echo get_permalink($case_id); ?>" class="case-studies-card w-100 d-inline-block text-decoration-none">
-                                            <div class="case-studies-img dmb-25 card-hover radius20 overflow-hidden position-relative">
+                                            <div class="case-studies-img dmb-25 card-hover radius20 res-radius10 overflow-hidden position-relative">
                                                 <img src="<?php echo esc_url($image); ?>" class="w-100 h-100 object-cover img" alt="">
-                                                <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-3">
+                                                <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-lg-3 ms-2">
                                                     <?php if (!empty($categories)):
                                                         foreach ($categories as $cat):
                                                     ?>
-                                                            <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2"><?php echo $cat->name; ?></div>
+                                                            <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10"><?php echo $cat->name; ?></div>
                                                     <?php endforeach;
                                                     endif; ?>
                                                 </div>
                                             </div>
-                                            <div class="hg-medium font20 leading24 space-0_4 text-0F120A">
+                                            <div class="hg-medium font20 leading24 space-0_4 text-0F120A mb-1">
                                                 <?php echo esc_html($title); ?>
                                             </div>
-                                            <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize"> <?php echo esc_html($location); ?></div>
+                                            <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28"> <?php echo esc_html($location); ?></div>
                                         </a>
                                     </div>
                             <?php endforeach;
                             endif; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($link)): ?>
+                        <div class="d-flex justify-content-center">
+                            <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex d-lg-none align-items-center text-decoration-none position-relative transition tmt-45"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -228,18 +234,18 @@
             $sector_card = get_sub_field('sector_card');
         ?>
             <!-- sectors-slider-section  -->
-            <section class="sectors-slider-section position-relative z-3 <?php echo $background_color; ?>">
+            <section class="sectors-slider-section position-relative z-3 overflow-hidden <?php echo $background_color; ?>">
                 <div class="container">
-                    <div class="d-flex align-items-center justify-content-between dmb-30">
+                    <div class="d-flex align-items-center justify-content-between dmb-30 tmb-25">
                         <?php if (!empty($title)): ?>
-                            <div class="main-title hg-light font44 leading62 space-0_88 text-0F120A"><?php echo $title; ?></div>
+                            <div class="main-title hg-light font44 leading62 space-0_88 text-0F120A res-font30 res-leading40 res-space-0_6"><?php echo $title; ?></div>
                         <?php endif; ?>
-                        <div class="slick-arrows d-flex">
+                        <div class="slick-arrows d-lg-flex d-none">
                             <div class="prev-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 me-2 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-prev.svg" class="icon" alt=""></div>
                             <div class="next-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-next.svg" class="icon" alt=""></div>
                         </div>
                     </div>
-                    <div class="sectors-slider">
+                    <div class="sectors-slider col-8 col-lg-12 dmb-55">
                         <?php if (!empty($sector_card)):
                             foreach ($sector_card as $sector):
                                 $icon = $sector['icon'];
@@ -254,6 +260,11 @@
                         <?php endforeach;
                         endif; ?>
                     </div>
+
+                    <div class="slick-arrows d-flex d-lg-none justify-content-center">
+                        <div class="prev-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 me-2 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-prev.svg" class="icon" alt=""></div>
+                        <div class="next-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-next.svg" class="icon" alt=""></div>
+                    </div>
                 </div>
             </section>
 
@@ -265,24 +276,24 @@
             <!-- testimonial-slider-section -->
             <section class="testimonial-slider-section position-relative z-3 <?php echo $background_color; ?> overflow-hidden">
                 <div class="container">
-                    <div class="testimonial-icon dmb-40 mx-auto">
+                    <div class="testimonial-icon dmb-40 tmb-25 mx-auto">
                         <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/testimonial-icon.svg" class="h-100 w-100" alt="">
                     </div>
                     <?php if ($testimonial_display == 'All'): ?>
-                        <div class="testimonial-slider col-7 mx-auto text-center" id="testimonialcontainer">
+                        <div class="testimonial-slider col-lg-7 col-12 mx-auto text-center" id="testimonialcontainer">
                         </div>
                         <script id="tesimonial-template" type="text/x-handlebars-template">
                             {{#each posts}}
                                 <div class="testimonial-cards">
-                                    <div class="hg-regular font32 leading36 space-0_32 dmb-40 testimonial-heading <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>">“Its no wonder we have chosen them as our Waste Service provider. They’ve covered everything bespoke to our business requirements.</div>
+                                    <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 testimonial-heading tmb-30 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>">“Its no wonder we have chosen them as our Waste Service provider. They’ve covered everything bespoke to our business requirements.</div>
                                     <div class="hg-regular font14 leading18 space-0_28 testimonial-client <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>">Jason Bourne, JB Building Ltd.</div>
                                 </div>
                             {{/each}}
                         </script>
                     <?php elseif ($testimonial_display == 'Select'): ?>
-                        <div class="testimonial-slider col-7 mx-auto text-center">
+                        <div class="testimonial-slider col-lg-7 col-12 mx-auto text-center">
                             <div class="testimonial-cards">
-                                <div class="hg-regular font32 leading36 space-0_32 dmb-40 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-heading">“Its no wonder we have chosen them as our Waste Service provider. They’ve covered everything bespoke to our business requirements.</div>
+                                <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-heading">“Its no wonder we have chosen them as our Waste Service provider. They’ve covered everything bespoke to our business requirements.</div>
                                 <div class="hg-regular font14 leading18 space-0_28 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-client">Jason Bourne, JB Building Ltd.</div>
                             </div>
                         </div>
@@ -326,12 +337,12 @@
                 <div class="sub-hero-bg-layer position-fixed top-0 start-0 w-100 h-100 bg-0F120A opacity60"></div>
                 <div class="sub-hero-content position-absolute top-left-center w-100">
                     <div class="container">
-                        <div class="col-8 mx-auto text-center">
+                        <div class="col-lg-8 col-12 mx-auto text-center">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-semibold font80 leading104 space-1_6 text-white dmb-10"><?php echo $heading; ?></div>
+                                <div class="hg-semibold font80 leading104 space-1_6 text-white dmb-10 res-font40 res-leading50 tmb-15"><?php echo $heading; ?></div>
                             <?php endif; ?>
                             <?php if (!empty($description)): ?>
-                                <div class="hg-regular font18 leading24 space-0_36 text-white dmb-30 col-10 px-2 mx-auto">
+                                <div class="hg-regular font18 leading24 space-0_36 text-white dmb-30 col-lg-10 px-lg-2 px-3 mx-auto res-font14 res-leading18">
                                     <?php echo $description; ?>
                                 </div>
                             <?php endif; ?>
@@ -348,20 +359,20 @@
             $description = get_sub_field('description');
         ?>
             <!-- center-content-section  -->
-            <section class="center-content-section position-relative dpb-225">
+            <section class="center-content-section position-relative dpb-225 tpb-80">
                 <div class="center-bg-img position-absolute">
                     <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/center-content.svg" class="h-100" alt="">
                 </div>
-                <div class="bg-0F120A dpt-135 dpb-160">
+                <div class="bg-0F120A dpt-135 dpb-160 tpb-0">
                     <div class="container">
-                        <div class="col-7 mx-auto text-center">
+                        <div class="col-lg-7 col-12 mx-auto text-center">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-medium font30 leading36 text-white dmb-30">
+                                <div class="hg-medium font30 leading36 text-white dmb-30 px-lg-2 px-3 res-font22 res-leading32">
                                     <?php echo $heading; ?>
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($description)): ?>
-                                <div class="hg-regular font16 leading26 text-white opacity80 col-11 mx-auto px-2">
+                                <div class="hg-regular font16 leading26 text-white opacity80 col-lg-11 col-12 mx-auto px-2 res-font14 res-leading24">
                                     <?php echo $description; ?>
                                 </div>
                             <?php endif; ?>
@@ -386,8 +397,8 @@
                                 $count = $cards['count'];
                                 $arrow = $cards['arrow'];
                         ?>
-                                <div class="col-4">
-                                    <div id="counter" class="counter-cards <?php echo $card_background == 'Background Blur' ? '' : 'bg-20994A-cards' ?> radius20">
+                                <div class="col-lg-4 col-12">
+                                    <div id="counter" class="counter-cards tmb-10 <?php echo $card_background == 'Background Blur' ? '' : 'bg-20994A-cards' ?> radius20">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <?php if (!empty($count)): ?>
                                                 <div class="mb-1 counter-heading hg-bold font74 leading96 space-1_48 d-flex align-items-center">
@@ -428,37 +439,37 @@
             <!-- included-section  -->
             <section class="included-section position-relative dpt-230">
                 <div class="included-blur-layer position-absolute top-0 w-100 z-3"></div>
-                <div class="included-card-section dpt-15 dpb-170">
+                <div class="included-card-section dpt-15 dpb-170 tpb-105">
                     <div class="container">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-lg-4 col-12">
                                 <div class="included-left-content">
                                     <?php if (!empty($title)): ?>
-                                        <div class="main-title hg-light font44 leading54 space-0_88 text-white dmb-20"><?php echo $title; ?></div>
+                                        <div class="main-title hg-light font44 leading54 space-0_88 text-white dmb-20 res-font25 res-leading30 res-space-0_5"><?php echo $title; ?></div>
                                     <?php endif; ?>
                                     <?php if (!empty($link)): ?>
-                                        <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                                        <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-none d-lg-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                                     <?php endif; ?>
                                 </div>
                             </div>
-                            <div class="col-8 ps-4">
-                                <div class="row row8">
+                            <div class="col-lg-8 col-12 ps-lg-4">
+                                <div class="row row8 dmb-40">
                                     <?php if (!empty($include_cards)):
                                         foreach ($include_cards as $include):
                                             $image = $include['image'];
                                             $title = $include['title'];
                                             $description = $include['description'];
                                     ?>
-                                            <div class="col-6 included-col">
-                                                <div class="included-card radius20 d-flex align-items-center">
+                                            <div class="col-lg-6 col-12 included-col">
+                                                <div class="included-card radius20 res-radius10 d-flex align-items-center h-100">
                                                     <div class="included-card-img radius10 overflow-hidden">
                                                         <img src="<?php echo $image['url']; ?>" class="w-100 h-100 object-cover" alt="">
                                                     </div>
                                                     <div>
-                                                        <div class="hg-regular font20 leading26 space-0_4 text-white text-capitalize dmb-5">
+                                                        <div class="hg-regular font20 leading26 space-0_4 text-white text-capitalize dmb-5 res-font16 res-leading21 res-space-0_32 tmb-10">
                                                             <?php echo $title; ?>
                                                         </div>
-                                                        <div class="hg-light font14 leading18 space-0_28 text-white pe-5">
+                                                        <div class="hg-light font14 leading18 space-0_28 text-white pe-lg-5 res-font12 res-leading16 res-space-0_24">
                                                             <?php echo $description; ?>
                                                         </div>
                                                     </div>
@@ -467,6 +478,11 @@
                                     <?php endforeach;
                                     endif; ?>
                                 </div>
+                                <?php if (!empty($link)): ?>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-lg-none d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -482,24 +498,24 @@
             <!-- our-app-banner-section  -->
             <section class="our-app-banner-section position-relative <?php echo $background_color; ?>">
                 <div class="container">
-                    <div class="our-app-content bg-20994A radius28 overflow-hidden position-relative dpt-50 dpb-60">
-                        <div class="position-absolute top-0 start-0 h-100">
+                    <div class="our-app-content bg-20994A radius28 res-radius10 overflow-hidden position-relative dpt-50 dpb-60 tpt-70 tpb-75">
+                        <div class="position-absolute top-0 start-0 h-100 d-none d-lg-block">
                             <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/banner.svg" alt="" class="h-100">
                         </div>
-                        <div class="col-7 px-3 mx-auto text-center">
+                        <div class="col-lg-7 px-lg-3 col-10 mx-auto text-center">
                             <?php if (!empty($title)): ?>
-                                <div class="hg-light font38 leading50 space-0_76 text-white dmb-20"><?php echo $title; ?></div>
+                                <div class="hg-light font38 leading50 space-0_76 text-white dmb-20 res-font30 res-leading36 res-space-0_6 tmb-15"><?php echo $title; ?></div>
                             <?php endif; ?>
                             <?php if (!empty($description)): ?>
-                                <div class="hg-light font16 leading24 text-white opacity80 dmb-25"><?php echo $description; ?></div>
+                                <div class="hg-light font16 leading24 text-white opacity80 dmb-25 tmb-30"><?php echo $description; ?></div>
                             <?php endif; ?>
-                            <div class="d-flex app-banner-logo justify-content-center">
+                            <div class="d-flex flex-column flex-lg-row justify-content-center">
                                 <?php if (!empty($app_logo)):
                                     foreach ($app_logo as $logos):
                                         $logo = $logos['logo'];
                                         $link = $logos['link'];
                                 ?>
-                                        <a href="<?php echo $link; ?>" class="h-100 me-3">
+                                        <a href="<?php echo $link; ?>" class="app-banner-logo me-lg-3 tmb-10">
                                             <img src="<?php echo $logo['url']; ?>" class="h-100 " alt="">
                                         </a>
                                 <?php endforeach;
@@ -529,9 +545,9 @@
                 </div>
                 <div class="position-absolute top-center w-100">
                     <div class="container">
-                        <div class="col-9 pe-3">
+                        <div class="col-lg-9 pe-lg-3">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30">
+                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30 res-font35 res-leading40 tmb-25">
                                     <?php echo $heading; ?>
                                 </div>
                             <?php endif; ?>
@@ -550,10 +566,10 @@
             $offer_card = get_sub_field('offer_card');
         ?>
             <!-- what-we-offer-section -->
-            <section class="what-we-offer-section position-relative z-3 <?php echo $background_color; ?>">
+            <section class="what-we-offer-section position-relative <?php echo $background_color; ?>">
                 <div class="container">
                     <?php if (!empty($heading)): ?>
-                        <div class="main-title hg-semibold font44 leading48 space-0_88 text-white dmb-55">
+                        <div class="main-title hg-semibold font44 leading48 space-0_88 text-white dmb-55 res-font25 res-leading32 tmb-25">
                             <?php echo $heading; ?>
                         </div>
                     <?php endif; ?>
@@ -571,13 +587,13 @@
                                 $modal_id = 'offerOffcanvas_' . $index;
                         ?>
                                 <?php if ($link_style == 'Link'): ?>
-                                    <div class="col-4 offer-cards dmb-20">
+                                    <div class="col-lg-4 col-12 offer-cards dmb-20 tmb-15">
                                         <a href="<?php echo $link['url']; ?>" class="text-decoration-none h-100">
-                                            <div class="offer-card position-relative bg-20994A radius20 overflow-hidden dpt-45 dpb-60">
-                                                <div class="offer-img d-inline-flex dmb-40">
+                                            <div class="offer-card position-relative bg-20994A radius20 res-radius10 overflow-hidden dpt-45 dpb-60 tpt-40 tpb-40">
+                                                <div class="offer-img d-inline-flex dmb-40 tmb-30">
                                                     <img src="<?php echo $icon['url']; ?>" alt="" class="w-100 h-100 object-cover">
                                                 </div>
-                                                <div class="hg-regular font28 leading32 text-white text-capitalize dmb-15">
+                                                <div class="hg-regular font28 leading32 text-white text-capitalize dmb-15 res-font25 res-leading30">
                                                     <?php echo $link['title']; ?>
                                                 </div>
                                                 <?php if (!empty($description)): ?>
@@ -589,16 +605,16 @@
                                         </a>
                                     </div>
                                 <?php elseif ($link_style == 'Modal'): ?>
-                                    <div class="col-4 offer-cards dmb-20">
+                                    <div class="col-lg-4 offer-cards dmb-20 tmb-15">
                                         <a href="javascript:void(0)" class="text-decoration-none h-100"
                                             data-bs-toggle="offcanvas" data-bs-target="#<?php echo $modal_id; ?>"
                                             aria-controls="<?php echo $modal_id; ?>">
-                                            <div class="offer-card position-relative bg-20994A radius20 overflow-hidden dpt-45 dpb-60">
-                                                <div class="offer-img d-inline-flex dmb-40">
+                                            <div class="offer-card position-relative bg-20994A radius20 res-radius10 overflow-hidden dpt-45 dpb-60 tpt-40 tpb-40">
+                                                <div class="offer-img d-inline-flex dmb-40 tmb-30">
                                                     <img src="<?php echo $icon['url']; ?>" alt="" class="w-100 h-100 object-cover">
                                                 </div>
                                                 <?php if (!empty($title)): ?>
-                                                    <div class="hg-regular font28 leading32 text-white text-capitalize dmb-15">
+                                                    <div class="hg-regular font28 leading32 text-white text-capitalize dmb-15 res-font25 res-leading30">
                                                         <?php echo $title; ?>
                                                     </div>
                                                 <?php endif; ?>
@@ -611,7 +627,7 @@
                                         </a>
                                     </div>
 
-                                    <div class="offcanvas offer-modal offcanvas-end bg-0F120A"
+                                    <div class="offcanvas offer-modal p-0 offcanvas-end bg-0F120A"
                                         data-bs-backdrop="static" tabindex="-1"
                                         id="<?php echo $modal_id; ?>" aria-labelledby="<?php echo $modal_id; ?>Label">
                                         <div class="offcanvas-body">
@@ -624,19 +640,19 @@
                                             </div>
 
                                             <?php if (!empty($title)): ?>
-                                                <div class="hg-regular font34 leading45 space-0_68 text-white dmb-20">
+                                                <div class="hg-regular font34 leading45 space-0_68 text-white dmb-20 res-font25 res-leading32 res-space-0_5 tmb-15">
                                                     <?php echo $title; ?>
                                                 </div>
                                             <?php endif; ?>
 
                                             <?php if (!empty($modal_content)): ?>
-                                                <div class="hg-regular font16 leading26 text-white opacity80 dmb-30">
+                                                <div class="hg-regular font16 leading26 text-white opacity80 dmb-30 tmb-40 res-font14 res-leading24">
                                                     <?php echo $modal_content; ?>
                                                 </div>
                                             <?php endif; ?>
 
                                             <?php if (!empty($modal_link)): ?>
-                                                <div class="dmb-70">
+                                                <div class="dmb-70 tmb-45">
                                                     <a href="<?php echo $modal_link['url']; ?>"
                                                         class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg"
@@ -657,20 +673,20 @@
                                                 $case_location = get_field('location', $case_id);
                                             ?>
                                                 <div class="divider border-bottom border-white"></div>
-                                                <div class="dmt-45">
-                                                    <div class="hg-regular font34 leading45 space-0_68 text-white dmb-20">
+                                                <div class="dmt-45 tmt-40">
+                                                    <div class="hg-regular font34 leading45 space-0_68 text-white dmb-20 res-font25 res-leading30 res-space-0_5">
                                                         Related Case Studies
                                                     </div>
                                                     <div class="case-studies-cards">
                                                         <a href="<?php echo get_permalink($case_id); ?>"
                                                             class="case-studies-card w-100 d-inline-block text-decoration-none">
-                                                            <div class="case-studies-img dmb-25 card-hover radius20 overflow-hidden position-relative">
+                                                            <div class="case-studies-img dmb-25 tmb-20 card-hover radius20 overflow-hidden position-relative res-radius10">
                                                                 <img src="<?php echo esc_url($case_image); ?>"
                                                                     class="w-100 h-100 object-cover img" alt="">
                                                                 <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-3">
                                                                     <?php if (!empty($case_categories)):
                                                                         foreach ($case_categories as $cat): ?>
-                                                                            <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2">
+                                                                            <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10 res-leading20">
                                                                                 <?php echo $cat->name; ?>
                                                                             </div>
                                                                     <?php endforeach;
@@ -680,7 +696,7 @@
                                                             <div class="hg-medium font20 leading24 space-0_4 text-white">
                                                                 <?php echo esc_html($case_title); ?>
                                                             </div>
-                                                            <div class="hg-regular font16 leading21 space-0_32 text-white opacity-50 text-capitalize">
+                                                            <div class="hg-regular font16 leading21 space-0_32 text-white opacity-50 text-capitalize res-font14 res-leading24 res-space-0_28">
                                                                 <?php echo esc_html($case_location); ?>
                                                             </div>
                                                         </a>
@@ -706,21 +722,21 @@
             <!-- left-right-section -->
             <section class="left-right-section position-relative z-3 <?php echo $background_color; ?>">
                 <div class="container">
-                    <div class="row align-items-center">
+                    <div class="row align-items-center  <?php echo $image_position == 'Right' ? 'flex-column-reverse' : ''; ?> flex-lg-row">
                         <?php if ($image_position == 'Left'): ?>
-                            <div class="col-6 dmb-15 px-3">
-                                <div class="col-11 px-4 me-auto">
+                            <div class="col-lg-6 dmb-15 px-lg-3">
+                                <div class="col-lg-11 me-lg-auto dmb-45">
                                     <?php if (!empty($image)): ?>
                                         <div class="left-right-img w-100 radius20 overflow-hidden">
-                                            <img src="<?php echo $image['url']; ?>" alt="" class="w-100 h-100 object-cover">
+                                            <img src="<?php echo $image['url']; ?>" alt="" class="w-100 h-100">
                                         </div>
                                     <?php endif; ?>
                                 </div>
                             </div>
                         <?php endif; ?>
-                        <div class="col-6 <?php echo $image_position == 'Left' ? 'ps-5' : 'pe-5' ?>">
+                        <div class="col-lg-6 <?php echo $image_position == 'Left' ? 'ps-lg-5 pe-2' : 'pe-lg-5 pe-2' ?>">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-regular font22 leading30 space-0_44 text-0F120A dmb-35">
+                                <div class="hg-regular font22 leading30 space-0_44 text-0F120A dmb-35 tmb-15">
                                     <?php echo $heading; ?>
                                 </div>
                             <?php endif; ?>
@@ -731,11 +747,11 @@
                             <?php endif; ?>
                         </div>
                         <?php if ($image_position == 'Right'): ?>
-                            <div class="col-6 px-3">
-                                <div class="col-11 px-4 ms-auto">
+                            <div class="col-lg-6 px-lg-3">
+                                <div class="col-lg-11 ms-lg-auto dmb-45">
                                     <?php if (!empty($image)): ?>
                                         <div class="left-right-img w-100 radius20 overflow-hidden">
-                                            <img src="<?php echo $image['url']; ?>" alt="" class="w-100 h-100 object-cover">
+                                            <img src="<?php echo $image['url']; ?>" alt="" class="w-100 h-100">
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -751,21 +767,21 @@
             $select_service = get_sub_field('select_service');
         ?>
             <!-- other-service-section -->
-            <section class="other-service-section position-relative z-3 <?php echo $background_color; ?>">
+            <section class="other-service-section position-relative z-3 overflow-hidden <?php echo $background_color; ?>">
                 <div class="container">
-                    <div class="main-title hg-light font34 leading45 space-0_68 text-0F120A text-center dmb-45">
+                    <div class="main-title hg-light font34 leading45 space-0_68 text-0F120A text-center dmb-45 res-font25 res-leading30 res-space-0_5 tmb-30">
                         <?php echo $title; ?>
                     </div>
                     <?php if (!empty($select_service)): ?>
-                        <div class="row row8">
+                        <div class="other-service-slider col-10 pe-2 pe-lg-0 col-lg-12">
                             <?php if (!empty($select_service)):
                                 foreach ($select_service as $service):
                                     $post_id = $service->ID;
                                     $title = get_the_title($post_id);
                                     $image = get_the_post_thumbnail_url($post_id, 'full');
-                                    $description = get_the_excerpt($post_id); // ya get_the_content($post_id)
+                                    $description = get_the_excerpt($post_id);
                             ?>
-                                    <div class="col-4">
+                                    <div class="">
                                         <a href="<?php echo get_permalink($post_id); ?>" class="small-card w-100 d-inline-block radius20 overflow-hidden position-relative card-hover">
                                             <img src="<?php echo esc_url($image); ?>" class="w-100 h-100 object-cover img" alt="">
                                             <div class="small-bg-layer position-absolute bottom-0 start-0 w-100"></div>
@@ -832,9 +848,9 @@
                 </div>
                 <div class="position-absolute top-center w-100">
                     <div class="container">
-                        <div class="col-9 pe-3">
+                        <div class="col-lg-9 pe-lg-3">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30">
+                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30 res-font35 res-leading40 tmb-25">
                                     <?php echo $heading; ?>
                                 </div>
                             <?php endif; ?>
@@ -860,7 +876,7 @@
             <section class="main-content-section position-relative z-3 <?php echo $background_color; ?>">
                 <div class="container">
                     <?php if (!empty($content)): ?>
-                        <div class="main-title hg-light font50 leading62 space-1 text-0F120A text-center">
+                        <div class="main-title hg-light font50 leading62 space-1 text-0F120A text-center res-font30 res-leading40">
                             <?php echo $content; ?>
                         </div>
                     <?php endif; ?>
@@ -873,10 +889,10 @@
             $value_card = get_sub_field('value_card');
         ?>
             <!-- our-value-section -->
-            <section class="our-value-section position-relative z-3 <?php echo $background_color; ?>">
+            <section class="our-value-section position-relative z-3 overflow-hidden <?php echo $background_color; ?>">
                 <div class="container">
                     <?php if (!empty($heading)): ?>
-                        <div class="main-title hg-light font44 leading48 space-0_88 text-0F120A text-center dmb-95">
+                        <div class="main-title hg-light font44 leading48 space-0_88 text-0F120A text-center dmb-95 res-font25 res-leading30 res-space-0_5 tmb-55">
                             <?php echo $heading; ?>
                         </div>
                     <?php endif; ?>
@@ -896,7 +912,7 @@
                                         </div>
                                     <?php endif; ?>
                                     <?php if (!empty($description)): ?>
-                                        <div class="hg-regular font14 leading21 text-0F120A pe-3">
+                                        <div class="hg-regular font14 leading21 text-0F120A pe-lg-3 pe-1">
                                             <?php echo $description; ?>
                                         </div>
                                     <?php endif; ?>
@@ -916,7 +932,7 @@
             <section class="key-document-section position-relative z-3 <?php echo $background_color; ?>">
                 <div class="container">
                     <?php if (!empty($heading)): ?>
-                        <div class="hg-medium font44 leading50 space-0_88 text-0F120A dmb-30">
+                        <div class="hg-medium font44 leading50 space-0_88 text-0F120A dmb-30 res-font25 res-leading30 res-space-0_5 tmb-35">
                             <?php echo $heading; ?>
                         </div>
                     <?php endif; ?>
@@ -926,9 +942,9 @@
                                 $title = $docs['title'];
                                 $document = $docs['document'];
                         ?>
-                                <div class="download-cards col-6 dmb-15">
+                                <div class="download-cards col-lg-6 col-12 dmb-15 tmb-10">
                                     <div class="download-card radius10 overflow-hidden d-flex align-items-center justify-content-between">
-                                        <div class="hg-regular font22 leading34 space-0_44 text-0F120A">
+                                        <div class="hg-regular font22 leading34 space-0_44 text-0F120A res-font16 res-leading24 res-space-0_32">
                                             <?php echo $title; ?>
                                         </div>
                                         <div
@@ -959,16 +975,16 @@
             }
         ?>
             <section class="case-studies-card-section">
-                <div class="container">
-                    <div class="col-8">
+                <div class="container px-p-0">
+                    <div class="col-lg-8 px-p-p">
                         <?php if (!empty($heading)): ?>
-                            <div class="hg-semibold font48 leading54 space-0_96 text-black dmb-20">
+                            <div class="hg-semibold font48 leading54 space-0_96 text-black dmb-20 tmb-40 res-font35 res-leading40 res-space-0_7">
                                 <?php echo $heading; ?>
                             </div>
                         <?php endif; ?>
                     </div>
-                    <div class="d-flex dmb-120">
-                        <div class="col-8">
+                    <div class="d-flex dmb-120 tmb-50 ps-p-p">
+                        <div class="col-lg-8 col-12">
                             <div class="filter-btns filter-btn-list d-flex flex-nowrap">
                                 <button data-tag="all"
                                     class="filter case-filter-btn active text-nowrap hg-regular font14 leading17 text-0F120A radius5 border-0 py-2 px-3">
@@ -981,38 +997,38 @@
                                 <?php endforeach; ?>
                             </div>
                         </div>
-                        <div class="col-4 d-flex justify-content-end">
+                        <div class="col-4 d-lg-flex justify-content-end d-none">
                             <div>
                                 More Filters +
                             </div>
                         </div>
                     </div>
-                    <div class="row row8" id="caseContainer">
+                    <div class="row row8 px-p-p" id="caseCardContainer">
 
                     </div>
 
                     <script id="case-template" type="text/x-handlebars-template">
                         {{#each posts}}
-                            <div class="col-6 case-studies-cards dmb-70">
+                            <div class="col-lg-6 col-12 case-studies-cards dmb-70 tmb-40">
                                 <a href="{{link}}" class="case-studies-card d-inline-block text-decoration-none">
-                                    <div class="case-studies-img dmb-25 card-hover radius20 overflow-hidden position-relative">
+                                    <div class="case-studies-img dmb-25 tmb-15 card-hover radius20 res-radius10 overflow-hidden position-relative">
                                         <img src="{{image}}" class="w-100 h-100 object-cover img" alt="{{title}}">
                                         <div class="case-layer position-absolute bottom-0 start-0 w-100 opacity40"></div>
                                         <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-3">
                                             {{#each categories}}
-                                                <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2">{{name}}</div>
+                                                <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 res-font10 text-white radius5 d-inline-flex align-items-center me-2">{{name}}</div>
                                             {{/each}}
                                         </div>
                                     </div>
-                                    <div class="hg-medium font20 leading24 space-0_4 text-0F120A">{{title}}</div>
-                                    <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize">{{location}}
+                                    <div class="hg-medium font20 leading24 space-0_4 text-0F120A tmb-5">{{title}}</div>
+                                    <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28">{{location}}
                                     </div>
                                 </a>
                             </div>
                         {{/each}}
                     </script>
 
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center tmt-30">
                         <button id="caseLoadmore" class="btnA bg-EBFF99-btn border-0 hg-semibold font16 leading21 space-0_32 text-0F120A text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition">Load more</span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></button>
                     </div>
                 </div>

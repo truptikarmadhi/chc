@@ -10,15 +10,15 @@ $service_tags = $how_helped['service_tags'];
 ?>
 
 <!-- case-studies-open-hero-section -->
-<section class="case-studies-open-hero-section bg-0F120A dpt-220 dpb-70 position-relative">
+<section class="case-studies-open-hero-section bg-0F120A dpt-220 dpb-70 position-relative tpt-160 tpb-25">
     <div class="case-down-arrow position-absolute end-0 top-0 z-3">
         <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/case-down-arrow.svg" alt="" class="w-100 h-100 object-cover">
     </div>
 
     <div class="container">
-        <div class="prefix bg-FFFFFC-prefix d-inline-flex align-items-center hg-regular font14 leading18 space-0_28 text-white dmb-15 radius5">Case studies</div>
-        <div class="d-flex justify-content-between align-items-end dmb-50">
-            <div class="hg-semibold font64 leading71 space-1_28 text-white"><?php echo get_the_title($case_id); ?></div>
+        <div class="prefix bg-FFFFFC-prefix d-inline-flex align-items-center hg-regular font14 leading18 space-0_28 text-white dmb-15 radius5 tmb-25">Case studies</div>
+        <div class="d-flex justify-content-between align-items-lg-end dmb-50 flex-column flex-lg-row">
+            <div class="hg-semibold font64 leading71 space-1_28 text-white res-font30 res-leading40 res-space-0_6 tmb-10"><?php echo get_the_title($case_id); ?></div>
             <div class="hg-regular font14 leading18 space-0_28 text-white opacity-50">Cardiff, UK</div>
         </div>
         <div class="case-studies-open-hero-img radius10 overflow-hidden">

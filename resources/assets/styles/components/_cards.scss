@@ -20,6 +20,12 @@
                 height: 115px;
                 background-image: linear-gradient(180deg, #00000000, #000000);
             }
+            @include media-breakpoint-down(lg){
+                height: 240px;
+                .case-layer {
+                    height: 75px;
+                }
+            }
         }
     }
 }
@@ -67,6 +73,17 @@
             height: 16px;
         }
     }
+
+    @include media-breakpoint-down(lg){
+        height: 280px;
+
+        .small-bg-layer {
+            height: 180px;
+        }
+        .small-card-content {
+            left: 25px;
+        }
+    }
 }
 
 .sectors-cards {
@@ -75,6 +92,10 @@
     .sectors-cards-img {
         width: 90px;
         height: 90px;
+        @include media-breakpoint-down(lg){
+            width: 114px;
+            height: 70px;
+        }
     }
 }
 
@@ -97,10 +118,14 @@
 
 .included-col {
     margin-top: 16px;
-
-    &:first-child,
-    &:nth-child(2) {
-        margin-top: 0px;
+    @include media-breakpoint-down(lg){
+        margin-top: 10px;
+    }
+    @include media-breakpoint-up(lg){
+        &:first-child,
+        &:nth-child(2) {
+            margin-top: 0px;
+        }
     }
 }
 
@@ -109,11 +134,20 @@
     backdrop-filter: blur(30px);
     padding: 25px 20px;
 
+    @include media-breakpoint-down(lg){
+        padding: 20px;
+    }
+
     .included-card-img {
         height: 92px;
         width: 100%;
         max-width: 80px;
         margin-right: 20px;
+        @include media-breakpoint-down(lg){
+            margin-right: 16px;
+            height: 80px;
+            max-width: 70px;
+        }
     }
 }
 
@@ -127,12 +161,19 @@
             width: 64px;
             height: 68px;
         }
+        @include media-breakpoint-down(lg){
+            padding-left: 25px;
+            padding-right: 32px;
+        }
     }
 }
 
 .other-service-section {
     .small-card {
         height: 400px;
+        @include media-breakpoint-down(lg){
+            height: 280px;
+        }
     }
 }
 
@@ -155,8 +196,29 @@
             height: 20px;
         }
     }
+    @include media-breakpoint-down(lg){
+        padding: 16px;
+        .download-icon {
+            width: 40px;
+            height: 40px;
+    
+            img {
+                height: 16px;
+            }
+        }
+    }
 }
 
 .case-studies-section {
     z-index: 6;
+}
+.case-studies-open-hero-section {
+    .case-studies-open-hero-img{
+        height: 653px;
+    }
+    @include media-breakpoint-down(lg){
+        .case-studies-open-hero-img{
+            height: 255px;
+        }
+    }
 }

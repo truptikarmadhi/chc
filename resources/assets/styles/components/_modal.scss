@@ -24,5 +24,15 @@
                 height: 26px;
             }
         }
+        @include media-breakpoint-down(lg){
+            border-radius: 0px !important;
+            .offcanvas-body {
+                padding: 120px 15px 75px 15px;
+    
+                .close-btn {
+                    height: 22px;
+                }
+            }
+        }
     }
 }

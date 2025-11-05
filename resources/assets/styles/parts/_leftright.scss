@@ -12,6 +12,12 @@
             left: -10%;
         }
 
+        @include media-breakpoint-down(lg){
+            height: 420px;
+            bottom: -41%;
+            left: -58%;
+        }
+
         &.bg-img-white {
             filter: invert(1);
         }
@@ -28,5 +34,8 @@
 .left-right-section {
     .left-right-img {
         height: 576px;
+        @include media-breakpoint-down(lg){
+            height: 310px;
+        }
     }
 }

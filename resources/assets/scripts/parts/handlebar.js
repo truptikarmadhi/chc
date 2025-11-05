@@ -58,20 +58,53 @@ export class HandleBars {
                         const remaining = total - 2;
 
                         $(this).append(
-                            `<div class="prefix prefix--more bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2">+${remaining}</div>`
+                            `<div class="prefix prefix--more bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10">+${remaining}</div>`
                         );
                     } else {
                         $tags.show();
                     }
                 });
             }
-
+            function initialSlider(){
+                $('#caseContainer').slick({
+                dots: false,
+                arrows: false,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                    }
+                    },
+                    {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                    },
+                    {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                    }
+                ]
+                });
+            }
             function renderPosts(posts) {
                 const source = $("#case-template").html();
                 const template = Handlebars.compile(source);
                 const html = template({ posts });
                 $('#caseContainer').append(html);
-
+                $('#caseCardContainer').append(html);
+                initialSlider();
                 trimCasePrefixes();
             }
 
@@ -172,12 +205,46 @@ export class HandleBars {
                     },
                 });
             }
-
+function initialSlider(){
+     $('#servicecontainer').slick({
+      dots: false,
+      arrows: false,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+}
             function renderPosts(posts) {
                 const source = $("#service-template").html();
                 const template = Handlebars.compile(source);
                 const html = template({ posts });
                 $('#servicecontainer').append(html);
+
+                initialSlider();
             }
             // Initial load
             loadService('all', currentPage);
