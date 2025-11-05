@@ -2,6 +2,7 @@ export class Parts {
 
     init() {
         this.CaseStudyTags();
+        this.EventOpenButton();
     }
 
     CaseStudyTags() {
@@ -26,5 +27,40 @@ export class Parts {
                 }
             });
         });
+    }
+    EventOpenButton() {
+      $(document).ready(function () {
+          var filterButtons = $(".service-filter-button");
+          var viewAllButton = filterButtons.filter('[href="#"]');
+          function updateStickyActive() {
+              var scrollTop = $(window).scrollTop();
+              var anySectionActive = false;
+              if (scrollTop < 100) {
+                  filterButtons.removeClass("active");
+                  viewAllButton.addClass("active");
+                  return;
+              }
+              filterButtons.each(function () {
+                  var targetId = $(this).attr("href");
+                  if (!targetId || targetId === "#") return;
+                  var section = $(targetId);
+                  if (section.length) {
+                      var sectionTop = section.offset().top;
+                      var sectionHeight = section.outerHeight();
+                      if (scrollTop >= sectionTop - 100 && scrollTop < sectionTop + sectionHeight - 100) {
+                          filterButtons.removeClass("active");
+                          $(this).addClass("active");
+                          anySectionActive = true;
+                          return false; // break loop
+                      }
+                  }
+              });
+              if (!anySectionActive) {
+                  filterButtons.removeClass("active");
+              }
+          }
+          $(window).on("scroll", updateStickyActive);
+          updateStickyActive(); // Run on page load
+      });
     }
 }

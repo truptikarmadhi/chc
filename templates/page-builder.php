@@ -62,33 +62,48 @@
             <!-- small-card-section -->
             <section class="small-card-section position-relative z-3 <?php echo $background_color; ?> overflow-hidden">
                 <div class="container">
-                    <?php if ($display_service == 'All'): ?>
-                        <div class="col-10 col-lg-12 pe-2" id="servicecontainer">
-                        </div>
-                        <script id="service-template" type="text/x-handlebars-template">
-                            {{#each posts}}
-                                <div class=" ">
-                                    <a href="{{link}}" class="small-card w-100 d-inline-block radius20 res-radius10 overflow-hidden position-relative card-hover">
-                                        <img src="{{image}}" class="w-100 h-100 object-cover img" alt="">
-                                        <div class="small-bg-layer position-absolute bottom-0 start-0 w-100"></div>
-                                        <div class="position-absolute small-card-content">
-                                            <div class="hg-semibold font20 leading26 space-0_4 text-white mb-1">{{title}}</div>
-                                            <div class="hg-regular font14 leading18 space-0_28 text-white dmb-10">{{content}}</div>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/white-right-arrow.svg" class="small-arrow" alt="">
-                                        </div>
-                                    </a>
-                                </div>
-                            {{/each}}
-                        </script>
-                    <?php elseif ($display_service == 'Select'): ?>
-                        <div class="small-card-slider col-10 col-lg-12 pe-2">
+                    <div class="col-10 col-lg-12 pe-2" id="servicecontainer">
+                        <?php if ($display_service == 'All'): 
+                            $service_args = [
+                                'post_type'      => 'services',
+                                'posts_per_page' => -1,
+                                'orderby'        => 'date',
+                                'order'          => 'DESC',
+                            ];
+                            $query = new WP_Query($service_args);
+                            if ($query->have_posts()) {
+                            ?>
+                                <?php while ($query->have_posts()) : 
+                                    $query->the_post();
+                                    $service_id = get_the_ID();
+                                ?>
+                                    <div class=" ">
+                                        <a href="<?php echo get_permalink($service_id); ?>" class="small-card w-100 d-inline-block radius20 res-radius10 overflow-hidden position-relative card-hover">
+                                            <?php if(!empty(get_the_post_thumbnail_url($service_id))): ?>
+                                                <img src="<?php echo get_the_post_thumbnail_url($service_id, 'medium') ?>" class="w-100 h-100 object-cover img" alt="<?php echo get_the_title($service_id) ?>">
+                                            <?php endif; ?>
+                                            <div class="small-bg-layer position-absolute bottom-0 start-0 w-100"></div>
+                                            <div class="position-absolute small-card-content">
+                                                <?php if(!empty(get_the_title($service_id))): ?>
+                                                    <div class="hg-semibold font20 leading26 space-0_4 text-white mb-1"><?php echo get_the_title($service_id) ?></div>
+                                                <?php endif; ?>
+                                                <?php if(!empty(get_the_content($service_id))): ?>
+                                                    <div class="hg-regular font14 leading18 space-0_28 text-white dmb-10"><?php echo get_the_content($service_id); ?></div>
+                                                <?php endif; ?>
+                                                <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/white-right-arrow.svg" class="small-arrow" alt="">
+                                            </div>
+                                        </a>
+                                    </div>
+                                <?php endwhile; wp_reset_postdata(); ?>
+                            <?php } ?>
+                        <?php elseif ($display_service == 'Select'): ?>
                             <?php if (!empty($select_service)):
                                 foreach ($select_service as $service):
                                     $post_id = $service->ID;
                                     $title = get_the_title($post_id);
                                     $image = get_the_post_thumbnail_url($post_id, 'full');
                                     $description = get_the_excerpt($post_id); // ya get_the_content($post_id)
-                            ?>
+                                ?>
                                     <div class="">
                                         <a href="<?php echo get_permalink($post_id); ?>" class="small-card w-100 d-inline-block radius20 res-radius10 overflow-hidden position-relative card-hover">
                                             <img src="<?php echo esc_url($image); ?>" class="w-100 h-100 object-cover img" alt="">
@@ -100,10 +115,10 @@
                                             </div>
                                         </a>
                                     </div>
-                            <?php endforeach;
+                                <?php endforeach;
                             endif; ?>
-                        </div>
-                    <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </section>
 
@@ -153,7 +168,7 @@
             $select_case_studies = get_sub_field('select_case_studies');
         ?>
             <!-- case-studies-section  -->
-            <section class="case-studies-section position-relative overflow-hidden <?php echo $background_color; ?>">
+            <section class="case-studies-section position-relative overflow-hidden <?php echo $background_color; ?>" id="related-project">
                 <div class="container">
                     <div class="d-flex align-items-center justify-content-between dmb-35 tmb-20">
                         <div class="main-title hg-light font44 leading62 space-0_88 text-0F120A res-font30 res-leading40 res-space-0_6"><?php echo $title; ?></div>
@@ -161,32 +176,52 @@
                             <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-lg-inline-flex d-none align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                         <?php endif; ?>
                     </div>
-                    <?php if ($case_studies_display == 'All'): ?>
-                        <div class=" col-11 col-lg-12 pe-3 pe-lg-0" id="caseContainer">
-                        </div>
-
-                        <script id="case-template" type="text/x-handlebars-template">
-                            {{#each posts}}
-                                <div class="case-studies-cards">
-                                    <a href="{{link}}" class="case-studies-card d-inline-block text-decoration-none">
+                    <div class="col-11 col-lg-12 pe-3 pe-lg-0" id="caseContainer">
+                        <?php if ($case_studies_display == 'All'):
+                            $args = [
+                                'post_type'      => 'case_studies',
+                                'posts_per_page' => -1,
+                                'orderby'        => 'date',
+                                'order'          => 'DESC',
+                            ];
+                            $query = new WP_Query($args);
+                            if ($query->have_posts()):
+                            ?>
+                                <?php while ($query->have_posts()): 
+                                    $query->the_post();
+                                    $case_id = get_the_ID();
+                                    $location = get_field('location', $case_id);
+                                    $categories = get_the_terms($case_id, 'case_studies_cat');
+                                ?>
+                                 <div class="case-studies-cards">
+                                    <a href="<?php echo get_permalink($case_id) ?>" class="case-studies-card d-inline-block text-decoration-none">
                                         <div class="case-studies-img dmb-25 card-hover radius20 res-radius10 overflow-hidden position-relative">
-                                            <img src="{{image}}" class="w-100 h-100 object-cover img" alt="{{title}}">
+                                            <?php if(!empty(get_the_post_thumbnail_url($case_id))): ?>
+                                                <img src="<?php echo get_the_post_thumbnail_url($case_id) ?>" class="w-100 h-100 object-cover img" alt="<?php echo get_the_title($case_id) ?>">
+                                            <?php endif; ?>
                                             <div class="case-layer position-absolute bottom-0 start-0 w-100 opacity40"></div>
                                             <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-lg-3 ms-2">
-                                                {{#each categories}}
-                                                    <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10">{{name}}</div>
-                                                {{/each}}
+                                                <?php 
+                                                    if (!empty($categories) && !is_wp_error($categories)) {
+                                                    foreach ($categories as $category) {
+                                                ?>
+                                                    <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10"><?php echo $category->name; ?></div>
+                                                <?php } } ?>
                                             </div>
                                         </div>
-                                        <div class="hg-medium font20 leading24 space-0_4 text-0F120A mb-1">{{title}}</div>
-                                        <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28">{{location}}
+                                        <?php if(!empty(get_the_title($case_id))): ?>
+                                            <div class="hg-medium font20 leading24 space-0_4 text-0F120A mb-1"><?php echo get_the_title($case_id) ?></div>
+                                        <?php endif; ?>
+                                        <?php if(!empty($location)): ?>
+                                            <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28"><?php echo $location; ?>
+                                        <?php endif; ?>
                                         </div>
                                     </a>
                                 </div>
-                            {{/each}}
-                        </script>
-                    <?php elseif ($case_studies_display == 'Select'): ?>
-                        <div class="case-studies-slider col-11 col-lg-12 pe-3 pe-lg-0">
+                                <?php endwhile;
+                            wp_reset_postdata();  ?>
+                        <?php endif; ?>
+                        <?php elseif ($case_studies_display == 'Select'): ?>
                             <?php if (!empty($select_case_studies)):
                                 foreach ($select_case_studies as $casestudies):
                                     $case_id = $casestudies->ID;
@@ -195,7 +230,7 @@
                                     $description = get_the_excerpt($case_id);
                                     $categories = get_the_terms($case_id, 'case_studies_cat');
                                     $location = get_field('location', $case_id);
-                            ?>
+                                ?>
                                     <div class="case-studies-cards">
                                         <a href="<?php echo get_permalink($case_id); ?>" class="case-studies-card w-100 d-inline-block text-decoration-none">
                                             <div class="case-studies-img dmb-25 card-hover radius20 res-radius10 overflow-hidden position-relative">
@@ -215,10 +250,10 @@
                                             <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28"> <?php echo esc_html($location); ?></div>
                                         </a>
                                     </div>
-                            <?php endforeach;
+                                <?php endforeach;
                             endif; ?>
-                        </div>
-                    <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
 
                     <?php if (!empty($link)): ?>
                         <div class="d-flex justify-content-center">
@@ -279,25 +314,46 @@
                     <div class="testimonial-icon dmb-40 tmb-25 mx-auto">
                         <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/testimonial-icon.svg" class="h-100 w-100" alt="">
                     </div>
-                    <?php if ($testimonial_display == 'All'): ?>
-                        <div class="testimonial-slider col-lg-7 col-12 mx-auto text-center" id="testimonialcontainer">
-                        </div>
-                        <script id="tesimonial-template" type="text/x-handlebars-template">
-                            {{#each posts}}
+                    <div class="testimonial-slider col-lg-7 col-12 mx-auto text-center" id="testimonialcontainer">
+                    <?php if ($testimonial_display == 'All'): 
+                        $testimonial_args = [
+                            'post_type'      => 'testimonials',
+                            'posts_per_page' => -1,
+                            'orderby'        => 'date',
+                            'order'          => 'DESC',
+                        ];
+                        $query = new WP_Query($testimonial_args);
+                        if ($query->have_posts()) {
+                    ?>
+                            <?php  while ($query->have_posts()): 
+                                $query->the_post();
+                                $testimonial_id = get_the_ID();
+                            ?>
                                 <div class="testimonial-cards">
-                                    <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 testimonial-heading tmb-30 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>">“Its no wonder we have chosen them as our Waste Service provider. They’ve covered everything bespoke to our business requirements.</div>
-                                    <div class="hg-regular font14 leading18 space-0_28 testimonial-client <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>">Jason Bourne, JB Building Ltd.</div>
+                                    <?php if(!empty(get_the_title($testimonial_id))): ?>
+                                        <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 testimonial-heading tmb-30 <?php echo $background_color == 'bg-0F120A' ? 'Text-white' : ''; ?>"><?php echo get_the_title($testimonial_id); ?></div>
+                                    <?php endif; ?>
+                                    <?php if(!empty(get_the_content($testimonial_id))): ?>
+                                        <div class="hg-regular font14 leading18 space-0_28 testimonial-client <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>"><?php echo get_the_content($testimonial_id) ?></div>
+                                    <?php endif; ?>
                                 </div>
-                            {{/each}}
-                        </script>
-                    <?php elseif ($testimonial_display == 'Select'): ?>
-                        <div class="testimonial-slider col-lg-7 col-12 mx-auto text-center">
+                            <?php endwhile; wp_reset_postdata(); ?>
+                    <?php } ?>
+                    <?php elseif ($testimonial_display == 'Select'): 
+                        if( !empty($select_testimonial)):
+                    ?>
+                        <?php foreach($select_testimonial as $testimonial_data): ?>
                             <div class="testimonial-cards">
-                                <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-heading">“Its no wonder we have chosen them as our Waste Service provider. They’ve covered everything bespoke to our business requirements.</div>
-                                <div class="hg-regular font14 leading18 space-0_28 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-client">Jason Bourne, JB Building Ltd.</div>
+                                <?php if(!empty(get_the_title($testimonial_data->ID))): ?>
+                                    <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-heading"><?php echo get_the_title($testimonial_data->ID); ?></div>
+                                <?php endif; ?>
+                                <?php if(!empty(get_the_content($testimonial_data->ID))): ?>
+                                    <div class="hg-regular font14 leading18 space-0_28 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-client"><?php echo get_the_content($testimonial_data->ID); ?></div>
+                                <?php endif; ?>
                             </div>
-                        </div>
-                    <?php endif; ?>
+                        <?php endforeach; ?>
+                        <?php endif; endif; ?>
+                    </div>
                 </div>
             </section>
 
@@ -559,14 +615,14 @@
                 </div>
                 <div class="left-content-hero-bg-layer position-absolute bottom-0 w-100"></div>
             </section>
-
+            
         <?php elseif (get_row_layout() == 'what_we_offer_section'):
             $background_color = get_sub_field('background_color');
             $heading = get_sub_field('heading');
             $offer_card = get_sub_field('offer_card');
         ?>
             <!-- what-we-offer-section -->
-            <section class="what-we-offer-section position-relative <?php echo $background_color; ?>">
+            <section class="what-we-offer-section position-relative <?php echo $background_color; ?>" id="what-we-do">
                 <div class="container">
                     <?php if (!empty($heading)): ?>
                         <div class="main-title hg-semibold font44 leading48 space-0_88 text-white dmb-55 res-font25 res-leading32 tmb-25">
@@ -767,7 +823,7 @@
             $select_service = get_sub_field('select_service');
         ?>
             <!-- other-service-section -->
-            <section class="other-service-section position-relative z-3 overflow-hidden <?php echo $background_color; ?>">
+            <section class="other-service-section position-relative z-3 overflow-hidden <?php echo $background_color; ?>" id="our-services">
                 <div class="container">
                     <div class="main-title hg-light font34 leading45 space-0_68 text-0F120A text-center dmb-45 res-font25 res-leading30 res-space-0_5 tmb-30">
                         <?php echo $title; ?>
@@ -973,6 +1029,13 @@
             foreach ($cats as $cat) {
                 $total_count += $cat->count;
             }
+
+            $case_studies_args = array(
+                'order' => 'DESC',
+                'orderby' => 'date',
+                'post_type' => 'case_studies',
+            );
+            $the_query = new WP_Query($case_studies_args);
         ?>
             <section class="case-studies-card-section">
                 <div class="container px-p-0">
@@ -990,16 +1053,27 @@
                                     class="filter case-filter-btn active text-nowrap hg-regular font14 leading17 text-0F120A radius5 border-0 py-2 px-3">
                                     View all
                                 </button>
-                                <?php foreach ($cats as $cat): ?>
-                                    <button data-tag="<?php echo $cat->slug; ?>" class="filter case-filter-btn text-nowrap hg-regular font14 leading17 text-0F120A radius5 border-0 py-2 px-3">
+                                <?php foreach ($cats as $index => $cat): if($index < 3){ ?>
+                                    <button data-tag="<?php echo $cat->slug; ?>" class="filter case-filter-btn text-nowrap hg-regular font14 leading17 text-0F120A radius5 border-0 py-2 px-3" >
                                         <?php echo $cat->name; ?>
                                     </button>
-                                <?php endforeach; ?>
+                                <?php } endforeach; ?>
                             </div>
                         </div>
-                        <div class="col-4 d-lg-flex justify-content-end d-none">
-                            <div>
+                        <div class="col-4 d-lg-flex justify-content-end d-none position-relative">
+                            <div class="text-nowrap hg-regular font14 bg-E0E0E0 leading17 text-0F120A cursor-pointer radius5 border-0 py-2 px-3 more-filter">
                                 More Filters +
+                            </div>
+                            <div class="position-absolute top-100">
+                                <div class="pt-2">
+                                    <?php foreach ($cats as $index => $cat): if($index >= 3){ ?>
+                                        <div class="text-end">
+                                            <label for="<?php echo $cat->slug; ?>" >
+                                                <input type="checkbox" name="" id="<?php echo $cat->slug; ?>" data-tag="<?php echo $cat->slug; ?>" class="case-filter-check">  <?php echo $cat->name; ?>
+                                            </label>
+                                        </div>
+                                    <?php } endforeach; ?>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1008,29 +1082,30 @@
                     </div>
 
                     <script id="case-template" type="text/x-handlebars-template">
-                        {{#each posts}}
-                            <div class="col-lg-6 col-12 case-studies-cards dmb-70 tmb-40">
-                                <a href="{{link}}" class="case-studies-card d-inline-block text-decoration-none">
-                                    <div class="case-studies-img dmb-25 tmb-15 card-hover radius20 res-radius10 overflow-hidden position-relative">
-                                        <img src="{{image}}" class="w-100 h-100 object-cover img" alt="{{title}}">
-                                        <div class="case-layer position-absolute bottom-0 start-0 w-100 opacity40"></div>
-                                        <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-3">
-                                            {{#each categories}}
-                                                <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 res-font10 text-white radius5 d-inline-flex align-items-center me-2">{{name}}</div>
-                                            {{/each}}
-                                        </div>
+                        <div class="col-lg-6 col-12 case-studies-cards dmb-70 tmb-40">
+                            <a href="{{link}}" class="case-studies-card d-inline-block text-decoration-none">
+                                <div class="case-studies-img dmb-25 tmb-15 card-hover radius20 res-radius10 overflow-hidden position-relative">
+                                    <img src="{{image}}" class="w-100 h-100 object-cover img" alt="{{title}}">
+                                    <div class="case-layer position-absolute bottom-0 start-0 w-100 opacity40"></div>
+                                    <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-3">
+                                        {{#each categories}}
+                                            <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 res-font10 text-white radius5 d-inline-flex align-items-center me-2">{{name}}</div>
+                                        {{/each}}
                                     </div>
-                                    <div class="hg-medium font20 leading24 space-0_4 text-0F120A tmb-5">{{title}}</div>
-                                    <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28">{{location}}
-                                    </div>
-                                </a>
-                            </div>
-                        {{/each}}
+                                </div>
+                                <div class="hg-medium font20 leading24 space-0_4 text-0F120A tmb-5">{{title}}</div>
+                                <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28">{{location}}
+                                </div>
+                            </a>
+                        </div>
                     </script>
 
-                    <div class="d-flex justify-content-center tmt-30">
-                        <button id="caseLoadmore" class="btnA bg-EBFF99-btn border-0 hg-semibold font16 leading21 space-0_32 text-0F120A text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition">Load more</span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></button>
+                    <?php if($the_query->found_posts >= 4) : ?>
+                        <div class="d-flex justify-content-center tmt-30">
+                            <button id="caseLoadmore" class="caseLoadmore btnA bg-EBFF99-btn border-0 hg-semibold font16 leading21 space-0_32 text-0F120A text-decoration-none position-relative transition" data-items="4"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition">Load more</span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></button>
+                        </div>
                     </div>
+                    <?php endif; ?>
                 </div>
             </section>
 

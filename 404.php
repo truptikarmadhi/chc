@@ -1,6 +1,6 @@
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 text-center">
+    <div class="col-md-8 col-md-offset-2 text-center mx-auto dpt-150">
 
         <h1 class=" text-center">We're sorry - something has gone wrong.</h1>
 
