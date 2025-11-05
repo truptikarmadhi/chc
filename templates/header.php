@@ -49,7 +49,7 @@ if ($header_color == 'Default') {
                 <?php endif; ?>
 
                 <nav class="nav d- none d-lg-block">
-                    <ul class="navigation list-none d-flex align-items-center flex-column flex-lg-row ps-0 mb-0">
+                    <ul class="navigation list-none d-flex align-items-lg-center flex-column flex-lg-row ps-0 mb-0">
                         <?php if (!empty($header_links)):
                             foreach ($header_links as $header_link):
                                 $link_type = $header_link['link_type'];
@@ -59,11 +59,11 @@ if ($header_color == 'Default') {
                         ?>
                                 <?php if (!empty($link_type) && $link_type == 'Link'): ?>
                                     <li class="menu-item">
-                                        <a href="<?php echo $link['url']; ?>" class="menu-anchor hg-semibold font16 leading21 space-0_32 text-decoration-none d-inline-flex align-items-center res-font24 res-leading34"><?php echo $link['title']; ?></a>
+                                        <a href="<?php echo $link['url']; ?>" class="menu-anchor hg-semibold font16 leading21 space-0_32 text-decoration-none d-inline-flex align-items-center res-font24 res-leading34 res-space-0_48"><?php echo $link['title']; ?></a>
                                     </li>
                                 <?php elseif (!empty($link_type) && $link_type == 'Mega menu'): ?>
                                     <li class="menu-item">
-                                        <a href="" class="menu-anchor hg-semibold font16 leading21 space-0_32 text-decoration-none d-inline-flex align-items-cente res-font24 res-leading34"><?php echo $link_title; ?> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/header-arrow.svg" class="header-arrow ms-1 white-arrow" alt=""> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/black-header-arrow.svg" class="header-arrow ms-1 black-arrow" alt="">
+                                        <a href="" class="menu-anchor hg-semibold font16 leading21 space-0_32 text-decoration-none d-inline-flex align-items-center res-font24 res-leading34 res-space-0_48"><?php echo $link_title; ?> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/header-arrow.svg" class="header-arrow ms-1 white-arrow" alt=""> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/black-header-arrow.svg" class="header-arrow ms-1 black-arrow" alt="">
                                         </a>
                                         <div class="mega-menu position-absolute top-100 start-0 w-100 dpt-120 d-none">
                                             <div class="container">
