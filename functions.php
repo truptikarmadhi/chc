@@ -196,165 +196,6 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
 
 
-
-function load_case()
-{
-  $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : 'all';
-  $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
-  $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 6;
-
-  $args = [
-    'post_type'      => 'case_studies',
-    'posts_per_page' => $posts_per_page,
-    'paged'          => $paged,
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-  ];
-
-  if ($category !== 'all') {
-    $args['tax_query'] = [
-      [
-        'taxonomy' => 'case_studies_cat',
-        'field'    => 'slug',
-        'terms'    => $category,
-      ],
-    ];
-  }
-
-  $query = new WP_Query($args);
-  $casestudy = [];
-
-  if ($query->have_posts()) {
-    while ($query->have_posts()) {
-      $query->the_post();
-      $case_id = get_the_ID();
-      $categories = get_the_terms($case_id, 'case_studies_cat');
-      $category_data = [];
-      if (!empty($categories) && !is_wp_error($categories)) {
-        foreach ($categories as $category) {
-          $category_data[] = [
-            'name' => $category->name,
-            'slug' => $category->slug,
-          ];
-        }
-      }
-
-      $casestudy[] = [
-        'title'      => get_the_title(),
-        'role'       => get_field('role', $case_id),
-        'location'  => get_field('location', $case_id),
-        'image'      => get_the_post_thumbnail_url($case_id, 'large'),
-        'link'       => get_permalink($case_id),
-        'categories' => $category_data,
-      ];
-    }
-    wp_reset_postdata();
-  }
-
-  wp_send_json_success(['posts' => $casestudy, 'total_posts' => $query->found_posts,]);
-}
-add_action('wp_ajax_load_case', 'load_case');
-add_action('wp_ajax_nopriv_load_case', 'load_case');
-
-
-
-function load_testimonial()
-{
-  $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
-  $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 6;
-
-  $args = [
-    'post_type'      => 'testimonials',
-    'posts_per_page' => $posts_per_page,
-    'paged'          => $paged,
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-  ];
-
-  $query = new WP_Query($args);
-  $testimonial = [];
-
-  if ($query->have_posts()) {
-    while ($query->have_posts()) {
-      $query->the_post();
-      $testimonial_id = get_the_ID();
-
-      $testimonial[] = [
-        'title'      => get_the_title(),
-        'content'    => get_the_content($testimonial_id),
-      ];
-    }
-    wp_reset_postdata();
-  }
-
-  wp_send_json_success(['posts' => $testimonial, 'total_posts' => $query->found_posts,]);
-}
-add_action('wp_ajax_load_testimonial', 'load_testimonial');
-add_action('wp_ajax_nopriv_load_testimonial', 'load_testimonial');
-
-
-
-function load_service()
-{
-  $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : 'all';
-  $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
-  $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 6;
-
-  $args = [
-    'post_type'      => 'services',
-    'posts_per_page' => $posts_per_page,
-    'paged'          => $paged,
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-  ];
-
-  if ($category !== 'all') {
-    $args['tax_query'] = [
-      [
-        'taxonomy' => 'services_cat',
-        'field'    => 'slug',
-        'terms'    => $category,
-      ],
-    ];
-  }
-
-  $query = new WP_Query($args);
-  $services = [];
-
-  if ($query->have_posts()) {
-    while ($query->have_posts()) {
-      $query->the_post();
-      $service_id = get_the_ID();
-      $categories = get_the_terms($service_id, 'services_cat');
-      $category_data = [];
-      if (!empty($categories) && !is_wp_error($categories)) {
-        foreach ($categories as $category) {
-          $category_data[] = [
-            'name' => $category->name,
-            'slug' => $category->slug,
-          ];
-        }
-      }
-
-      $services[] = [
-        'title'      => get_the_title(),
-        'content'    => get_the_content($service_id),
-        'image'      => get_the_post_thumbnail_url($service_id, 'large'),
-        'link'       => get_permalink($service_id),
-        'categories' => $category_data,
-      ];
-    }
-    wp_reset_postdata();
-  }
-
-  wp_send_json_success(['posts' => $services, 'total_posts' => $query->found_posts,]);
-}
-add_action('wp_ajax_load_service', 'load_service');
-add_action('wp_ajax_nopriv_load_service', 'load_service');
-
-
-// functions.php
-
 // 1) enqueue script and localize ajax data
 function tp_enqueue_search_redirect_script()
 {
@@ -369,7 +210,7 @@ function tp_enqueue_search_redirect_script()
   wp_localize_script('tp-search-redirect', 'tpSearchRedirect', array(
     'ajax_url' => admin_url('admin-ajax.php'),
     'nonce'    => wp_create_nonce('tp_search_redirect_nonce'),
-    'fallback_search_url' => home_url('/?s='),
+    'fallback_search_url' => home_url('/'),
   ));
 }
 add_action('wp_enqueue_scripts', 'tp_enqueue_search_redirect_script');
@@ -412,3 +253,68 @@ function tp_ajax_search_redirect()
 }
 add_action('wp_ajax_tp_search_redirect', 'tp_ajax_search_redirect');
 add_action('wp_ajax_nopriv_tp_search_redirect', 'tp_ajax_search_redirect');
+
+// filter case study
+
+add_action('wp_ajax_get_handlebars_ajax', 'gethandlebarsAJAX');
+add_action('wp_ajax_nopriv_get_handlebars_ajax', 'gethandlebarsAJAX');
+
+function gethandlebarsAJAX()
+{
+  global $wpdb, $post;
+  $cats = isset($_POST['cat']) ? $_POST['cat'] : 'all';
+
+  $sort = $_POST['sort'];
+  $loadMore = $_POST['loadMoreAmount'];
+  
+ if ($cats !== 'all') {
+    if (is_string($cats)) {
+        $cats = explode(',', $cats);
+    }
+    $tax_array[] = array(
+        'taxonomy' => 'case_studies_cat',
+        'field'    => 'slug',
+        'terms'    => $cats,
+        'operator' => 'IN',
+    );
+
+    $args['tax_query'] = array(
+        'relation' => 'AND',
+        $tax_array
+    );
+}
+  $args = array(
+    'post_type' => 'case_studies',
+    'posts_per_page' => $loadMore,
+    'tax_query' => $tax_array,
+    'order' => 'DESC',
+    'orderby' => 'date',
+  );
+
+  $callback['handlebars'] = array();
+  $callback['loadMoreNumber'] = 0;
+  
+  $the_query = new WP_Query($args);
+
+  if ($the_query->have_posts()) :
+      while ($the_query->have_posts()) : $the_query->the_post();
+        $categories = get_the_terms( $post->id, 'case_studies_cat' );
+        
+        $callback['handlebars'][] = array(
+          'title' => html_entity_decode(wp_trim_words(get_the_title(), 6, '...')),
+          'image' => get_the_post_thumbnail_url(get_the_ID(), 'large'),
+          'link' => get_the_permalink(),
+          'description' => wp_trim_words(get_the_content(), 15, '...'),
+          'ID' => get_the_ID(),
+          'location' => get_field('location',get_the_ID()),
+          'categories' => $categories,
+        );
+      endwhile;
+      $callback['loadMoreNumber'] = $the_query->found_posts;
+      
+  endif;
+
+  echo json_encode($callback);
+
+  wp_die();
+}

@@ -136,3 +136,19 @@
         }
     }
 }
+.service-bar{
+    z-index: 9;
+    .service-bar-container{
+        background-color: rgba($color: $color-141414, $alpha: 0.1);
+        backdrop-filter: blur(31px);
+        padding: 14px 55px;
+        a{
+            &:last-child{
+                margin-right: 0 !important;
+            }
+            &.active{
+                color: $color-EBFF99 !important;
+            }
+        }
+    }
+}

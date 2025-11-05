@@ -1,260 +1,100 @@
+let isLoading = false;
 import Handlebars from 'handlebars';
-
 export class HandleBars {
     init() {
-        this.CaseHandlebar();
-        this.TestimonialSlider();
-        this.ServiceHandlebar();
         this.SearchHandlebar();
+        this.handlebarTrigger();
+        this.handlebarsFilter();
     }
 
-    CaseHandlebar() {
-        $(document).ready(function () {
-            let currentPage = 1;
-            const postsPerPage = 4;
-
-            function loadCases(category, page) {
-                $.ajax({
-                    url: ajax_params.ajax_url,
-                    method: 'POST',
-                    data: {
-                        action: 'load_case',
-                        category: category,
-                        page: page,
-                        posts_per_page: postsPerPage,
-                    },
-                    success: function (response) {
-                        if (response.success) {
-                            renderPosts(response.data.posts);
-                            const totalPosts = parseInt(response.data.total_posts);
-
-                            if (currentPage * postsPerPage >= totalPosts) {
-                                $('#caseLoadmore').hide();
-                            } else {
-                                $('#caseLoadmore').show();
-                            }
-                        } else {
-                            console.error('No posts found.');
-                            $('#caseLoadmore').hide();
-                        }
-                    },
-                    error: function (error) {
-                        console.error('Error fetching posts:', error);
-                    },
-                });
-            }
-
-            function trimCasePrefixes() {
-                $('.category-tags').each(function () {
-                    const $tags = $(this).find('.prefix').not('.prefix--more');
-                    const total = $tags.length;
-
-                    $(this).find('.prefix--more').remove();
-
-                    if (total > 2) {
-                        $tags.slice(0, 2).show();
-                        $tags.slice(2).removeClass('d-inline-flex').addClass('d-none');
-
-                        const remaining = total - 2;
-
-                        $(this).append(
-                            `<div class="prefix prefix--more bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10">+${remaining}</div>`
-                        );
-                    } else {
-                        $tags.show();
-                    }
-                });
-            }
-            function initialSlider(){
-                $('#caseContainer').slick({
-                dots: false,
-                arrows: false,
-                infinite: false,
-                speed: 300,
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                    }
-                    },
-                    {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                    },
-                    {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                    }
-                ]
-                });
-            }
-            function renderPosts(posts) {
-                const source = $("#case-template").html();
-                const template = Handlebars.compile(source);
-                const html = template({ posts });
-                $('#caseContainer').append(html);
-                $('#caseCardContainer').append(html);
-                initialSlider();
-                trimCasePrefixes();
-            }
-
-            $('.case-filter-btn').click(function () {
-                currentPage = 1;
-                const category = $(this).data('tag');
-
-                $('.case-filter-btn').removeClass('active');
-                $(this).addClass('active');
-
-                $('#caseContainer').empty();
-                loadCases(category, currentPage);
-            });
-
-            $('#caseLoadmore').click(function () {
-                currentPage++;
-                const category = $('.case-filter-btn.active').data('tag');
-                loadCases(category, currentPage);
-            });
-
-            loadCases('all', currentPage);
+    handlebarTrigger(){
+        var triggerOnClick = $(".caseLoadmore");
+        $("body").on("click", ".case-filter-btn", function () {
+            $(".case-filter-btn").removeClass("active");
+            $(this).addClass("active");
+            triggerOnClick.attr("data-items", "4");
+            $(".case-filter-check").prop('checked',false);
+            window.handlebar.handlebarsFilter();
+        });
+        
+        $("body").on("change", ".case-filter-check", function () {
+            $(".case-filter-btn").removeClass("active");
+            $(".case-filter-btn[data-tag='all']").addClass("active");
+            $(".case-filter-check:checked").each(function () {
+                $(".case-filter-btn").removeClass("active");
+            })
+            
+            triggerOnClick.attr("data-items", "4");  // Reset load more amount
+            window.handlebar.handlebarsFilter();
+        });
+        triggerOnClick.on("click", function (e) {
+            e.preventDefault();
+            var loadMoreVal =
+                parseInt(triggerOnClick.attr("data-items")) + parseInt("4");
+            triggerOnClick.attr("data-items", loadMoreVal);
+            window.handlebar.handlebarsFilter();
         });
     }
-
-    TestimonialSlider() {
-        $(document).ready(function () {
-            let currentPage = 1;
-            const postsPerPage = -1;
-
-            function loadTestimonial(page) {
-                $.ajax({
-                    url: ajax_params.ajax_url,
-                    method: 'POST',
-                    data: {
-                        action: 'load_testimonial',
-                        page: page,
-                        posts_per_page: postsPerPage,
-                    },
-                    success: function (response) {
-                        if (response.success) {
-                            renderPosts(response.data.posts);
-                        } else {
-                            console.error('No posts found.');
-                        }
-                    },
-                    error: function (error) {
-                        console.error('Error fetching posts:', error);
-                    },
-                });
-            }
-
-            function renderPosts(posts) {
-                const source = $("#tesimonial-template").html();
-                const template = Handlebars.compile(source);
-                const html = template({ posts });
-                $('#testimonialcontainer').append(html);
-
-                // Initialize Slick
-                $('#testimonialcontainer').slick({
-                    dots: false,
-                    infinite: true,
-                    arrows: false,
-                    speed: 1000,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    autoplay: true,
-                    autoplaySpeed: 5000,
-                });
-            }
-            // Initial load
-            loadTestimonial('all', currentPage);
+    handlebarsFilter(){
+        var selectedTags = [];
+        $(".case-filter-btn.active").each(function () {
+            selectedTags.push($(this).data('tag'));
         });
-    }
+        $(".case-filter-check:checked").each(function () {
+            selectedTags.push($(this).data('tag')); // Collect all selected categories
+        });
+        var template = "";
+        var handlebarsContainer = $("#caseCardContainer");
+        var loadMoreTrigger = $(".caseLoadmore");
+        var loadMoreAmount = loadMoreTrigger.attr("data-items")
+        var postBody = {
+            action: "get_handlebars_ajax",
+            cat: selectedTags.join(','),
+            loadMoreAmount: loadMoreAmount,
+        };
+        if (!isLoading) {
+          isLoading = true;
 
-    ServiceHandlebar() {
-        $(document).ready(function () {
-            let currentPage = 1;
-            const postsPerPage = -1;
-
-            function loadService(page) {
-                $.ajax({
-                    url: ajax_params.ajax_url,
-                    method: 'POST',
-                    data: {
-                        action: 'load_service',
-                        page: page,
-                        posts_per_page: postsPerPage,
-                    },
-                    success: function (response) {
-                        if (response.success) {
-                            renderPosts(response.data.posts);
-                        } else {
-                            console.error('No posts found.');
-                        }
-                    },
-                    error: function (error) {
-                        console.error('Error fetching posts:', error);
-                    },
-                });
-            }
-function initialSlider(){
-     $('#servicecontainer').slick({
-      dots: false,
-      arrows: false,
-      infinite: false,
-      speed: 300,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
+          jQuery.post(ajaxurl, postBody, function (response) {
+            handlebarsContainer.html("Loading");
+        
+            var _response = JSON.parse(response);
+    
+                if (
+                    typeof _response["handlebars"] != "undefined" &&
+                    _response["handlebars"].length > 0
+                ) {
+                    handlebarsContainer.html("");
+                
+                    var handlebars = _response["handlebars"];
+                    handlebars.map((item) => { 
+                        var handlebarsTemplateSource =
+                        document.getElementById("case-template").innerHTML;
+                        template = Handlebars.compile(handlebarsTemplateSource);
+                
+                        var result = template(item);
+                
+                        handlebarsContainer.append(result);
+                    });
+                
+                    if(_response["loadMoreNumber"] == _response["handlebars"].length){
+                        loadMoreTrigger.hide();
+                    }
+                    else{
+                        loadMoreTrigger.show();
+                    }
+                } else {
+                    handlebarsContainer.html("No Posts Found");
+                    loadMoreTrigger.hide();
+                }
+            isLoading = false;
+          });
         }
-      ]
-    });
-}
-            function renderPosts(posts) {
-                const source = $("#service-template").html();
-                const template = Handlebars.compile(source);
-                const html = template({ posts });
-                $('#servicecontainer').append(html);
-
-                initialSlider();
-            }
-            // Initial load
-            loadService('all', currentPage);
-        });
     }
 
     SearchHandlebar() {
         jQuery(document).ready(function ($) {
-            var $searchInput = $('.header-search-input'); // change to your search input selector
-
+            var $searchInput = $('.header-search-input'); 
             if (!$searchInput.length) {
                 $searchInput = $('input[type="search"]').first();
             }
