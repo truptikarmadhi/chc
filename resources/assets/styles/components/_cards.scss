@@ -222,3 +222,11 @@
         }
     }
 }
+
+.center-slider {
+    height: 605px;
+
+    @include media-breakpoint-down(lg) {
+        height: 365px;
+    }
+}

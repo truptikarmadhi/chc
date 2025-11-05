@@ -1118,22 +1118,22 @@
             $account_mail = get_sub_field('account_mail');
             $social_group = get_sub_field('social_group');
         ?>
-            <section class="contact-section h-vh bg-20994A">
+            <section class="contact-section h-vh bg-20994A tpt-155">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center justify-content-between">
-                        <div class="col-4">
+                        <div class="col-lg-4 tmb-55">
                             <?php if (!empty($prefix)): ?>
-                                <div class="prefix bg-FFFFFC-prefix d-inline-flex align-items-center hg-regular font14 leading18 space-0_28 text-white dmb-5 radius5">
+                                <div class="prefix bg-FFFFFC-prefix d-inline-flex align-items-center hg-regular font14 leading18 space-0_28 text-white dmb-5 radius5 dmb-30">
                                     <?php echo $prefix; ?>
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($title)): ?>
-                                <div class="col-8 main-title main-white-title hg-light font64 leading71 space-1_28 text-white dmb-10">
+                                <div class="col-8 main-title main-white-title hg-light font64 leading71 space-1_28 text-white dmb-10 tmb-25 res-font30 res-leading40 res-space-0_6">
                                     <?php echo $title; ?>
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($call)): ?>
-                                <div class="hg-regular font20 leading28 text-FFFFFF80">
+                                <div class="hg-regular font20 leading28 text-FFFFFF80 res-font18">
                                     Call:
                                     <a href="tel:<?php echo $call; ?>" class="text-decoration-none text-white">
                                         <?php echo $call; ?>
@@ -1141,7 +1141,7 @@
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($general_mail)): ?>
-                                <div class="hg-regular font20 leading28 text-FFFFFF80">
+                                <div class="hg-regular font20 leading28 text-FFFFFF80 res-font18">
                                     General:
                                     <a href="mailto:<?php echo $general_mail; ?>" class="text-decoration-none text-white">
                                         <?php echo $general_mail; ?>
@@ -1149,7 +1149,7 @@
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($sales_mail)): ?>
-                                <div class="hg-regular font20 leading28 text-FFFFFF80">
+                                <div class="hg-regular font20 leading28 text-FFFFFF80 res-font18">
                                     Sales:
                                     <a href="mailto:<?php echo $sales_mail; ?>" class="text-decoration-none text-white">
                                         <?php echo $sales_mail; ?>
@@ -1157,14 +1157,14 @@
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($account_mail)): ?>
-                                <div class="hg-regular font20 leading28 text-FFFFFF80">
+                                <div class="hg-regular font20 leading28 text-FFFFFF80 res-font18">
                                     Accounts:
                                     <a href="mailto:<?php echo $account_mail; ?>" class="text-decoration-none text-white">
                                         <?php echo $account_mail; ?>
                                     </a>
                                 </div>
                             <?php endif; ?>
-                            <div class="social-menus dmt-25">
+                            <div class="social-menus dmt-25 tmt-35">
                                 <?php if (!empty($social_group)):
                                     foreach ($social_group as $social):
                                         $social_icon = $social['social_icon'];
@@ -1177,7 +1177,7 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="col-7 ps-1">
+                        <div class="col-lg-7 ps-1">
                             <div class="contact-form radius20 overflow-hidden">
                                  <?php echo do_shortcode('[contact-form-7 id="a487ced" title="Contact form 1"]'); ?>
                                 <!-- <div class="row row30">
@@ -1222,7 +1222,7 @@
                                 <?php endif; ?>
                             </div>
                             <?php if (!empty($heading)): ?>
-                                <div class="col-8 main-title hg-light font44 leading54 space-0_88 text-0F120A">
+                                <div class="col-lg-8 col-10 main-title hg-light font44 leading54 space-0_88 text-0F120A res-font30 res-leading40 res-space-0_6">
                                     <?php echo $heading; ?>
                                 </div>
                             <?php endif; ?>
@@ -1236,8 +1236,8 @@
                         ?>
                                 <div class="accrodion-wrapper">
                                     <div
-                                        class="closet-header d-flex align-items-center justify-content-between dpt-20 dpb-20 cursor-pointer">
-                                        <div class="hg-regular font28 leading34 space-0_56 text-0F120A">
+                                        class="closet-header d-flex align-items-center justify-content-between dpt-20 dpb-20 cursor-pointer tpt-15 tpb-15">
+                                        <div class="hg-regular font28 leading34 space-0_56 text-0F120A res-font20 res-leading30">
                                             <?php echo $accordion_heading; ?>
                                         </div>
                                         <div class="bottom-arrow d-flex">
@@ -1261,13 +1261,13 @@
             $policy_data = get_sub_field('policy_data');
             $privacy_img = get_sub_field('privacy_img');
         ?>
-            <section class="privacy-section">
+            <section class="privacy-section tpt-165 tpb-20">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="position-sticky privacy-links">
                                 <div class="privacy-container">
-                                    <ul class="list-none mb-0 ps-0" id="privacy-links">
+                                    <ul class="list-none mb-0 ps-0 d-flex flex-lg-column overflow-auto" id="privacy-links">
                                         <?php if (!empty($policy_data)):
                                             foreach ($policy_data as $policy):
                                                 $prefix = $policy['prefix'];
@@ -1275,7 +1275,7 @@
                                         ?>
                                                 <li class="overflow-hidden">
                                                     <a href="#<?php echo $prefix; ?>"
-                                                        class="privacy-link text-decoration-none font16 space-0_32 leading21 text-0F120A dmb-10 opacity40 d-flex align-items-center hg-semibold transition">
+                                                        class="privacy-link text-decoration-none font16 space-0_32 leading21 text-0F120A dmb-10 tmb-0 opacity40 d-flex align-items-center hg-semibold transition me-5 me-lg-0">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" alt="button-arrow" class="arrow">
                                                         <?php echo $heading; ?>
                                                     </a>
@@ -1286,8 +1286,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-9 dpt-200">
-                            <div class="col-lg-10 pe-5">
+                        <div class="col-lg-9 dpt-200 tpt-45">
+                            <div class="col-lg-10 pe-lg-5">
                                 <?php if (!empty($policy_data)):
                                     foreach ($policy_data as $policy):
                                         $prefix = $policy['prefix'];
@@ -1302,7 +1302,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="position-fixed bottom-0 policy-bg-logo">
+                <div class="position-fixed bottom-0 policy-bg-logo d-none d-lg-block">
                     <img src="<?php echo $privacy_img['url'] ?>" alt="policy-bg-logo" class="h-100">
                 </div>
             </section>

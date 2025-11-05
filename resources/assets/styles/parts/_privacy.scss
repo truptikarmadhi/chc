@@ -3,8 +3,10 @@
         top: 230px;
 
         .privacy-container {
-            padding-left: 40px;
-            padding-right: 40px;
+            @include media-breakpoint-up(lg){
+                padding-left: 40px;
+                padding-right: 40px;
+            }
 
             ul {
                 li {
@@ -70,6 +72,21 @@
         &:last-child {
             @include media-breakpoint-up(lg) {
                 margin-bottom: 0px !important;
+            }
+        }
+        @include media-breakpoint-down(lg){
+             h4 {
+                font-size: $res-font25;
+                letter-spacing: $res-space-0_5;
+                line-height: $leading30;
+                padding-right: 15px;
+            }
+            p{
+                padding-right: 10px;
+            }
+            h6 {
+                margin-top: 45px;
+                margin-bottom: 15px;
             }
         }
     }

@@ -45,3 +45,10 @@
         background-repeat: no-repeat;
         background-position: 85% bottom;
     }
+
+    .contact-section{
+        @include media-breakpoint-down(lg){
+            height: fit-content;
+            background-position: 102% 350%;
+        }
+    }
