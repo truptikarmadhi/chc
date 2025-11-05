@@ -15,6 +15,10 @@
             }
         }
     }
+
+    @include media-breakpoint-down(lg){
+        padding: 50px 17px;
+    }
 }
 
 .wpcf7-spinner {
@@ -27,11 +31,5 @@
 
     &::placeholder {
         color: $white;
-    }
-}
-
-.form-input {
-    &:last-child {
-        margin-bottom: 0px !important;
     }
 }

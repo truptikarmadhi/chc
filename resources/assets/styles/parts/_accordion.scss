@@ -13,6 +13,10 @@
                 width: 12px;
                 height: 13px;
                 transition: all 0.3s ease-in-out;
+                @include media-breakpoint-down(lg){
+                    width: 9px;
+                    height: 9px;
+                }
             }
         }
     }

@@ -19,7 +19,7 @@ export class Parts {
                     const remaining = total - 2;
 
                     $(this).append(
-                        `<div class="prefix prefix--more bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2">+${remaining}</div>`
+                        `<div class="prefix prefix--more bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10">+${remaining}</div>`
                     );
                 } else {
                     $tags.show();

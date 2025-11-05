@@ -17,26 +17,26 @@ if ($header_color == 'Default') {
 }
 ?>
 
-<!-- <header class="header <?php echo $main_header_color; ?> position-fixed w-100">
+<header class="header <?php echo $main_header_color; ?> position-fixed w-100">
     <div class="top-header bg-EBFF99 dpt-10 dpb-10">
         <div class="container">
             <?php if (!empty($top_header)): ?>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-lg-between justify-content-center align-items-center">
+                    <div class="d-lg-flex align-items-center d-none">
                         <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/black-search.svg" class="header-search-icon me-2" alt="">
                         <input type="text" class="hg-regular font14 leading18 space-0_28 text-0F120A header-search-input" placeholder="Site Search…">
                     </div>
-                    <div class="header-center-data hg-regular font14 leading18 space-0_28 text-0F120A">
+                    <div class="header-center-data hg-regular font14 leading18 space-0_28 text-0F120A res-font11">
                         <?php echo $top_header['center_content']; ?>
                     </div>
-                    <a href="<?php echo $top_header['member_login']['url']; ?>" class="hg-regular font14 leading18 space-0_28 text-0F120A text-decoration-none d-inline-flex align-items-center"><?php echo $top_header['member_login']['title']; ?> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/user-img.svg" class="user-icon ms-2" alt=""></a>
+                    <a href="<?php echo $top_header['member_login']['url']; ?>" class="hg-regular font14 leading18 space-0_28 text-0F120A text-decoration-none d-lg-inline-flex align-items-center d-none"><?php echo $top_header['member_login']['title']; ?> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/user-img.svg" class="user-icon ms-2" alt=""></a>
                 </div>
             <?php endif; ?>
         </div>
     </div>
     <div class="header-section position-relative">
         <div class="container">
-            <div class="d-flex align-items-center justify-content-between dpt-30 dpb-30">
+            <div class="d-flex align-items-lg-center justify-content-between flex-column flex-lg-row dpt-30 dpb-30">
                 <?php if (!empty($header_white_logo)): ?>
                     <a href="/" class="header-logo d-inline-block text-decoration-none white-logo">
                         <img src="<?php echo $header_white_logo['url']; ?>" class="h-100" alt=""></a>
@@ -48,8 +48,8 @@ if ($header_color == 'Default') {
                     </a>
                 <?php endif; ?>
 
-                <nav class="nav">
-                    <ul class="navigation list-none d-flex align-items-center ps-0 mb-0">
+                <nav class="nav d- none d-lg-block">
+                    <ul class="navigation list-none d-flex align-items-center flex-column flex-lg-row ps-0 mb-0">
                         <?php if (!empty($header_links)):
                             foreach ($header_links as $header_link):
                                 $link_type = $header_link['link_type'];
@@ -59,11 +59,11 @@ if ($header_color == 'Default') {
                         ?>
                                 <?php if (!empty($link_type) && $link_type == 'Link'): ?>
                                     <li class="menu-item">
-                                        <a href="<?php echo $link['url']; ?>" class="menu-anchor hg-semibold font16 leading21 space-0_32 text-decoration-none d-inline-flex align-items-center"><?php echo $link['title']; ?></a>
+                                        <a href="<?php echo $link['url']; ?>" class="menu-anchor hg-semibold font16 leading21 space-0_32 text-decoration-none d-inline-flex align-items-center res-font24 res-leading34"><?php echo $link['title']; ?></a>
                                     </li>
                                 <?php elseif (!empty($link_type) && $link_type == 'Mega menu'): ?>
                                     <li class="menu-item">
-                                        <a href="" class="menu-anchor hg-semibold font16 leading21 space-0_32 text-decoration-none d-inline-flex align-items-center"><?php echo $link_title; ?> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/header-arrow.svg" class="header-arrow ms-1 white-arrow" alt=""> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/black-header-arrow.svg" class="header-arrow ms-1 black-arrow" alt="">
+                                        <a href="" class="menu-anchor hg-semibold font16 leading21 space-0_32 text-decoration-none d-inline-flex align-items-cente res-font24 res-leading34"><?php echo $link_title; ?> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/header-arrow.svg" class="header-arrow ms-1 white-arrow" alt=""> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/black-header-arrow.svg" class="header-arrow ms-1 black-arrow" alt="">
                                         </a>
                                         <div class="mega-menu position-absolute top-100 start-0 w-100 dpt-120 d-none">
                                             <div class="container">
@@ -149,10 +149,13 @@ if ($header_color == 'Default') {
                         endif; ?>
                     </ul>
                 </nav>
+
                 <?php if (!empty($get_in_touch)): ?>
-                    <a href=" <?php echo $get_in_touch['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $get_in_touch['title']; ?></span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                    <div class="d-n one d-lg-block">
+                        <a href=" <?php echo $get_in_touch['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $get_in_touch['title']; ?></span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
     </div>
-</header> -->
+</header>
