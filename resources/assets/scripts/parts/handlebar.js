@@ -36,6 +36,24 @@ export class HandleBars {
         });
     }
     handlebarsFilter(){
+
+        Handlebars.registerHelper('showCategories', function (categories) {
+  let html = '';
+  const total = categories.length;
+
+  // sirf first 2 category show kar
+  categories.slice(0, 2).forEach(cat => {
+    html += `<div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 res-font10 text-white radius5 d-inline-flex align-items-center me-2 text-nowrap mb-1">${cat.name}</div>`;
+  });
+
+  // agar 2 se jyada category ho to +count dikhaye
+  if (total > 2) {
+    html += `<div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 res-font10 text-white radius5 d-inline-flex align-items-center me-2 text-nowrap mb-1">+${total - 2}</div>`;
+  }
+
+  return new Handlebars.SafeString(html);
+});
+
         var selectedTags = [];
         $(".case-filter-btn.active").each(function () {
             selectedTags.push($(this).data('tag'));

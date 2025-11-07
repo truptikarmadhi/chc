@@ -6,6 +6,8 @@
 
 @import '../../node_modules/bootstrap/scss/functions';
 @import '../../node_modules/bootstrap/scss/variables';
+// Animation
+@import '../../node_modules/animate.css/animate.min.css';
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,

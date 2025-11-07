@@ -25,6 +25,7 @@
     strong {
         color: $color-20994A;
         font-weight: 600 !important;
+        font-family: "hankengrotesk-semibold";
     }
 
     &.main-white-title {
@@ -60,12 +61,9 @@
         width: 25px;
     }
 
-    .testimonial-heading {
+    .testimonial-heading,
+    .testimonial-client  {
         color: rgba($color: $color-0F120A, $alpha: 0.48);
-    }
-
-    .testimonial-client {
-        color: $color-0F120A;
     }
 }
 
@@ -116,7 +114,7 @@
     .case-down-arrow {
         width: 55%;
         height: 70%;
-        transform: translate(52%, -62%);
+        transform: translate(52%, -55%);
         @include media-breakpoint-down(lg){
             width: 54%;
             height: 33%;
@@ -148,6 +146,30 @@
             }
             &.active{
                 color: $color-EBFF99 !important;
+            }
+        }
+    }
+}
+
+.heading{
+    strong{
+        font-family: "hankengrotesk-semibold";
+    }
+}
+
+body{
+    &.single-case_studies{
+        .testimonial-slider-section{
+            background-image: url(/wp-content/themes/chc/templates/icons/testimonial-bg.svg);
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: -35% -10%;
+            padding-bottom: 210px;
+            border-radius: 0px 0px 30px 30px;
+            @include media-breakpoint-down(lg){
+                padding-bottom: 120px;
+                border-radius: 0px;
+                display: none;
             }
         }
     }

@@ -62,7 +62,7 @@ $service_tags = $how_helped['service_tags'];
 
 <?php if (!empty($image_slider)): ?>
 
-    <section class="center-slider-section bg-0F120A dpb-205 tpb-110">
+    <section class="center-slider-section bg-0F120A dpb-235 tpb-110">
         <div class="container">
             <div class="overflow-hidden">
                 <div class="col-xxl-7 col-xl-9 col-lg-10 px-lg-4 col-12 mx-auto">

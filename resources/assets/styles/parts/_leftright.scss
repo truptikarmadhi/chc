@@ -1,6 +1,8 @@
 .left-right-content-section {
     z-index: 7;
-
+    .btnA{
+        z-index: 9 !important;
+    }
     .left-right-bg-img {
         height: 768px;
         bottom: -40%;
@@ -8,7 +10,7 @@
         z-index: 4;
 
         @media screen and (max-width:1920px) {
-            bottom: -95%;
+            bottom: -120%;
             left: -10%;
         }
 

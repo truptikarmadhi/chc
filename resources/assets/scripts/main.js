@@ -14,6 +14,7 @@ import { HandleBars } from './parts/handlebar.js';
 import { Gsap } from './parts/gsap.js';
 import { Header } from './parts/header.js';
 import { Counter } from './parts/Counter.js';
+import WOW from 'wow.js';
 
 
 // export for others scripts to use
@@ -66,3 +67,30 @@ $(function () {
 });
 
 // ===========================================================================
+
+jQuery(document).ready(function ($) {
+  new WOW({
+    boxClass: 'wow',
+    // animateClass: 'animated',
+    once: true,
+    mobile: true,
+  }).init();
+});
+
+
+$(document).ready(function() {
+    if ($(window).width() > 992) {
+        $('.filter-item').removeClass('d-none');
+    } else {
+        $('.filter-item').addClass('d-none');
+    }
+
+    // Agar resize pe bhi check karna ho:
+    $(window).resize(function() {
+        if ($(window).width() > 992) {
+            $('.filter-item').removeClass('d-none');
+        } else {
+            $('.filter-item').addClass('d-none');
+        }
+    });
+});

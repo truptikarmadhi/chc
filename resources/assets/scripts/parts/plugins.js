@@ -73,11 +73,11 @@ export class Plugins {
 
       // Previous slide
       var prevSlideIndex = $currentSlide.prev('.slick-slide').data('slick-index');
-      $('.slick-slide[data-slick-index="' + prevSlideIndex + '"]').addClass('slick-active-prev', 1000);
+      $('.slick-slide[data-slick-index="' + prevSlideIndex + '"]').addClass('slick-active-prev', 100);
 
       // Next slide
       var nextSlideIndex = $currentSlide.next('.slick-slide').data('slick-index');
-      $('.slick-slide[data-slick-index="' + nextSlideIndex + '"]').addClass('slick-active-next', 1000);
+      $('.slick-slide[data-slick-index="' + nextSlideIndex + '"]').addClass('slick-active-next', 100);
     });
 
     $(".center-slider").slick('slickGoTo', 0, true);
@@ -160,11 +160,9 @@ export class Plugins {
       dots: false,
       arrows: false,
       infinite: false,
-      autoplay: true,
       speed: 300,
       slidesToShow: 3,
       slidesToScroll: 1,
-      autoplaySpeed: 2000,
       responsive: [
         {
           breakpoint: 1024,

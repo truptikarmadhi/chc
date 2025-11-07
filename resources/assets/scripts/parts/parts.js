@@ -3,6 +3,59 @@ export class Parts {
     init() {
         this.CaseStudyTags();
         this.EventOpenButton();
+        this.MoreFilter();
+    }
+
+    MoreFilter(){
+        $(document).ready(function() {
+            $('.more-filter').on('click', function(e) {
+                e.stopPropagation(); // prevent click from bubbling
+                $(this).closest('.more-filter-container').toggleClass('active');
+            });
+
+            // Optional: close the menu when clicking outside
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('.more-filter-container').length) {
+                    $('.more-filter-container').removeClass('active');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+    function handleCategoryDisplay() {
+        if ($(window).width() <= 992) {
+            // mobile/tablet - show all
+            $('.extra-cat').removeClass('d-none');
+        } else {
+            // desktop - show only first 3
+            $('.extra-cat').addClass('d-none');
+        }
+    }
+
+    // Run on load
+    handleCategoryDisplay();
+
+    // Run on resize
+    $(window).resize(function () {
+        handleCategoryDisplay();
+    });
+});
+        $(document).ready(function() {
+    if ($(window).width() > 992) {
+        $('.filter-item').removeClass('d-none');
+    } else {
+        $('.filter-item').addClass('d-none');
+    }
+
+    // Agar resize pe bhi check karna ho:
+    $(window).resize(function() {
+        if ($(window).width() > 992) {
+            $('.filter-item').removeClass('d-none');
+        } else {
+            $('.filter-item').addClass('d-none');
+        }
+    });
+});
     }
 
     CaseStudyTags() {
@@ -28,6 +81,7 @@ export class Parts {
             });
         });
     }
+    
     EventOpenButton() {
       $(document).ready(function () {
           var filterButtons = $(".service-filter-button");

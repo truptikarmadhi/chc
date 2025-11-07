@@ -1,8 +1,8 @@
-
+<section class="h-vh d-flex align-items-center justify-content-center">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 text-center mx-auto dpt-150">
+    <div class="col-md-8 col-md-offset-2 text-center mx-auto">
 
-        <h1 class=" text-center">We're sorry - something has gone wrong.</h1>
+        <h1 class=" text-center dmb-20">We're sorry - something has gone wrong.</h1>
 
           <p class="bold">What could have caused this?</p>
           <p >
@@ -13,11 +13,12 @@
           </p>
           <p class="bold">What can you do?</p>
           <p>
-            We could take you back to the <strong><a href="/"> home page</a></strong>.<br>
+            We could take you back to the <strong><a href="/" class="text-20994A"> home page</a></strong>.<br>
           </p>
 
     </div>
   </div>
+</section>
 
 
 

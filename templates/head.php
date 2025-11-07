@@ -10,4 +10,5 @@
   <script type="text/javascript">
     var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
   </script>
+  <link rel="stylesheet" href="https://use.typekit.net/evb0kjx.css">
 </head>

@@ -31,13 +31,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-img mx-auto">
+                <div class="hero-img mx-auto radius20 overflow-hidden">
                     <?php if (!empty($media_type) && $media_type == 'Image'): ?>
-                        <img src="<?php echo $image['url']; ?>" class="w-100 h-100 object-cover radius20 overflow-hidden" alt="">
+                        <img src="<?php echo $image['url']; ?>" class="w-100 h-100 object-cover " alt="">
                     <?php elseif (!empty($media_type) && $media_type == 'Video'): ?>
                         <video id="hero-video" loop autoplay muted playsinline preload="auto"
                             class="w-100 h-100 object-cover">
-                            <source src="<?php echo $video['url']; ?>" type="video/mp4">
+                            <source src="<?php echo $video; ?>" type="video/mp4">
                         </video>
                     <?php elseif (!empty($media_type) && $media_type == 'Vimeo'): ?>
                         <iframe class="w-100 h-100 object-cover"
@@ -88,7 +88,7 @@
                                                     <div class="hg-semibold font20 leading26 space-0_4 text-white mb-1"><?php echo get_the_title($service_id) ?></div>
                                                 <?php endif; ?>
                                                 <?php if(!empty(get_the_content($service_id))): ?>
-                                                    <div class="hg-regular font14 leading18 space-0_28 text-white dmb-10"><?php echo get_the_content($service_id); ?></div>
+                                                    <div class="hg-regular font14 leading18 space-0_28 text-white dmb-10 res-font12 res-space-0_24"><?php echo get_the_content($service_id); ?></div>
                                                 <?php endif; ?>
                                                 <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/white-right-arrow.svg" class="small-arrow" alt="">
                                             </div>
@@ -110,7 +110,7 @@
                                             <div class="small-bg-layer position-absolute bottom-0 start-0 w-100"></div>
                                             <div class="position-absolute small-card-content">
                                                 <div class="hg-semibold font20 leading26 space-0_4 text-white"><?php echo esc_html($title); ?></div>
-                                                <div class="hg-regular font14 leading18 space-0_28 text-white dmb-10"><?php echo esc_html($description); ?></div>
+                                                <div class="hg-regular font14 leading18 space-0_28 text-white dmb-10 res-font12 res-space-0_24"><?php echo esc_html($description); ?></div>
                                                 <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/white-right-arrow.svg" class="small-arrow" alt="">
                                             </div>
                                         </a>
@@ -131,20 +131,20 @@
             <!-- left-right-content-section  -->
             <section class="left-right-content-section <?php echo $background_color; ?> position-relative">
                 <div class="container">
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 wow animate__fadeInUp" data-wow-duration="1.5s">
                         <?php if (!empty($heading)): ?>
-                            <div class="hg-semibold font45 leading48 space-0_9 res-font30 res-leading40 pe-1 pe-lg-0 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : 'text-0F120A'; ?> dmb-50 tmb-20">
+                            <div class="hg-semibold font45 leading54 space-0_9 res-font30 res-leading40 pe-1 pe-lg-0 res-space-0_6 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : 'text-0F120A'; ?> dmb-50 tmb-20">
                                 <?php echo $heading; ?>
                             </div>
                         <?php endif; ?>
                     </div>
                     <div class="row flex-column-reverse flex-lg-row">
-                        <div class="col-lg-6 col-12">
+                        <div class="col-lg-6 col-12 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php if (!empty($link)): ?>
                                 <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none dmb-95 position-relative transition tmb-0"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"><?php echo $link['title']; ?></span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                             <?php endif; ?>
                         </div>
-                        <div class="col-lg-6 col-12">
+                        <div class="col-lg-6 col-12 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <div class="col-lg-10 pe-lg-2">
                                 <?php if (!empty($description)): ?>
                                     <div class="hg-regular font16 leading26 res-font14 res-leading24 tmb-40 pe-1 pe-lg-0 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : 'text-0F120A'; ?> opacity80">
@@ -170,13 +170,13 @@
             <!-- case-studies-section  -->
             <section class="case-studies-section position-relative overflow-hidden <?php echo $background_color; ?>" id="related-project">
                 <div class="container">
-                    <div class="d-flex align-items-center justify-content-between dmb-35 tmb-20">
+                    <div class="d-flex align-items-center justify-content-between dmb-35 tmb-20 wow animate__fadeInUp" data-wow-duration="1.5s">
                         <div class="main-title hg-light font44 leading62 space-0_88 text-0F120A res-font30 res-leading40 res-space-0_6"><?php echo $title; ?></div>
                         <?php if (!empty($link)): ?>
                             <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-lg-inline-flex d-none align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                         <?php endif; ?>
                     </div>
-                    <div class="col-11 col-lg-12 pe-3 pe-lg-0" id="caseContainer">
+                    <div class="col-11 col-lg-12 pe-3 pe-lg-0 wow animate__fadeInUp" data-wow-duration="1.5s" id="caseContainer">
                         <?php if ($case_studies_display == 'All'):
                             $args = [
                                 'post_type'      => 'case_studies',
@@ -256,7 +256,7 @@
                     </div>
 
                     <?php if (!empty($link)): ?>
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center wow animate__fadeInUp" data-wow-duration="1.5s">
                             <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex d-lg-none align-items-center text-decoration-none position-relative transition tmt-45"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                         </div>
                     <?php endif; ?>
@@ -271,7 +271,7 @@
             <!-- sectors-slider-section  -->
             <section class="sectors-slider-section position-relative z-3 overflow-hidden <?php echo $background_color; ?>">
                 <div class="container">
-                    <div class="d-flex align-items-center justify-content-between dmb-30 tmb-25">
+                    <div class="d-flex align-items-center justify-content-between dmb-30 tmb-25 wow animate__fadeInUp" data-wow-duration="1.5s">
                         <?php if (!empty($title)): ?>
                             <div class="main-title hg-light font44 leading62 space-0_88 text-0F120A res-font30 res-leading40 res-space-0_6"><?php echo $title; ?></div>
                         <?php endif; ?>
@@ -280,13 +280,13 @@
                             <div class="next-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-next.svg" class="icon" alt=""></div>
                         </div>
                     </div>
-                    <div class="sectors-slider col-8 col-lg-12 dmb-55">
+                    <div class="sectors-slider col-8 col-lg-12 tmb-55">
                         <?php if (!empty($sector_card)):
                             foreach ($sector_card as $sector):
                                 $icon = $sector['icon'];
                                 $sector_link = $sector['sector_link'];
                         ?>
-                                <a href="<?php echo $sector_link['url']; ?>" class="sectors-cards d-inline-block text-decoration-none radius20 dpt-60 dpb-35">
+                                <a href="<?php echo $sector_link['url']; ?>" class="sectors-cards d-inline-block text-decoration-none radius20 dpt-80 dpb-35 tpt-70 wow animate__fadeInUp" data-wow-duration="1.5s">
                                     <div class="sectors-cards-img dmb-45 mx-auto">
                                         <img src="<?php echo $icon['url']; ?>" class="h-100 w-100" alt="<?php echo $icon['title']; ?>">
                                     </div>
@@ -329,9 +329,9 @@
                                 $query->the_post();
                                 $testimonial_id = get_the_ID();
                             ?>
-                                <div class="testimonial-cards">
+                                <div class="testimonial-cards wow animate__fadeInUp" data-wow-duration="1.5s">
                                     <?php if(!empty(get_the_title($testimonial_id))): ?>
-                                        <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 testimonial-heading tmb-30 <?php echo $background_color == 'bg-0F120A' ? 'Text-white' : ''; ?>"><?php echo get_the_title($testimonial_id); ?></div>
+                                        <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 testimonial-heading tmb-30 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>"><?php echo get_the_title($testimonial_id); ?></div>
                                     <?php endif; ?>
                                     <?php if(!empty(get_the_content($testimonial_id))): ?>
                                         <div class="hg-regular font14 leading18 space-0_28 testimonial-client <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>"><?php echo get_the_content($testimonial_id) ?></div>
@@ -423,12 +423,12 @@
                     <div class="container">
                         <div class="col-lg-7 col-12 mx-auto text-center">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-medium font30 leading36 text-white dmb-30 px-lg-2 px-3 res-font22 res-leading32">
+                                <div class="hg-medium font30 leading36 text-white dmb-30 px-lg-2 px-3 res-font22 res-leading32 wow animate__fadeInUp" data-wow-duration="1.5s">
                                     <?php echo $heading; ?>
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($description)): ?>
-                                <div class="hg-regular font16 leading26 text-white opacity80 col-lg-11 col-12 mx-auto px-2 res-font14 res-leading24">
+                                <div class="hg-regular font16 leading26 text-white opacity80 col-lg-11 col-12 mx-auto px-2 res-font14 res-leading24 wow animate__fadeInUp" data-wow-duration="1.5s">
                                     <?php echo $description; ?>
                                 </div>
                             <?php endif; ?>
@@ -509,7 +509,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-8 col-12 ps-lg-4">
-                                <div class="row row8 dmb-40">
+                                <div class="row row8">
                                     <?php if (!empty($include_cards)):
                                         foreach ($include_cards as $include):
                                             $image = $include['image'];
@@ -552,13 +552,13 @@
             $app_logo = get_sub_field('app_logo');
         ?>
             <!-- our-app-banner-section  -->
-            <section class="our-app-banner-section position-relative <?php echo $background_color; ?>">
+            <section class="our-app-banner-section position-relative <?php echo $background_color; ?> ">
                 <div class="container">
                     <div class="our-app-content bg-20994A radius28 res-radius10 overflow-hidden position-relative dpt-50 dpb-60 tpt-70 tpb-75">
                         <div class="position-absolute top-0 start-0 h-100 d-none d-lg-block">
                             <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/banner.svg" alt="" class="h-100">
                         </div>
-                        <div class="col-lg-7 px-lg-3 col-10 mx-auto text-center">
+                        <div class="col-lg-7 px-lg-3 col-10 mx-auto text-center position-relative z-3 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php if (!empty($title)): ?>
                                 <div class="hg-light font38 leading50 space-0_76 text-white dmb-20 res-font30 res-leading36 res-space-0_6 tmb-15"><?php echo $title; ?></div>
                             <?php endif; ?>
@@ -601,9 +601,9 @@
                 </div>
                 <div class="position-absolute top-center w-100">
                     <div class="container">
-                        <div class="col-lg-9 pe-lg-3">
+                        <div class="col-lg-9 pe-lg-3 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30 res-font35 res-leading40 tmb-25">
+                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30 res-font35 res-leading40 tmb-25 heading">
                                     <?php echo $heading; ?>
                                 </div>
                             <?php endif; ?>
@@ -625,7 +625,7 @@
             <section class="what-we-offer-section position-relative <?php echo $background_color; ?>" id="what-we-do">
                 <div class="container">
                     <?php if (!empty($heading)): ?>
-                        <div class="main-title hg-semibold font44 leading48 space-0_88 text-white dmb-55 res-font25 res-leading32 tmb-25">
+                        <div class="main-title hg-light font44 leading48 space-0_88 text-white dmb-55 res-font25 res-leading32 tmb-25 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php echo $heading; ?>
                         </div>
                     <?php endif; ?>
@@ -643,7 +643,7 @@
                                 $modal_id = 'offerOffcanvas_' . $index;
                         ?>
                                 <?php if ($link_style == 'Link'): ?>
-                                    <div class="col-lg-4 col-12 offer-cards dmb-20 tmb-15">
+                                    <div class="col-lg-4 col-12 offer-cards dmb-20 tmb-15 wow animate__fadeInUp" data-wow-duration="1.5s">
                                         <a href="<?php echo $link['url']; ?>" class="text-decoration-none h-100">
                                             <div class="offer-card position-relative bg-20994A radius20 res-radius10 overflow-hidden dpt-45 dpb-60 tpt-40 tpb-40">
                                                 <div class="offer-img d-inline-flex dmb-40 tmb-30">
@@ -661,7 +661,7 @@
                                         </a>
                                     </div>
                                 <?php elseif ($link_style == 'Modal'): ?>
-                                    <div class="col-lg-4 offer-cards dmb-20 tmb-15">
+                                    <div class="col-lg-4 offer-cards dmb-20 tmb-15 wow animate__fadeInUp" data-wow-duration="1.5s">
                                         <a href="javascript:void(0)" class="text-decoration-none h-100"
                                             data-bs-toggle="offcanvas" data-bs-target="#<?php echo $modal_id; ?>"
                                             aria-controls="<?php echo $modal_id; ?>">
@@ -739,10 +739,10 @@
                                                             <div class="case-studies-img dmb-25 tmb-20 card-hover radius20 overflow-hidden position-relative res-radius10">
                                                                 <img src="<?php echo esc_url($case_image); ?>"
                                                                     class="w-100 h-100 object-cover img" alt="">
-                                                                <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-3">
+                                                                <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-3 flex-wrap">
                                                                     <?php if (!empty($case_categories)):
                                                                         foreach ($case_categories as $cat): ?>
-                                                                            <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10 res-leading20">
+                                                                            <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10 res-leading20 text-nowrap">
                                                                                 <?php echo $cat->name; ?>
                                                                             </div>
                                                                     <?php endforeach;
@@ -778,7 +778,7 @@
             <!-- left-right-section -->
             <section class="left-right-section position-relative z-3 <?php echo $background_color; ?>">
                 <div class="container">
-                    <div class="row align-items-center  <?php echo $image_position == 'Right' ? 'flex-column-reverse' : ''; ?> flex-lg-row">
+                    <div class="row align-items-center  <?php echo $image_position == 'Right' ? 'flex-column-reverse' : ''; ?> flex-lg-row wow animate__fadeInUp" data-wow-duration="1.5s">
                         <?php if ($image_position == 'Left'): ?>
                             <div class="col-lg-6 dmb-15 px-lg-3">
                                 <div class="col-lg-11 me-lg-auto dmb-45">
@@ -790,7 +790,7 @@
                                 </div>
                             </div>
                         <?php endif; ?>
-                        <div class="col-lg-6 <?php echo $image_position == 'Left' ? 'ps-lg-5 pe-2' : 'pe-lg-5 pe-2' ?>">
+                        <div class="col-lg-6 <?php echo $image_position == 'Left' ? 'ps-lg-5 pe-2' : 'pe-lg-5 pe-2' ?> wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php if (!empty($heading)): ?>
                                 <div class="hg-regular font22 leading30 space-0_44 text-0F120A dmb-35 tmb-15">
                                     <?php echo $heading; ?>
@@ -803,7 +803,7 @@
                             <?php endif; ?>
                         </div>
                         <?php if ($image_position == 'Right'): ?>
-                            <div class="col-lg-6 px-lg-3">
+                            <div class="col-lg-6 px-lg-3 wow animate__fadeInUp" data-wow-duration="1.5s">
                                 <div class="col-lg-11 ms-lg-auto dmb-45">
                                     <?php if (!empty($image)): ?>
                                         <div class="left-right-img w-100 radius20 overflow-hidden">
@@ -829,7 +829,7 @@
                         <?php echo $title; ?>
                     </div>
                     <?php if (!empty($select_service)): ?>
-                        <div class="other-service-slider col-10 pe-2 pe-lg-0 col-lg-12">
+                        <div class="other-service-slider col-10 pe-2 pe-lg-0 col-lg-12 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php if (!empty($select_service)):
                                 foreach ($select_service as $service):
                                     $post_id = $service->ID;
@@ -843,7 +843,7 @@
                                             <div class="small-bg-layer position-absolute bottom-0 start-0 w-100"></div>
                                             <div class="position-absolute small-card-content">
                                                 <div class="hg-semibold font20 leading26 space-0_4 text-white mb-1"><?php echo esc_html($title); ?></div>
-                                                <div class="hg-regular font14 leading18 space-0_28 text-white dmb-10"><?php echo esc_html($description); ?></div>
+                                                <div class="hg-regular font16 leading18 space-0_28 text-white dmb-10 "><?php echo esc_html($description); ?></div>
                                                 <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/white-right-arrow.svg" class="small-arrow" alt="">
                                             </div>
                                         </a>
@@ -906,7 +906,7 @@
                     <div class="container">
                         <div class="col-lg-9 pe-lg-3">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30 res-font35 res-leading40 tmb-25">
+                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30 res-font35 res-leading40 tmb-25 heading">
                                     <?php echo $heading; ?>
                                 </div>
                             <?php endif; ?>
@@ -948,7 +948,7 @@
             <section class="our-value-section position-relative z-3 overflow-hidden <?php echo $background_color; ?>">
                 <div class="container">
                     <?php if (!empty($heading)): ?>
-                        <div class="main-title hg-light font44 leading48 space-0_88 text-0F120A text-center dmb-95 res-font25 res-leading30 res-space-0_5 tmb-55">
+                        <div class="main-title hg-light font44 leading48 space-0_88 text-0F120A text-center dmb-95 res-font25 res-leading30 res-space-0_5 tmb-55 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php echo $heading; ?>
                         </div>
                     <?php endif; ?>
@@ -958,7 +958,7 @@
                                 $title = $value['title'];
                                 $description = $value['description'];
                         ?>
-                                <div class="value-cards">
+                                <div class="value-cards wow animate__fadeInUp" data-wow-duration="1.5s">
                                     <div class="arorw-icon dmb-35">
                                         <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/green-right-arrow.svg" alt="" class="h-100">
                                     </div>
@@ -988,7 +988,7 @@
             <section class="key-document-section position-relative z-3 <?php echo $background_color; ?>">
                 <div class="container">
                     <?php if (!empty($heading)): ?>
-                        <div class="hg-medium font44 leading50 space-0_88 text-0F120A dmb-30 res-font25 res-leading30 res-space-0_5 tmb-35">
+                        <div class="hg-medium font44 leading50 space-0_88 text-0F120A dmb-30 res-font25 res-leading30 res-space-0_5 tmb-35 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php echo $heading; ?>
                         </div>
                     <?php endif; ?>
@@ -999,7 +999,7 @@
                                 $document = $docs['document'];
                         ?>
                                 <div class="download-cards col-lg-6 col-12 dmb-15 tmb-10">
-                                    <div class="download-card radius10 overflow-hidden d-flex align-items-center justify-content-between">
+                                    <a href="<?php echo $document; ?>" target="_blank" class="download-card radius10 overflow-hidden d-flex align-items-center justify-content-between text-decoration-none">
                                         <div class="hg-regular font22 leading34 space-0_44 text-0F120A res-font16 res-leading24 res-space-0_32">
                                             <?php echo $title; ?>
                                         </div>
@@ -1007,7 +1007,7 @@
                                             class="download-icon bg-EBFF99 radius3 d-inline-flex align-items-center justify-content-center">
                                             <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/download.svg" alt="">
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                         <?php endforeach;
                         endif; ?>
@@ -1041,35 +1041,39 @@
                 <div class="container px-p-0">
                     <div class="col-lg-8 px-p-p">
                         <?php if (!empty($heading)): ?>
-                            <div class="hg-semibold font48 leading54 space-0_96 text-black dmb-20 tmb-40 res-font35 res-leading40 res-space-0_7">
+                            <div class="hg-semibold font48 leading54 space-0_96 text-black dmb-20 tmb-40 res-font35 res-leading40 res-space-0_7 wow animate__fadeInUp" data-wow-duration="1.5s">
                                 <?php echo $heading; ?>
                             </div>
                         <?php endif; ?>
                     </div>
-                    <div class="d-flex dmb-120 tmb-50 ps-p-p">
+                    <div class="d-flex dmb-120 tmb-50 ps-p-p wow animate__fadeInUp" data-wow-duration="1.5s">
                         <div class="col-lg-8 col-12">
                             <div class="filter-btns filter-btn-list d-flex flex-nowrap">
                                 <button data-tag="all"
                                     class="filter case-filter-btn active text-nowrap hg-regular font14 leading17 text-0F120A radius5 border-0 py-2 px-3">
                                     View all
                                 </button>
-                                <?php foreach ($cats as $index => $cat): if($index < 3){ ?>
-                                    <button data-tag="<?php echo $cat->slug; ?>" class="filter case-filter-btn text-nowrap hg-regular font14 leading17 text-0F120A radius5 border-0 py-2 px-3" >
+                               <?php foreach ($cats as $index => $cat): ?>
+                                    <button 
+                                        data-tag="<?php echo $cat->slug; ?>" 
+                                        class="filter case-filter-btn text-nowrap hg-regular font14 leading17 text-0F120A radius5 border-0 py-2 px-3 <?php echo $index >= 3 ? 'extra-cat d-none' : ''; ?>">
                                         <?php echo $cat->name; ?>
                                     </button>
-                                <?php } endforeach; ?>
+                                <?php endforeach; ?>
                             </div>
                         </div>
-                        <div class="col-4 d-lg-flex justify-content-end d-none position-relative">
+                        <div class="col-4 d-lg-flex justify-content-end d-none position-relative more-filter-container">
                             <div class="text-nowrap hg-regular font14 bg-E0E0E0 leading17 text-0F120A cursor-pointer radius5 border-0 py-2 px-3 more-filter">
-                                More Filters +
+                                More Filters <div class="more-filter-plus d-inline-block">+</div>
                             </div>
-                            <div class="position-absolute top-100">
-                                <div class="pt-2">
+                            <div class="position-absolute top-100 more-filter-options bg-E0E0E0 p-4 radius10 mt-2 d-none">
+                                <div class="">
                                     <?php foreach ($cats as $index => $cat): if($index >= 3){ ?>
-                                        <div class="text-end">
-                                            <label for="<?php echo $cat->slug; ?>" >
-                                                <input type="checkbox" name="" id="<?php echo $cat->slug; ?>" data-tag="<?php echo $cat->slug; ?>" class="case-filter-check">  <?php echo $cat->name; ?>
+                                        <div class="text-end filter-item d-none">
+                                            <label for="<?php echo $cat->slug; ?>" class="hg-regular font14 leading17 text-0F120A d-inline-flex align-items-center case-filter-check-container position-relative">
+                                                <input type="checkbox" name="" id="<?php echo $cat->slug; ?>" data-tag="<?php echo $cat->slug; ?>" class="case-filter-check me-2 position-absolute top-0 start-0 w-100 h-100 opacity-0 cursor-pointer">  
+                                                <label for="" class="label bg-20994A position-relative me-2"></label>
+                                                <?php echo $cat->name; ?>
                                             </label>
                                         </div>
                                     <?php } endforeach; ?>
@@ -1082,19 +1086,17 @@
                     </div>
 
                     <script id="case-template" type="text/x-handlebars-template">
-                        <div class="col-lg-6 col-12 case-studies-cards dmb-70 tmb-40">
+                        <div class="col-lg-6 col-12 case-studies-cards dmb-70 tmb-40 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <a href="{{link}}" class="case-studies-card d-inline-block text-decoration-none">
                                 <div class="case-studies-img dmb-25 tmb-15 card-hover radius20 res-radius10 overflow-hidden position-relative">
                                     <img src="{{image}}" class="w-100 h-100 object-cover img" alt="{{title}}">
                                     <div class="case-layer position-absolute bottom-0 start-0 w-100 opacity40"></div>
-                                    <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-3">
-                                        {{#each categories}}
-                                            <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 res-font10 text-white radius5 d-inline-flex align-items-center me-2">{{name}}</div>
-                                        {{/each}}
+                                    <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-3 flex-wrap">
+                                       {{showCategories categories}}
                                     </div>
                                 </div>
-                                <div class="hg-medium font20 leading24 space-0_4 text-0F120A tmb-5">{{title}}</div>
-                                <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28">{{location}}
+                                <div class="hg-medium font20 leading24 text-0F120A tmb-5">{{title}}</div>
+                                <div class="hg-regular font16 leading21 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28">{{location}}
                                 </div>
                             </a>
                         </div>
@@ -1164,13 +1166,13 @@
                                     </a>
                                 </div>
                             <?php endif; ?>
-                            <div class="social-menus dmt-25 tmt-35">
+                            <div class="social-menus dmt-25 tmt-35 d-flex">
                                 <?php if (!empty($social_group)):
                                     foreach ($social_group as $social):
                                         $social_icon = $social['social_icon'];
                                         $social_link = $social['social_link'];
                                 ?>
-                                        <a href="<?php echo $social_link; ?>" class="text-decoration-none social-icon bg-white d-inline-flex align-items-center justify-content-center rounded-pill me-2">
+                                        <a href="<?php echo $social_link; ?>" target="_blank" class="text-decoration-none social-icon bg-white d-inline-flex align-items-center justify-content-center rounded-pill me-2">
                                             <img src="<?php echo $social_icon['url']; ?>" alt="">
                                         </a>
                                     <?php endforeach; ?>
@@ -1212,7 +1214,7 @@
             <!-- faq-accordion-section -->
             <section class="faq-accordion-section">
                 <div class="container">
-                    <div class="col-lg-4 dmb-70">
+                    <div class="col-lg-4 dmb-70 wow animate__fadeInUp" data-wow-duration="1.5s">
                         <div class="left-side position-sticky bottom-0 top-0 d-flex flex-column">
                             <div class="d-flex dmb-25">
                                 <?php if (!empty($prefix)): ?>

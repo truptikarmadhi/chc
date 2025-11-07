@@ -3,7 +3,7 @@
 <section class="service-bar position-fixed bottom-0 w-100 dmb-30">
   <div class="container">
     <div class="d-inline-flex justify-content-center w-100">
-      <div class="service-bar-container radius10">
+      <div class="service-bar-container radius10 d-none d-lg-block">
       </div>
     </div>
   </div>

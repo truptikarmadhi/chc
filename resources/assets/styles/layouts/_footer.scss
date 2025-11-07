@@ -10,10 +10,15 @@
             height: 407px;
 
             .footer-submit {
+                .wpcf7-not-valid-tip{
+                    display: none;
+                }
                 .btnA{
                     .wpcf7-form-control{
-                        font-size: 0px;
-                        padding: 0px;
+                        @include media-breakpoint-down(lg){
+                            font-size: 0px;
+                            padding: 0px;
+                        }
                     }
                 }
                 .footer-input {

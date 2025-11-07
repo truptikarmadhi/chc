@@ -26,7 +26,8 @@
     .slick-list {
         .slick-slide {
             &.slick-active {
-                .testimonial-heading {
+                .testimonial-heading,
+                .testimonial-client {
                     color: rgba($color: $color-0F120A, $alpha: 1.0);
                 }
             }
@@ -127,7 +128,8 @@
                     }
                 }
 
-                &.slick-active {
+                &.slick-active,
+                &.slick-current {
                     .center-main-img {
                         .center-img {
                             height: 100% !important;
@@ -203,4 +205,8 @@
     div {
         height: 100%;
     }
+}
+
+.slick-hidden{
+    display: none !important;
 }

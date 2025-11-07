@@ -28,7 +28,7 @@ if ($footer_color == 'default') {
             <?php if (!empty($get_in_touch_section)): ?>
                 <div class="footer-banner bg-20994A radius20 overflow-hidden ps-lg-5 d-flex align-items-center flex-column flex-lg-row">
                     <div class="col-lg-8 ms-lg-4">
-                        <div class="main-title main-white-title hg-light font54 leading62 space-1_08 text-white dmb-20 res-font30 res-leading40 tmb-30 pe-3 pe-lg-0">
+                        <div class="main-title main-white-title hg-light font54 leading62 space-1_08 text-white dmb-20 res-font30 res-leading40 tmb-30 pe-3 pe-lg-0 res-space-0_6">
                             <?php echo $get_in_touch_section['content']; ?>
                         </div>
                         <?php echo do_shortcode('[contact-form-7 id="c2cba21" title="Footer banner form"]'); ?>
@@ -142,13 +142,13 @@ if ($footer_color == 'default') {
                 </div>
                 <div class="col-lg-6 col-12">
                     <div class="d-flex align-items-lg-center justify-content-between dmb-25 flex-column flex-lg-row tmb-30">
-                        <div class="social-menus tmb-45">
+                        <div class="social-menus tmb-45 d-flex">
                             <?php if (!empty($footer_social_group)):
                                 foreach ($footer_social_group as $social):
                                     $social_icon = $social['social_icon'];
                                     $social_link = $social['social_link'];
                             ?>
-                                    <a href="<?php echo $social_link; ?>" class="text-decoration-none social-icon bg-white d-inline-flex align-items-center justify-content-center rounded-pill me-2">
+                                    <a href="<?php echo $social_link; ?>" target="_blank" class="text-decoration-none social-icon bg-white d-inline-flex align-items-center justify-content-center rounded-pill me-2">
                                         <img src="<?php echo $social_icon['url']; ?>" alt="">
                                     </a>
                                 <?php endforeach; ?>

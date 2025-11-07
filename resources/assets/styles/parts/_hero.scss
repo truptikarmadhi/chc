@@ -26,7 +26,7 @@
         }
 
         .hero-img {
-            margin-top: 25%;
+            margin-top: 21%;
             transform-origin: center center;
             transition: none;
             @include media-breakpoint-down(md){
@@ -41,9 +41,12 @@
     .contact-section,
     .hero-section {
         background-image: url(/wp-content/themes/chc/templates/icons/hero-bg.svg);
-        background-size: 125% 86%;
+        background-size: 104% 71%;
         background-repeat: no-repeat;
         background-position: 85% bottom;
+        @include media-breakpoint-up(xxl){
+            background-size: 125% 86%;
+        }
     }
 
     .contact-section{

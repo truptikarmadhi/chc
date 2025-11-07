@@ -3,11 +3,6 @@
         top: 230px;
 
         .privacy-container {
-            @include media-breakpoint-up(lg){
-                padding-left: 40px;
-                padding-right: 40px;
-            }
-
             ul {
                 li {
                     a {
@@ -49,6 +44,7 @@
             letter-spacing: $space-0_56;
             line-height: $leading34;
             font-weight: 500;
+            color: $black;
         }
 
         p {
@@ -57,6 +53,7 @@
             letter-spacing: $space-0_16;
             line-height: $leading21;
             font-weight: 400;
+            color: $color-050505;
         }
 
         h6 {
