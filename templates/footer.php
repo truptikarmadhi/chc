@@ -35,7 +35,7 @@ if ($footer_color == 'default') {
                     </div>
                     <div class="position-absolute bottom-0 end-0">
                         <div class="footer-banner-img">
-                            <img src="<?php echo $get_in_touch_section['image']['url']; ?>" alt="" class="w-100 h-100">
+                            <img src="<?php echo $get_in_touch_section['image']['url']; ?>" alt="" class="w-100 h-100 object-cover">
                         </div>
                     </div>
                 </div>
@@ -155,19 +155,21 @@ if ($footer_color == 'default') {
                             <?php endif; ?>
                         </div>
 
-                        <div class="row row4 align-items-center">
-                            <?php if (!empty($app_button)):
-                                foreach ($app_button as $app_btn):
-                                    $button_image = $app_btn['button_image'];
-                                    $app_url = $app_btn['app_url'];
-                            ?>
-                                    <div class="col-6 col-md-3 app-images">
-                                        <a href="<?php echo $app_url; ?>" class="text-decoration-none w-100 h-100">
-                                            <img src="<?php echo $button_image['url']; ?>" alt="" class="w-100 h-100">
-                                        </a>
-                                    </div>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                        <div class="col-6">
+                            <div class="row row4 align-items-center">
+                                <?php if (!empty($app_button)):
+                                    foreach ($app_button as $app_btn):
+                                        $button_image = $app_btn['button_image'];
+                                        $app_url = $app_btn['app_url'];
+                                ?>
+                                        <div class="col-6 col-md-5 col-lg-6 app-images">
+                                            <a href="<?php echo $app_url; ?>" target="_blank" class="text-decoration-none w-100 h-100">
+                                                <img src="<?php echo $button_image['url']; ?>" alt="" class="w-100 h-100">
+                                            </a>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
 

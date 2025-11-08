@@ -11,7 +11,7 @@
                 height: 407px;
             }
 
-            @include media-breakpoint-down(md){
+            @include media-breakpoint-down(md) {
                 height: 675px;
                 padding: 40px 15px;
             }
@@ -59,12 +59,15 @@
 
             .footer-banner-img {
                 height: 558px;
+                width: 558px;
 
                 @include media-breakpoint-down(lg) {
+                    width: 370px !important;
                     height: 370px !important;
                 }
 
                 @media (max-width:374px) {
+                    width: 300px !important;
                     height: 300px !important;
                 }
             }
@@ -104,6 +107,14 @@
             a {
                 color: $white;
             }
+        }
+    }
+}
+
+@supports (-webkit-hyphens: none) {
+    .copyright {
+        a {
+            color: $white;
         }
     }
 }

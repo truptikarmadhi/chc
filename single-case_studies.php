@@ -63,7 +63,7 @@ $service_tags = $how_helped['service_tags'];
 <?php if (!empty($image_slider)): ?>
 
     <section class="center-slider-main-section bg-0F120A dpb-235 tpb-110">
-        <div class="center-slider-section position-relative overflow-hidden tpb-55">
+        <div class="center-slider-section position-relative overflow-hidden tmb-55">
             <div class="container h-100">
                 <div class="overflow-hidden h-100">
                     <div class="col-xxl-7 col-xl-9 col-lg-10 px-lg-4 col-12 h-100 mx-auto">
@@ -81,12 +81,12 @@ $service_tags = $how_helped['service_tags'];
                     </div>
                 </div>
             </div>
-            <div class="slick-arrows position-absolute p-initial top-0 h-100 start-0 w-100 d-flex align-items-center tmt-25">
-                <div class="container">
-                    <div class="d-flex align-items-center justify-content-center justify-content-lg-between">
-                        <div class="prev-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 me-2 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-prev.svg" class="icon" alt=""></div>
-                        <div class="next-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-next.svg" class="icon" alt=""></div>
-                    </div>
+        </div>
+        <div class="slick-arrows position-absolute p-initial top-0 h-100 start-0 w-100 d-flex align-items-center tmt-25">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-center justify-content-lg-between">
+                    <div class="prev-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 me-2 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-prev.svg" class="icon" alt=""></div>
+                    <div class="next-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-next.svg" class="icon" alt=""></div>
                 </div>
             </div>
         </div>

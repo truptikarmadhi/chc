@@ -257,3 +257,13 @@
         height: 275px;
     }
 }
+
+
+@supports (-webkit-hyphens: none) {
+    .offer-cards {
+        a {
+            outline: 0px !important;
+            outline-offset: 0px !important;
+        }
+    }
+}

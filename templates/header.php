@@ -80,7 +80,7 @@ if ($header_color == 'Default') {
                                         <div class="mega-menu position-absolute top-100 start-0 w-100 dpt-120 d-none p-initial tpt-30">
                                             <div class="container px-p-0">
                                                 <div class="d-flex justify-content-between flex-column flex-lg-row">
-                                                    <div class="menu-link-group position-relative col-lg-5 col-12 p-initial">
+                                                    <div class="menu-link-group position-relative col-lg-7 col-xl-5 col-12 p-initial">
                                                         <?php if (!empty($mega_menu_links)):
                                                             foreach ($mega_menu_links as $mega_menus):
                                                                 $mega_link_type = $mega_menus['mega_link_type'];
@@ -117,7 +117,7 @@ if ($header_color == 'Default') {
                                                             <?php endforeach;
                                                         endif; ?>
                                                     </div>
-                                                    <div class="header-information-box radius20 res-radius10 tmb-30">
+                                                    <div class="col-lg-5 header-information-box radius20 res-radius10 tmb-30">
                                                         <?php if (!empty($contact_details)):
                                                             $call_number = $contact_details['call_number'];
                                                             $general_mail = $contact_details['general_mail'];
@@ -125,19 +125,19 @@ if ($header_color == 'Default') {
                                                             $account_mail =  $contact_details['account_mail'];
                                                             $social_group = $contact_details['social_group'];
                                                         ?>
-                                                            <div class="d-flex dmb-20">
+                                                            <div class="d-flex flex-wrap dmb-20">
                                                                 <div class="hg-regular font23 leading36 text-FFFFFF80 me-1 res-font16 res-leading21">Call:</div>
                                                                 <a href="tel:<?php echo $call_number; ?>" class="hg-regular font23 leading36 text-white text-decoration-none res-font16 res-leading21"><?php echo $call_number; ?></a>
                                                             </div>
-                                                            <div class="d-flex tmb-10">
+                                                            <div class="d-flex flex-wrap tmb-10">
                                                                 <div class="hg-regular font23 leading36 text-FFFFFF80 me-1 res-font16 res-leading21">General:</div>
                                                                 <a href="mailto:<?php echo $general_mail; ?>" class="hg-regular font23 leading36 text-white text-decoration-none res-font16 res-leading21"><?php echo $general_mail; ?></a>
                                                             </div>
-                                                            <div class="d-flex tmb-10">
+                                                            <div class="d-flex flex-wrap tmb-10">
                                                                 <div class="hg-regular font23 leading36 text-FFFFFF80 me-1 res-font16 res-leading21">Sales:</div>
                                                                 <a href="mailto:<?php echo $sales_mail; ?>" class="hg-regular font23 leading36 text-white text-decoration-none res-font16 res-leading21"><?php echo $sales_mail; ?></a>
                                                             </div>
-                                                            <div class="d-flex">
+                                                            <div class="d-flex flex-wrap">
                                                                 <div class="hg-regular font23 leading36 text-FFFFFF80 me-1 res-font16 res-leading21">Accounts:</div>
                                                                 <a href="mailto:<?php echo $account_mail; ?>" class="hg-regular font23 leading36 text-white text-decoration-none res-font16 res-leading21"><?php echo $account_mail; ?></a>
                                                             </div>

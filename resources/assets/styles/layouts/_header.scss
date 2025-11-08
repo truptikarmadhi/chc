@@ -170,12 +170,21 @@
             .mega-menu-links {
               border-left: 1px solid $white;
               padding-left: 57px;
+
+              @include media-breakpoint-down(xl) {
+                padding-left: 25px;
+                padding-right: 35px;
+              }
             }
 
             .header-information-box {
               background-color: rgba($color: $white, $alpha: 0.1);
               backdrop-filter: blur(30px);
               padding: 47px 43px;
+
+              @include media-breakpoint-down(xl) {
+                padding: 30px 20px;
+              }
 
               @include media-breakpoint-down(lg) {
                 padding: 50px 40px 50px 15px;
@@ -248,7 +257,7 @@
   }
 
   &.hidden {
-    transform: translateY(-150px);
+    transform: translateY(-155px);
   }
 
   &.header-fixed {
@@ -337,4 +346,44 @@ body {
       }
     }
   }
+}
+
+@supports (-webkit-hyphens: none) {
+  .header {
+    .burger-toggle {
+      height: 15px;
+
+      .close-icon,
+      .black-burger-icon {
+        display: none;
+      }
+
+      &.activate {
+
+        .black-burger-icon,
+        .burger-icon {
+          display: none !important;
+        }
+
+        .close-icon {
+          display: block;
+        }
+      }
+    }
+
+    .nav {
+      .navigation {
+        .menu-item {
+          .mega-menu {
+            .menu-links-heading {
+              @include media-breakpoint-down(lg) {
+                color: rgba($color: $white, $alpha: 1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 }

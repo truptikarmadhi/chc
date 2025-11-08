@@ -37,7 +37,7 @@
     }
 }
 
-.center-slider-section,
+.center-slider-main-section,
 .sectors-slider-section {
     .slick-arrows {
         .slick-arrow {
@@ -57,7 +57,6 @@
         }
 
         @include media-breakpoint-down(lg) {
-
             .prev-arrow,
             .next-arrow {
                 height: 30px;
@@ -71,7 +70,7 @@
     }
 }
 
-.center-slider-section {
+.center-slider-main-section {
     .slick-arrows {
         @include media-breakpoint-down(lg) {
             height: auto !important;
@@ -180,7 +179,7 @@
                     }
                 }
             }
-        }
+        }   
     }
 
     div {

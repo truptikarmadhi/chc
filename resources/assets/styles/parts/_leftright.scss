@@ -9,7 +9,7 @@
         height: 768px;
         bottom: -40%;
         left: -8%;
-        z-index: 4;
+        z-index: -1;
 
         @media screen and (max-width:1920px) {
             bottom: -120%;

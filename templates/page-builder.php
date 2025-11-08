@@ -26,7 +26,7 @@
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($button)): ?>
-                                <a href="<?php echo $button['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none dmb-95 position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $button['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                                <a href="<?php echo $button['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none tmb-0 dmb-95 position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $button['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                     <div class="row flex-column-reverse flex-lg-row">
                         <div class="col-lg-6 col-12 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php if (!empty($link)): ?>
-                                <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition tmb-0"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"><?php echo $link['title']; ?></span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                                <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative z-3 transition tmb-0"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"><?php echo $link['title']; ?></span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                             <?php endif; ?>
                         </div>
                         <div class="col-lg-6 col-12 wow animate__fadeInUp" data-wow-duration="1.5s">
@@ -691,7 +691,7 @@
                                         data-bs-backdrop="static" tabindex="-1"
                                         id="<?php echo $modal_id; ?>" aria-labelledby="<?php echo $modal_id; ?>Label">
                                         <div class="offcanvas-body">
-                                            <div class="position-absolute top-0 end-0 dmt-25 pe-4">
+                                            <div class="position-absolute top-0 end-0 dmt-25 pe-4 z-3">
                                                 <button type="button" class="close-btn bg-transparent border-0"
                                                     data-bs-dismiss="offcanvas" aria-label="Close">
                                                     <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/modal-close.svg"
@@ -1187,25 +1187,7 @@
                         <div class="col-lg-7 ps-1">
                             <div class="contact-form radius20 overflow-hidden">
                                 <?php echo do_shortcode('[contact-form-7 id="a487ced" title="Contact form 1"]'); ?>
-                                <!-- <div class="row row30">
-                                    <div class="col-6">
-                                        <input type="text" placeholder="Name…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
-                                        <input type="email" placeholder="Email address…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
-                                        <input type="email" placeholder="Phone Number…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
-                                        <input type="email" placeholder="Enquiry Type…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
-                                    </div>
-                                    <div class="col-6">
-                                        <textarea name="" id="" placeholder="Message…" class="contact-textarea bg-transparent border-0 w-100 h-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45"></textarea>
-                                    </div>
-                                    <div class="dmt-60 d-flex align-items-center">
-                                        <a href="<?php echo $button['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> Submit </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
-                                        <div class="ms-4 hg-regular font12 leading18 space-0_24 text-white">
-                                            By clicking the button, you agree to the Terms of Use and Privacy Policy
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
-                            <div class="dmb-45"></div>
                         </div>
                     </div>
                 </div>
@@ -1293,7 +1275,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-9 dpt-200 tpt-45 px-p-p">
+                        <div class="col-lg-9 dpt-230 tpt-45 px-p-p">
                             <div class="col-lg-10 pe-lg-5">
                                 <?php if (!empty($policy_data)):
                                     foreach ($policy_data as $policy):

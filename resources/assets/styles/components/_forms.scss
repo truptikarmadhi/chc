@@ -86,4 +86,13 @@
 .wpcf7-submit {
     background-color: transparent;
     border: 0px !important;
+    color: $color-0F120A;
+}
+
+@supports (-webkit-hyphens: none) {
+    .wpcf7-submit {
+        background-color: transparent;
+        border: 0px !important;
+        color: $color-0F120A;
+    }
 }

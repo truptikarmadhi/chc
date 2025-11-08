@@ -20,6 +20,13 @@
     .hero-section {
         background-attachment: fixed;
 
+        .hero-heading {
+            @media (max-width:374px) {
+                height: fit-content !important;
+                padding-top: 180px;
+            }
+        }
+
         .hero-bg-layer {
             background: linear-gradient(180deg, rgba(32, 153, 74, 0), rgba(32, 153, 74, 1));
             height: 228px;
@@ -40,7 +47,7 @@
             }
 
             @include media-breakpoint-down(lg) {
-                margin-top: 45%;
+                margin-top: 55%;
                 border-radius: 0px !important;
             }
 
@@ -49,12 +56,16 @@
                 height: 253px !important;
             }
 
-            @media (max-width:381px) {
-                margin-top: 105%;
+            @media (max-width:391px) {
+                margin-top: 90%;
             }
 
-            @media (max-width:374px) {
-                margin-top: 125%;
+            @media (max-width:376px) {
+                margin-top: 70%;
+            }
+
+            @media (max-width:325px) {
+                margin-top: 88%;
             }
         }
     }
@@ -67,17 +78,31 @@
         background-position: 85% bottom;
 
         @include media-breakpoint-up(xxl) {
-            background-size: 125% 86%;
+            background-size: 115% 78%;
+            background-position: 70% bottom;
+        }
+
+        @include media-breakpoint-down(lg) {
+            background-size: 80% 71%;
+            background-position: 0% bottom;
         }
 
         @include media-breakpoint-down(md) {
-            background-size: 90% 45%;
-            background-position: 55% bottom;
+            background-size: 90% 60%;
+            background-position: 10% bottom;
         }
 
-        @media (max-width:374px) {
-            background-size: 101% 30%;
-            background-position: 97% bottom;
+        @media (max-width:769px) {
+            background-size: 90% 50%;
+            background-position: 0% bottom;
+        }
+
+        @media (max-width:391px) {
+            background-size: 90% 66%;
+        }
+
+        @media (max-width:325px) {
+            background-size: 90% 28%;
         }
     }
 
@@ -91,5 +116,13 @@
     .sub-hero-section {
         @include media-breakpoint-down(lg) {
             height: 676px;
+        }
+    }
+
+    @supports (-webkit-hyphens: none) {
+        .hero-section {
+            @media (max-width:325px) {
+                background-size: 90% 28%;
+            }
         }
     }
