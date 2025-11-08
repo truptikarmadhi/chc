@@ -10,10 +10,11 @@
             padding-right: 60px;
 
         }
-        @include media-breakpoint-down(lg){
+
+        @include media-breakpoint-down(lg) {
             margin-left: -25px;
             margin-right: -25px;
-    
+
             .slick-slide {
                 padding-left: 25px;
                 padding-right: 25px;
@@ -26,6 +27,7 @@
     .slick-list {
         .slick-slide {
             &.slick-active {
+
                 .testimonial-heading,
                 .testimonial-client {
                     color: rgba($color: $color-0F120A, $alpha: 1.0);
@@ -35,6 +37,7 @@
     }
 }
 
+.center-slider-section,
 .sectors-slider-section {
     .slick-arrows {
         .slick-arrow {
@@ -52,13 +55,15 @@
                 height: 12px;
             }
         }
-        @include media-breakpoint-down(lg){
+
+        @include media-breakpoint-down(lg) {
+
             .prev-arrow,
             .next-arrow {
                 height: 30px;
                 width: 30px;
 
-                  .icon {
+                .icon {
                     height: 8px;
                 }
             }
@@ -66,12 +71,21 @@
     }
 }
 
+.center-slider-section {
+    .slick-arrows {
+        @include media-breakpoint-down(lg) {
+            height: auto !important;
+        }
+    }
+}
+
 .other-service-slider,
 .sectors-slider-section {
     .slick-list {
-        @include media-breakpoint-down(lg){
+        @include media-breakpoint-down(lg) {
             overflow: visible;
         }
+
         margin-left: -8px !important;
         margin-right: -8px !important;
 
@@ -87,9 +101,10 @@
 .case-studies-slider,
 #caseContainer {
     .slick-list {
-        @include media-breakpoint-down(lg){
+        @include media-breakpoint-down(lg) {
             overflow: visible !important;
         }
+
         margin-left: -7px !important;
         margin-right: -7px !important;
 
@@ -107,7 +122,6 @@
         }
     }
 }
-
 
 .center-slider {
     .slick-list {
@@ -169,44 +183,11 @@
         }
     }
 
-    .prev-arrow {
-        left: -39%;
-        @include media-breakpoint-down(lg) {
-            left: 40%;
-        }
-    }
-    
-    .next-arrow {
-        right: -39%;
-        @include media-breakpoint-down(lg) {
-            right: 40%;
-        }
-    }
-
-    .next-arrow,
-    .prev-arrow {
-        height: 48px;
-        width: 48px;
-        img{
-            height: 14px;
-        }
-        @include media-breakpoint-down(lg) {
-            transform: initial;
-            bottom: 0;
-            top: auto;
-            height: 30px;
-            width: 30px;
-            img{
-                height: 8px;
-            }
-        }
-    }
-
     div {
         height: 100%;
     }
 }
 
-.slick-hidden{
+.slick-hidden {
     display: none !important;
 }

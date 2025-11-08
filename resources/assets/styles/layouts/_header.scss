@@ -40,20 +40,25 @@
   .header-section {
     .burger-toggle {
       height: 15px;
+
       .close-icon,
       .black-burger-icon {
         display: none;
       }
+
       &.activate {
+
         .black-burger-icon,
         .burger-icon {
           display: none !important;
         }
+
         .close-icon {
           display: block;
         }
       }
     }
+
     .res-search-input {
       input {
         height: 40px;
@@ -62,14 +67,20 @@
         -webkit-backdrop-filter: blur(50px) brightness(0.7);
         outline: none;
         padding: 0px 15px;
+
         &::placeholder {
           font-family: "hankengrotesk-regular";
           font-size: $font12;
           line-height: $leading18;
           color: $white;
+
+          @include media-breakpoint-down(lg) {
+            letter-spacing: $space-0_24;
+          }
         }
       }
     }
+
     .header-logo {
       height: 45px;
     }
@@ -84,8 +95,13 @@
         @include media-breakpoint-down(lg) {
           position: relative;
         }
+
         .menu-item {
           margin-right: 44px;
+
+          @include media-breakpoint-down(lg) {
+            margin-right: 0px !important;
+          }
 
           &:last-child {
             margin-right: 0px !important;
@@ -114,6 +130,7 @@
             .header-arrow {
               transition: all 0.3s ease-in-out;
               height: 6px;
+
               @include media-breakpoint-down(lg) {
                 height: 10px;
               }
@@ -124,11 +141,16 @@
             .menu-links-heading {
               color: rgba($color: $white, $alpha: 0.38);
 
+              @include media-breakpoint-down(lg) {
+                color: rgba($color: $white, $alpha: 1);
+              }
+
               .arrow {
                 height: 21px;
                 opacity: 0;
                 visibility: visible;
                 transform: translateX(-10px);
+
                 @include media-breakpoint-down(lg) {
                   height: 11px;
                 }
@@ -154,6 +176,7 @@
               background-color: rgba($color: $white, $alpha: 0.1);
               backdrop-filter: blur(30px);
               padding: 47px 43px;
+
               @include media-breakpoint-down(lg) {
                 padding: 50px 40px 50px 15px;
               }
@@ -163,8 +186,10 @@
       }
     }
   }
+
   &.header-black,
   &.header-fixed {
+
     .black-logo,
     .black-arrow,
     .black-burger-icon {
@@ -196,6 +221,7 @@
   }
 
   &.header-fixed.header-active {
+
     .white-logo,
     .white-arrow {
       display: block !important;
@@ -232,14 +258,17 @@
   @include media-breakpoint-down(lg) {
     .header-section {
       &.active {
+
         .header-information-box,
         .header-btn,
         .menu-anchor {
           display: none !important;
         }
+
         .menu-links-heading {
           opacity: 0;
         }
+
         .mega-menu-links {
           border-left: none !important;
           padding-left: 0 !important;
@@ -247,6 +276,7 @@
         }
       }
     }
+
     .header-section {
       .header-logo {
         height: 30px;
@@ -256,21 +286,25 @@
 
   &.header-black.res-header-active,
   &.header-fixed.res-header-active {
+
     .black-logo,
     .black-arrow {
       display: none !important;
     }
+
     .white-logo,
     .white-arrow {
       display: block !important;
     }
+
     .menu-anchor {
       color: $white !important;
     }
   }
+
   &.res-header-active {
     height: 100vh;
-    background-color: $color-26994A;
+    background-color: $color-26994A !important;
     overflow: auto;
     padding-bottom: 140px;
   }
@@ -279,6 +313,7 @@
 body {
   &.error404 {
     .header {
+
       .black-logo,
       .black-arrow,
       .black-burger-icon {
@@ -301,5 +336,5 @@ body {
         }
       }
     }
-    }
   }
+}

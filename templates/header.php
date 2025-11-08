@@ -57,7 +57,7 @@ if ($header_color == 'Default') {
                     </div>
                 </div>
                 <div class="res-search-input position-relative dmt-40 dmb-70 d-none">
-                    <input type="text" class="hg-regular font12 leading18 space-0_28 text-capitalize text-white border-0 radius5 w-100" placeholder="Site Search…">
+                    <input type="text" class="hg-regular font12 leading18 space-0_28 res-space-0_24 text-capitalize text-white border-0 radius5 w-100 header-search-input" placeholder="Site Search…">
                     <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/search-icon.svg" class="position-absolute top-center end-0 me-3" alt="">
                 </div>
                 <nav class="nav d-none d-lg-block">
@@ -75,7 +75,7 @@ if ($header_color == 'Default') {
                                     </li>
                                 <?php elseif (!empty($link_type) && $link_type == 'Mega menu'): ?>
                                     <li class="menu-item tmb-30">
-                                        <a href="" class="menu-anchor hg-semibold font16 leading21 space-0_32 text-decoration-none d-inline-flex align-items-center res-font24 res-leading34 res-space-0_48"><?php echo $link_title; ?> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/header-arrow.svg" class="header-arrow ms-1 white-arrow" alt=""> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/black-header-arrow.svg" class="header-arrow ms-1 black-arrow" alt="">
+                                        <a href="" class="menu-anchor hg-semibold font16 leading21 space-0_32 text-decoration-none d-inline-flex align-items-center res-font24 res-leading34 res-space-0_48"><?php echo $link_title; ?> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/header-arrow.svg" class="header-arrow ms-2 ms-lg-1 white-arrow" alt=""> <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/black-header-arrow.svg" class="header-arrow ms-1 black-arrow" alt="">
                                         </a>
                                         <div class="mega-menu position-absolute top-100 start-0 w-100 dpt-120 d-none p-initial tpt-30">
                                             <div class="container px-p-0">
@@ -91,14 +91,14 @@ if ($header_color == 'Default') {
                                                         ?>
                                                                 <?php if (!empty($mega_link_type) && $mega_link_type == 'Link'): ?>
                                                                     <?php if(!empty($menu_link['title'])):?>
-                                                                    <a href="<?php echo $menu_link['url']; ?>" class="text-decoration-none hg-regular font28 leading32 menu-links-heading cursor-pointer d-inline-flex align-items-center dmb-10 res-font20"> 
+                                                                    <a href="<?php echo $menu_link['url']; ?>" class="text-decoration-none hg-regular font28 leading32 menu-links-heading cursor-pointer d-inline-flex align-items-center dmb-10 tmb-20 res-font20"> 
                                                                         <?php echo $menu_link['title']; ?>
                                                                     </a>
                                                                 <?php endif;?>
                                                                     <?php elseif (!empty($mega_link_type) && $mega_link_type == 'Sub menu'): ?>
                                                                         <div class="d-flex">
-                                                                            <div class="hg-regular font28 leading32 menu-links-heading cursor-pointer d-inline-flex align-items-center dmb-10 res-font20"><?php echo $menu_link_title; ?><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/mega-menu-arrow.svg" class="arrow ms-3 transition" alt=""></div>
-                                                                            <div class="mega-menu-links d-none position-absolute end-0 top-0">
+                                                                            <div class="hg-regular font28 leading32 menu-links-heading cursor-pointer d-inline-flex align-items-center tmb-20 dmb-10 res-font20"><?php echo $menu_link_title; ?><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/mega-menu-arrow.svg" class="arrow ms-3 transition" alt=""></div>
+                                                                            <div class="mega-menu-links d-none position-absolute end-0 top-0 tpb-120">
                                                                                 <a href="#" class="go-back hg-regular font20 leading45 space-0_4 text-white opacity-50 d-inline-block dmb-40 d-lg-none">Go back</a>
                                                                                 <div class="d-flex flex-column">
                                                                                     <?php if (!empty($sub_menu)):
@@ -143,7 +143,7 @@ if ($header_color == 'Default') {
                                                             </div>
                                                         <?php endif; ?>
 
-                                                        <div class="social-menus dmt-25 d-flex">
+                                                        <div class="social-menus tmt-40 dmt-25 d-flex">
                                                             <?php if ($social_group):
                                                                 foreach ($social_group as $social):
                                                                     $social_icon = $social['social_icon'];

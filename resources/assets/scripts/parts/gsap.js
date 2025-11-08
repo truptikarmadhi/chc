@@ -15,6 +15,8 @@ export class Gsap {
             gsap.fromTo(heroImg,
                 {
                     maxWidth: "1166px",
+                    width: "100%",
+                    height: "573px",
                 },
                 {
                     width: "100%",
@@ -22,7 +24,7 @@ export class Gsap {
                     ease: "power2.inOut",
                     scrollTrigger: {
                         trigger: heroSection,
-                        start: "top-=75% top",
+                        start: "top-=50% top",
                         end: "bottom top",
                         scrub: true,
                         markers: false,

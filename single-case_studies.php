@@ -34,7 +34,7 @@ $service_tags = $how_helped['service_tags'];
         <div class="row justify-content-between flex-column flex-lg-row">
             <div class="col-lg-7 col-12 pe-lg-5 dmb-50">
                 <?php if (!empty($heading)): ?>
-                    <div class="hg-regular font28 leading36 space-0_56 text-white dmb-15 res-font22 res-leading30"><?php echo $heading; ?></div>
+                    <div class="hg-regular font28 leading36 space-0_56 text-white dmb-15 res-font22 res-leading30 res-space-0_44"><?php echo $heading; ?></div>
                 <?php endif; ?>
                 <?php if (!empty($description)): ?>
                     <div class="hg-regular font16 leading26 text-white pe-2">
@@ -62,20 +62,30 @@ $service_tags = $how_helped['service_tags'];
 
 <?php if (!empty($image_slider)): ?>
 
-    <section class="center-slider-section bg-0F120A dpb-235 tpb-110">
-        <div class="container">
-            <div class="overflow-hidden">
-                <div class="col-xxl-7 col-xl-9 col-lg-10 px-lg-4 col-12 mx-auto">
-                    <div class="center-slider tpb-50">
-                     <?php foreach ($image_slider as $image_slide):
-                        $images = $image_slide['images'];
-                    ?>
-                        <div class="center-main-img">
-                            <div class="center-img radius10 overflow-hidden">
-                                <img src="<?php echo $images['sizes']['medium']; ?>" alt="<?php echo $images['title']; ?>" class="h-100 w-100 object-cover">
-                            </div>
+    <section class="center-slider-main-section bg-0F120A dpb-235 tpb-110">
+        <div class="center-slider-section position-relative overflow-hidden tpb-55">
+            <div class="container h-100">
+                <div class="overflow-hidden h-100">
+                    <div class="col-xxl-7 col-xl-9 col-lg-10 px-lg-4 col-12 h-100 mx-auto">
+                        <div class="center-slider h-100">
+                            <?php foreach ($image_slider as $image_slide):
+                                $images = $image_slide['images'];
+                            ?>
+                                <div class="center-main-img">
+                                    <div class="center-img radius10 overflow-hidden">
+                                        <img src="<?php echo $images['sizes']['medium']; ?>" alt="<?php echo $images['title']; ?>" class="h-100 w-100 object-cover">
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="slick-arrows position-absolute p-initial top-0 h-100 start-0 w-100 d-flex align-items-center tmt-25">
+                <div class="container">
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-between">
+                        <div class="prev-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 me-2 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-prev.svg" class="icon" alt=""></div>
+                        <div class="next-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-next.svg" class="icon" alt=""></div>
                     </div>
                 </div>
             </div>

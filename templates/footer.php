@@ -26,8 +26,8 @@ if ($footer_color == 'default') {
     <div class="container">
         <div class="footer-banner-section position-relative">
             <?php if (!empty($get_in_touch_section)): ?>
-                <div class="footer-banner bg-20994A radius20 overflow-hidden ps-lg-5 d-flex align-items-center flex-column flex-lg-row">
-                    <div class="col-lg-8 ms-lg-4">
+                <div class="footer-banner bg-20994A radius20 overflow-hidden ps-md-5 d-flex align-items-center flex-column flex-md-row dpt-90 dpb-95">
+                    <div class="col-md-6 col-lg-7 col-xl-8 ms-lg-4">
                         <div class="main-title main-white-title hg-light font54 leading62 space-1_08 text-white dmb-20 res-font30 res-leading40 tmb-30 pe-3 pe-lg-0 res-space-0_6">
                             <?php echo $get_in_touch_section['content']; ?>
                         </div>
@@ -57,19 +57,19 @@ if ($footer_color == 'default') {
                                 <?php echo $call_number; ?>
                             </a>
                         </div>
-                        <div class="hg-light font28 leading34 text-FFFFFF80 dmb-5 res-font18 res-leading28">
+                        <div class="hg-light font28 leading34 text-FFFFFF80 dmb-15 res-font18 res-leading28">
                             General:
                             <a href="mailto:<?php echo $general_mail; ?>" class="text-decoration-none text-white">
                                 <?php echo $general_mail; ?>
                             </a>
                         </div>
-                        <div class="hg-light font28 leading34 text-FFFFFF80 dmb-5 res-font18 res-leading28">
+                        <div class="hg-light font28 leading34 text-FFFFFF80 dmb-15 res-font18 res-leading28">
                             Sales:
                             <a href="mailto:<?php echo $sales_mail; ?>" class="text-decoration-none text-white">
                                 <?php echo $sales_mail; ?>
                             </a>
                         </div>
-                        <div class="hg-light font28 leading34 text-FFFFFF80 dmb-5 res-font18 res-leading28">
+                        <div class="hg-light font28 leading34 text-FFFFFF80 dmb-15 res-font18 res-leading28">
                             Accounts:
                             <a href="mailto:<?php echo $account_mail; ?>" class="text-decoration-none text-white">
                                 <?php echo $account_mail; ?>
@@ -89,12 +89,12 @@ if ($footer_color == 'default') {
                             <div class="hg-semibold font14 leading18 space-0_28 text-white opacity40 dmb-15">
                                 <?php echo $label; ?>
                             </div>
-                            <ul class="list-none ps-0 dmb-10">
+                            <ul class="list-none ps-0 dmb-15">
                                 <?php foreach ($useful_links as $links):
                                     $link = $links['link'];
                                 ?>
                                     <li>
-                                        <a href="<?php echo $link['url']; ?>" class="text-decoration-none hg-semibold font16 leading28 space-0_32 text-white res-font14 res-leading24">
+                                        <a href="<?php echo $link['url']; ?>" class="text-decoration-none hg-semibold font16 leading28 space-0_32 text-white res-font14 res-leading24 res-space-0_28">
                                             <?php echo $link['title']; ?>
                                         </a>
                                     </li>
@@ -155,15 +155,15 @@ if ($footer_color == 'default') {
                             <?php endif; ?>
                         </div>
 
-                        <div class="d-flex align-items-center">
+                        <div class="row row4 align-items-center">
                             <?php if (!empty($app_button)):
                                 foreach ($app_button as $app_btn):
                                     $button_image = $app_btn['button_image'];
                                     $app_url = $app_btn['app_url'];
                             ?>
-                                    <div class="app-images ms-lg-3 me-2 me-lg-0">
-                                        <a href="<?php echo $app_url; ?>" class="text-decoration-none h-100">
-                                            <img src="<?php echo $button_image['url']; ?>" alt="" class="h-100">
+                                    <div class="col-6 col-md-3 app-images">
+                                        <a href="<?php echo $app_url; ?>" class="text-decoration-none w-100 h-100">
+                                            <img src="<?php echo $button_image['url']; ?>" alt="" class="w-100 h-100">
                                         </a>
                                     </div>
                                 <?php endforeach; ?>
@@ -172,7 +172,7 @@ if ($footer_color == 'default') {
                     </div>
 
                     <div class="w-100 d-flex align-items-center justify-content-between flex-column flex-lg-row">
-                        <div class="hg-regular font14 leading18 space-0_28 text-white res-font10 res-space-0_2 pe-4 pe-lg-0 tmb-25">
+                        <div class="copyright hg-regular font14 leading18 space-0_28 text-white res-font10 res-space-0_2 pe-4 pe-lg-0 tmb-25">
                             <?php if (!empty($copy_right_text)): ?>
                                 <?php echo $copy_right_text; ?>
                             <?php endif; ?>

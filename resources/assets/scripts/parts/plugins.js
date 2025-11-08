@@ -22,20 +22,6 @@ export class Plugins {
         slidesToScroll: 1,
         responsive: [
           {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-            },
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
-            },
-          },
-          {
             breakpoint: 480,
             settings: {
               slidesToShow: 1,
@@ -48,39 +34,39 @@ export class Plugins {
   }
   CenterSlider() {
     $(document).ready(function () {
-    $(".center-slider").slick({
-      dots: false,
-      infinite: true,
-      speed: 800,
-      slidesToShow: 1,
-      arrows: true,
-      prevArrow: '<button class="prev-arrow z-3 bg-EBFF99 p-0 radius3 position-absolute top-center border-0"><img src="/wp-content/themes/chc/templates/icons/sector-prev.svg" alt=""></button>',
-      nextArrow: '<button class="next-arrow z-3 bg-EBFF99 p-0 radius3 position-absolute top-center border-0"><img src="/wp-content/themes/chc/templates/icons/sector-next.svg" alt=""></button>',
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: {
-            fade: true,
+      $(".center-slider").slick({
+        dots: false,
+        infinite: true,
+        speed: 800,
+        slidesToShow: 1,
+        arrows: true,
+        prevArrow: '.center-slider-section .prev-arrow',
+        nextArrow: '.center-slider-section .next-arrow',
+        responsive: [
+          {
+            breakpoint: 992,
+            settings: {
+              fade: true,
+            },
           },
-        },
-      ],
-    });
-    $(".center-slider").on('afterChange', function (event, slick, currentSlide) {
-      $(".slick-slide").removeClass("slick-active-prev slick-active-next");
+        ],
+      });
+      $(".center-slider").on('afterChange', function (event, slick, currentSlide) {
+        $(".slick-slide").removeClass("slick-active-prev slick-active-next");
 
-      // Get all visible slides
-      var $currentSlide = $('.slick-current');
+        // Get all visible slides
+        var $currentSlide = $('.slick-current');
 
-      // Previous slide
-      var prevSlideIndex = $currentSlide.prev('.slick-slide').data('slick-index');
-      $('.slick-slide[data-slick-index="' + prevSlideIndex + '"]').addClass('slick-active-prev', 100);
+        // Previous slide
+        var prevSlideIndex = $currentSlide.prev('.slick-slide').data('slick-index');
+        $('.slick-slide[data-slick-index="' + prevSlideIndex + '"]').addClass('slick-active-prev', 100);
 
-      // Next slide
-      var nextSlideIndex = $currentSlide.next('.slick-slide').data('slick-index');
-      $('.slick-slide[data-slick-index="' + nextSlideIndex + '"]').addClass('slick-active-next', 100);
-    });
+        // Next slide
+        var nextSlideIndex = $currentSlide.next('.slick-slide').data('slick-index');
+        $('.slick-slide[data-slick-index="' + nextSlideIndex + '"]').addClass('slick-active-next', 100);
+      });
 
-    $(".center-slider").slick('slickGoTo', 0, true);
+      $(".center-slider").slick('slickGoTo', 0, true);
     });
   }
 
@@ -94,13 +80,20 @@ export class Plugins {
       prevArrow: ".sectors-slider-section .prev-arrow",
       nextArrow: ".sectors-slider-section .next-arrow",
       responsive: [
-         {
-          breakpoint: 1024,
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 769,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true
           }
         },
         {
@@ -199,14 +192,14 @@ export class Plugins {
       slidesToScroll: 1,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1025,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 1,
           },
         },
         {
-          breakpoint: 600,
+          breakpoint: 769,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1,

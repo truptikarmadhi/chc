@@ -3,6 +3,12 @@
         top: 230px;
 
         .privacy-container {
+            #privacy-links {
+                @include media-breakpoint-down(lg) {
+                    overflow-x: auto;
+                }
+            }
+
             ul {
                 li {
                     a {
@@ -12,6 +18,7 @@
                             height: 9px;
                             width: 9px;
                             margin-right: 7px;
+                            display: none;
                         }
 
                         &.active {
@@ -23,6 +30,10 @@
                         a {
                             margin-left: 0px;
                             opacity: 1 !important;
+
+                            .arrow {
+                                display: block;
+                            }
                         }
                     }
                 }
@@ -71,16 +82,19 @@
                 margin-bottom: 0px !important;
             }
         }
-        @include media-breakpoint-down(lg){
-             h4 {
+
+        @include media-breakpoint-down(lg) {
+            h4 {
                 font-size: $res-font25;
                 letter-spacing: $res-space-0_5;
                 line-height: $leading30;
                 padding-right: 15px;
             }
-            p{
+
+            p {
                 padding-right: 10px;
             }
+
             h6 {
                 margin-top: 45px;
                 margin-bottom: 15px;
@@ -91,6 +105,10 @@
     .policy-bg-logo {
         height: 356px;
         z-index: -1;
+
+        @include media-breakpoint-down(xl) {
+            height: 300px;
+        }
 
         img {
             transform: translate(-40px, 40px);

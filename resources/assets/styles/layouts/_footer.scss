@@ -7,20 +7,29 @@
 
     .footer-banner-section {
         .footer-banner {
-            height: 407px;
+            @include media-breakpoint-down(lg) {
+                height: 407px;
+            }
+
+            @include media-breakpoint-down(md){
+                height: 675px;
+                padding: 40px 15px;
+            }
 
             .footer-submit {
-                .wpcf7-not-valid-tip{
+                .wpcf7-not-valid-tip {
                     display: none;
                 }
-                .btnA{
-                    .wpcf7-form-control{
-                        @include media-breakpoint-down(lg){
+
+                .btnA {
+                    .wpcf7-form-control {
+                        @include media-breakpoint-down(lg) {
                             font-size: 0px;
                             padding: 0px;
                         }
                     }
                 }
+
                 .footer-input {
                     height: 73px;
                     background: #faf5e800;
@@ -50,6 +59,14 @@
 
             .footer-banner-img {
                 height: 558px;
+
+                @include media-breakpoint-down(lg) {
+                    height: 370px !important;
+                }
+
+                @media (max-width:374px) {
+                    height: 300px !important;
+                }
             }
         }
     }
@@ -58,8 +75,16 @@
         .acreditations-card {
             height: 99px;
 
+            @include media-breakpoint-down(lg) {
+                height: 80px;
+            }
+
             .acreditations-img {
                 height: 71px;
+
+                @include media-breakpoint-down(lg) {
+                    height: 57px;
+                }
             }
         }
 
@@ -69,32 +94,15 @@
 
         .app-images {
             height: 47px;
-        }
-    }
 
-    @include media-breakpoint-down(lg){
-        .footer-banner{
-            height: 676px !important;
-            padding: 60px 15px 0px 15px;
-            .footer-banner-img{
-                height: 370px !important;
+            @include media-breakpoint-down(lg) {
+                height: 40px;
             }
         }
-        .footer-main {
-            .acreditations-card {
-                height: 80px;
 
-                .acreditations-img {
-                    height: 57px;
-                }
-            }
-
-            .footer-logo {
-                height: 185px;
-            }
-
-            .app-images {
-                height: 47px;
+        .copyright {
+            a {
+                color: $white;
             }
         }
     }

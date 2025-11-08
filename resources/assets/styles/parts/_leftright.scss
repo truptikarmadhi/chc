@@ -1,8 +1,10 @@
 .left-right-content-section {
     z-index: 7;
-    .btnA{
+
+    .btnA {
         z-index: 9 !important;
     }
+
     .left-right-bg-img {
         height: 768px;
         bottom: -40%;
@@ -14,7 +16,7 @@
             left: -10%;
         }
 
-        @include media-breakpoint-down(lg){
+        @include media-breakpoint-down(lg) {
             height: 420px;
             bottom: -41%;
             left: -58%;
@@ -27,6 +29,10 @@
 }
 
 .left-content-hero-section {
+    @include media-breakpoint-down(lg) {
+        height: 676px;
+    }
+
     .left-content-hero-bg-layer {
         height: 228px;
         background: linear-gradient(180deg, rgba(15, 18, 10, 0), rgba(15, 18, 10, 1));
@@ -36,8 +42,13 @@
 .left-right-section {
     .left-right-img {
         height: 576px;
-        @include media-breakpoint-down(lg){
-            height: 310px;
+
+        @include media-breakpoint-down(md) {
+            height: 345px;
+        }
+
+        @media (max-width:374px) {
+            height: 280px;
         }
     }
 }

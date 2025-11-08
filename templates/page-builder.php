@@ -16,7 +16,7 @@
             $youtube = get_sub_field('youtube');
 ?>
             <!-- hero-section -->
-            <section class="hero-section bg-20994A position-relative dpt-280 tpt-195">
+            <section class="hero-section bg-20994A position-relative tpt-195 dpt-280">
                 <div class="hero-heading position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center z-2">
                     <div class="container">
                         <div class="col-lg-10 col-11 text-center mx-auto">
@@ -63,7 +63,7 @@
             <section class="small-card-section position-relative z-3 <?php echo $background_color; ?> overflow-hidden">
                 <div class="container">
                     <div class="col-10 col-lg-12 pe-2" id="servicecontainer">
-                        <?php if ($display_service == 'All'): 
+                        <?php if ($display_service == 'All'):
                             $service_args = [
                                 'post_type'      => 'services',
                                 'posts_per_page' => -1,
@@ -72,29 +72,30 @@
                             ];
                             $query = new WP_Query($service_args);
                             if ($query->have_posts()) {
-                            ?>
-                                <?php while ($query->have_posts()) : 
+                        ?>
+                                <?php while ($query->have_posts()) :
                                     $query->the_post();
                                     $service_id = get_the_ID();
                                 ?>
                                     <div class=" ">
                                         <a href="<?php echo get_permalink($service_id); ?>" class="small-card w-100 d-inline-block radius20 res-radius10 overflow-hidden position-relative card-hover">
-                                            <?php if(!empty(get_the_post_thumbnail_url($service_id))): ?>
+                                            <?php if (!empty(get_the_post_thumbnail_url($service_id))): ?>
                                                 <img src="<?php echo get_the_post_thumbnail_url($service_id, 'medium') ?>" class="w-100 h-100 object-cover img" alt="<?php echo get_the_title($service_id) ?>">
                                             <?php endif; ?>
                                             <div class="small-bg-layer position-absolute bottom-0 start-0 w-100"></div>
                                             <div class="position-absolute small-card-content">
-                                                <?php if(!empty(get_the_title($service_id))): ?>
+                                                <?php if (!empty(get_the_title($service_id))): ?>
                                                     <div class="hg-semibold font20 leading26 space-0_4 text-white mb-1"><?php echo get_the_title($service_id) ?></div>
                                                 <?php endif; ?>
-                                                <?php if(!empty(get_the_content($service_id))): ?>
+                                                <?php if (!empty(get_the_content($service_id))): ?>
                                                     <div class="hg-regular font14 leading18 space-0_28 text-white dmb-10 res-font12 res-space-0_24"><?php echo get_the_content($service_id); ?></div>
                                                 <?php endif; ?>
                                                 <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/white-right-arrow.svg" class="small-arrow" alt="">
                                             </div>
                                         </a>
                                     </div>
-                                <?php endwhile; wp_reset_postdata(); ?>
+                                <?php endwhile;
+                                wp_reset_postdata(); ?>
                             <?php } ?>
                         <?php elseif ($display_service == 'Select'): ?>
                             <?php if (!empty($select_service)):
@@ -103,7 +104,7 @@
                                     $title = get_the_title($post_id);
                                     $image = get_the_post_thumbnail_url($post_id, 'full');
                                     $description = get_the_excerpt($post_id); // ya get_the_content($post_id)
-                                ?>
+                            ?>
                                     <div class="">
                                         <a href="<?php echo get_permalink($post_id); ?>" class="small-card w-100 d-inline-block radius20 res-radius10 overflow-hidden position-relative card-hover">
                                             <img src="<?php echo esc_url($image); ?>" class="w-100 h-100 object-cover img" alt="">
@@ -115,7 +116,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                <?php endforeach;
+                            <?php endforeach;
                             endif; ?>
                         <?php endif; ?>
                     </div>
@@ -141,7 +142,7 @@
                     <div class="row flex-column-reverse flex-lg-row">
                         <div class="col-lg-6 col-12 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php if (!empty($link)): ?>
-                                <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none dmb-95 position-relative transition tmb-0"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"><?php echo $link['title']; ?></span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                                <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition tmb-0"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"><?php echo $link['title']; ?></span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                             <?php endif; ?>
                         </div>
                         <div class="col-lg-6 col-12 wow animate__fadeInUp" data-wow-duration="1.5s">
@@ -186,41 +187,42 @@
                             ];
                             $query = new WP_Query($args);
                             if ($query->have_posts()):
-                            ?>
-                                <?php while ($query->have_posts()): 
+                        ?>
+                                <?php while ($query->have_posts()):
                                     $query->the_post();
                                     $case_id = get_the_ID();
                                     $location = get_field('location', $case_id);
                                     $categories = get_the_terms($case_id, 'case_studies_cat');
                                 ?>
-                                 <div class="case-studies-cards">
-                                    <a href="<?php echo get_permalink($case_id) ?>" class="case-studies-card d-inline-block text-decoration-none">
-                                        <div class="case-studies-img dmb-25 card-hover radius20 res-radius10 overflow-hidden position-relative">
-                                            <?php if(!empty(get_the_post_thumbnail_url($case_id))): ?>
-                                                <img src="<?php echo get_the_post_thumbnail_url($case_id) ?>" class="w-100 h-100 object-cover img" alt="<?php echo get_the_title($case_id) ?>">
-                                            <?php endif; ?>
-                                            <div class="case-layer position-absolute bottom-0 start-0 w-100 opacity40"></div>
-                                            <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-lg-3 ms-2">
-                                                <?php 
+                                    <div class="case-studies-cards">
+                                        <a href="<?php echo get_permalink($case_id) ?>" class="case-studies-card d-inline-block text-decoration-none">
+                                            <div class="case-studies-img dmb-25 card-hover radius20 res-radius10 overflow-hidden position-relative">
+                                                <?php if (!empty(get_the_post_thumbnail_url($case_id))): ?>
+                                                    <img src="<?php echo get_the_post_thumbnail_url($case_id) ?>" class="w-100 h-100 object-cover img" alt="<?php echo get_the_title($case_id) ?>">
+                                                <?php endif; ?>
+                                                <div class="case-layer position-absolute bottom-0 start-0 w-100 opacity40"></div>
+                                                <div class="category-tags position-absolute bottom-0 d-flex dmb-20 ms-lg-3 ms-2">
+                                                    <?php
                                                     if (!empty($categories) && !is_wp_error($categories)) {
-                                                    foreach ($categories as $category) {
-                                                ?>
-                                                    <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10"><?php echo $category->name; ?></div>
-                                                <?php } } ?>
+                                                        foreach ($categories as $category) {
+                                                    ?>
+                                                            <div class="prefix bg-B4B4B4-btn hg-regular font14 leading18 text-white radius5 d-inline-flex align-items-center me-2 res-font10"><?php echo $category->name; ?></div>
+                                                    <?php }
+                                                    } ?>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <?php if(!empty(get_the_title($case_id))): ?>
-                                            <div class="hg-medium font20 leading24 space-0_4 text-0F120A mb-1"><?php echo get_the_title($case_id) ?></div>
-                                        <?php endif; ?>
-                                        <?php if(!empty($location)): ?>
-                                            <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28"><?php echo $location; ?>
-                                        <?php endif; ?>
-                                        </div>
-                                    </a>
-                                </div>
+                                            <?php if (!empty(get_the_title($case_id))): ?>
+                                                <div class="hg-medium font20 leading24 space-0_4 text-0F120A mb-1"><?php echo get_the_title($case_id) ?></div>
+                                            <?php endif; ?>
+                                            <?php if (!empty($location)): ?>
+                                                <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28"><?php echo $location; ?>
+                                                <?php endif; ?>
+                                                </div>
+                                        </a>
+                                    </div>
                                 <?php endwhile;
-                            wp_reset_postdata();  ?>
-                        <?php endif; ?>
+                                wp_reset_postdata();  ?>
+                            <?php endif; ?>
                         <?php elseif ($case_studies_display == 'Select'): ?>
                             <?php if (!empty($select_case_studies)):
                                 foreach ($select_case_studies as $casestudies):
@@ -230,7 +232,7 @@
                                     $description = get_the_excerpt($case_id);
                                     $categories = get_the_terms($case_id, 'case_studies_cat');
                                     $location = get_field('location', $case_id);
-                                ?>
+                            ?>
                                     <div class="case-studies-cards">
                                         <a href="<?php echo get_permalink($case_id); ?>" class="case-studies-card w-100 d-inline-block text-decoration-none">
                                             <div class="case-studies-img dmb-25 card-hover radius20 res-radius10 overflow-hidden position-relative">
@@ -250,7 +252,7 @@
                                             <div class="hg-regular font16 leading21 space-0_32 text-111616 opacity-50 text-capitalize res-font14 res-space-0_28"> <?php echo esc_html($location); ?></div>
                                         </a>
                                     </div>
-                                <?php endforeach;
+                            <?php endforeach;
                             endif; ?>
                         <?php endif; ?>
                     </div>
@@ -280,7 +282,7 @@
                             <div class="next-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-next.svg" class="icon" alt=""></div>
                         </div>
                     </div>
-                    <div class="sectors-slider col-8 col-lg-12 tmb-55">
+                    <div class="sectors-slider col-8 col-md-12 tmb-55">
                         <?php if (!empty($sector_card)):
                             foreach ($sector_card as $sector):
                                 $icon = $sector['icon'];
@@ -315,44 +317,46 @@
                         <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/testimonial-icon.svg" class="h-100 w-100" alt="">
                     </div>
                     <div class="testimonial-slider col-lg-7 col-12 mx-auto text-center" id="testimonialcontainer">
-                    <?php if ($testimonial_display == 'All'): 
-                        $testimonial_args = [
-                            'post_type'      => 'testimonials',
-                            'posts_per_page' => -1,
-                            'orderby'        => 'date',
-                            'order'          => 'DESC',
-                        ];
-                        $query = new WP_Query($testimonial_args);
-                        if ($query->have_posts()) {
-                    ?>
-                            <?php  while ($query->have_posts()): 
-                                $query->the_post();
-                                $testimonial_id = get_the_ID();
+                        <?php if ($testimonial_display == 'All'):
+                            $testimonial_args = [
+                                'post_type'      => 'testimonials',
+                                'posts_per_page' => -1,
+                                'orderby'        => 'date',
+                                'order'          => 'DESC',
+                            ];
+                            $query = new WP_Query($testimonial_args);
+                            if ($query->have_posts()) {
+                        ?>
+                                <?php while ($query->have_posts()):
+                                    $query->the_post();
+                                    $testimonial_id = get_the_ID();
+                                ?>
+                                    <div class="testimonial-cards wow animate__fadeInUp" data-wow-duration="1.5s">
+                                        <?php if (!empty(get_the_title($testimonial_id))): ?>
+                                            <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 testimonial-heading tmb-30 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>"><?php echo get_the_title($testimonial_id); ?></div>
+                                        <?php endif; ?>
+                                        <?php if (!empty(get_the_content($testimonial_id))): ?>
+                                            <div class="hg-regular font14 leading18 space-0_28 testimonial-client <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>"><?php echo get_the_content($testimonial_id) ?></div>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endwhile;
+                                wp_reset_postdata(); ?>
+                            <?php } ?>
+                            <?php elseif ($testimonial_display == 'Select'):
+                            if (!empty($select_testimonial)):
                             ?>
-                                <div class="testimonial-cards wow animate__fadeInUp" data-wow-duration="1.5s">
-                                    <?php if(!empty(get_the_title($testimonial_id))): ?>
-                                        <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 testimonial-heading tmb-30 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>"><?php echo get_the_title($testimonial_id); ?></div>
-                                    <?php endif; ?>
-                                    <?php if(!empty(get_the_content($testimonial_id))): ?>
-                                        <div class="hg-regular font14 leading18 space-0_28 testimonial-client <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?>"><?php echo get_the_content($testimonial_id) ?></div>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endwhile; wp_reset_postdata(); ?>
-                    <?php } ?>
-                    <?php elseif ($testimonial_display == 'Select'): 
-                        if( !empty($select_testimonial)):
-                    ?>
-                        <?php foreach($select_testimonial as $testimonial_data): ?>
-                            <div class="testimonial-cards">
-                                <?php if(!empty(get_the_title($testimonial_data->ID))): ?>
-                                    <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-heading"><?php echo get_the_title($testimonial_data->ID); ?></div>
-                                <?php endif; ?>
-                                <?php if(!empty(get_the_content($testimonial_data->ID))): ?>
-                                    <div class="hg-regular font14 leading18 space-0_28 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-client"><?php echo get_the_content($testimonial_data->ID); ?></div>
-                                <?php endif; ?>
-                            </div>
-                        <?php endforeach; ?>
-                        <?php endif; endif; ?>
+                                <?php foreach ($select_testimonial as $testimonial_data): ?>
+                                    <div class="testimonial-cards">
+                                        <?php if (!empty(get_the_title($testimonial_data->ID))): ?>
+                                            <div class="hg-regular font32 leading36 space-0_32 dmb-40 res-font26 res-leading36 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-heading"><?php echo get_the_title($testimonial_data->ID); ?></div>
+                                        <?php endif; ?>
+                                        <?php if (!empty(get_the_content($testimonial_data->ID))): ?>
+                                            <div class="hg-regular font14 leading18 space-0_28 <?php echo $background_color == 'bg-0F120A' ? 'text-white' : ''; ?> testimonial-client"><?php echo get_the_content($testimonial_data->ID); ?></div>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                        <?php endif;
+                        endif; ?>
                     </div>
                 </div>
             </section>
@@ -395,15 +399,15 @@
                     <div class="container">
                         <div class="col-lg-8 col-12 mx-auto text-center">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-semibold font80 leading104 space-1_6 text-white dmb-10 res-font40 res-leading50 tmb-15"><?php echo $heading; ?></div>
+                                <div class="hg-semibold font80 leading104 space-1_6 text-white dmb-10 res-font40 res-leading50 res-space-0_8 tmb-15"><?php echo $heading; ?></div>
                             <?php endif; ?>
                             <?php if (!empty($description)): ?>
-                                <div class="hg-regular font18 leading24 space-0_36 text-white dmb-30 col-lg-10 px-lg-2 px-3 mx-auto res-font14 res-leading18">
+                                <div class="hg-regular font18 leading24 space-0_36 text-white dmb-30 col-lg-10 px-lg-2 px-3 mx-auto res-font14 res-leading18 res-space-0_28">
                                     <?php echo $description; ?>
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($link)): ?>
-                                <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none dmb-95 position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                                <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -453,8 +457,8 @@
                                 $count = $cards['count'];
                                 $arrow = $cards['arrow'];
                         ?>
-                                <div class="col-lg-4 col-12">
-                                    <div id="counter" class="counter-cards tmb-10 <?php echo $card_background == 'Background Blur' ? '' : 'bg-20994A-cards' ?> radius20">
+                                <div class="col-lg-4 col-12 counter-cards tmb-10 ">
+                                    <div id="counter" class="counter-card h-100 <?php echo $card_background == 'Background Blur' ? '' : 'bg-20994A-cards' ?> radius20">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <?php if (!empty($count)): ?>
                                                 <div class="mb-1 counter-heading hg-bold font74 leading96 space-1_48 d-flex align-items-center">
@@ -516,7 +520,7 @@
                                             $title = $include['title'];
                                             $description = $include['description'];
                                     ?>
-                                            <div class="col-lg-6 col-12 included-col">
+                                            <div class="col-xl-6 col-12 included-col">
                                                 <div class="included-card radius20 res-radius10 d-flex align-items-center h-100">
                                                     <div class="included-card-img radius10 overflow-hidden">
                                                         <img src="<?php echo $image['url']; ?>" class="w-100 h-100 object-cover" alt="">
@@ -535,7 +539,7 @@
                                     endif; ?>
                                 </div>
                                 <?php if (!empty($link)): ?>
-                                    <div class="d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center tmt-40">
                                         <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-lg-none d-inline-flex align-items-center text-decoration-none position-relative transition"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                                     </div>
                                 <?php endif; ?>
@@ -603,7 +607,7 @@
                     <div class="container">
                         <div class="col-lg-9 pe-lg-3 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30 res-font35 res-leading40 tmb-25 heading">
+                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30 res-font35 res-leading40 res-space-0_7 tmb-25 heading">
                                     <?php echo $heading; ?>
                                 </div>
                             <?php endif; ?>
@@ -615,7 +619,7 @@
                 </div>
                 <div class="left-content-hero-bg-layer position-absolute bottom-0 w-100"></div>
             </section>
-            
+
         <?php elseif (get_row_layout() == 'what_we_offer_section'):
             $background_color = get_sub_field('background_color');
             $heading = get_sub_field('heading');
@@ -625,7 +629,7 @@
             <section class="what-we-offer-section position-relative <?php echo $background_color; ?>" id="what-we-do">
                 <div class="container">
                     <?php if (!empty($heading)): ?>
-                        <div class="main-title hg-light font44 leading48 space-0_88 text-white dmb-55 res-font25 res-leading32 tmb-25 wow animate__fadeInUp" data-wow-duration="1.5s">
+                        <div class="main-title hg-light font44 leading48 space-0_88 text-white dmb-55 res-font25 res-leading32 res-space-0_5 tmb-25 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <?php echo $heading; ?>
                         </div>
                     <?php endif; ?>
@@ -643,9 +647,9 @@
                                 $modal_id = 'offerOffcanvas_' . $index;
                         ?>
                                 <?php if ($link_style == 'Link'): ?>
-                                    <div class="col-lg-4 col-12 offer-cards dmb-20 tmb-15 wow animate__fadeInUp" data-wow-duration="1.5s">
+                                    <div class="col-md-6 col-lg-4 col-12 offer-cards dmb-20 tmb-15 wow animate__fadeInUp" data-wow-duration="1.5s">
                                         <a href="<?php echo $link['url']; ?>" class="text-decoration-none h-100">
-                                            <div class="offer-card position-relative bg-20994A radius20 res-radius10 overflow-hidden dpt-45 dpb-60 tpt-40 tpb-40">
+                                            <div class="offer-card position-relative bg-20994A radius20 res-radius10 h-100 overflow-hidden dpt-45 dpb-60 tpt-40 tpb-40">
                                                 <div class="offer-img d-inline-flex dmb-40 tmb-30">
                                                     <img src="<?php echo $icon['url']; ?>" alt="" class="w-100 h-100 object-cover">
                                                 </div>
@@ -661,11 +665,11 @@
                                         </a>
                                     </div>
                                 <?php elseif ($link_style == 'Modal'): ?>
-                                    <div class="col-lg-4 offer-cards dmb-20 tmb-15 wow animate__fadeInUp" data-wow-duration="1.5s">
+                                    <div class="col-md-6 col-lg-4 offer-cards dmb-20 tmb-15 wow animate__fadeInUp" data-wow-duration="1.5s">
                                         <a href="javascript:void(0)" class="text-decoration-none h-100"
                                             data-bs-toggle="offcanvas" data-bs-target="#<?php echo $modal_id; ?>"
                                             aria-controls="<?php echo $modal_id; ?>">
-                                            <div class="offer-card position-relative bg-20994A radius20 res-radius10 overflow-hidden dpt-45 dpb-60 tpt-40 tpb-40">
+                                            <div class="offer-card position-relative bg-20994A radius20 res-radius10 h-100 overflow-hidden dpt-45 dpb-60 tpt-40 tpb-40">
                                                 <div class="offer-img d-inline-flex dmb-40 tmb-30">
                                                     <img src="<?php echo $icon['url']; ?>" alt="" class="w-100 h-100 object-cover">
                                                 </div>
@@ -843,7 +847,7 @@
                                             <div class="small-bg-layer position-absolute bottom-0 start-0 w-100"></div>
                                             <div class="position-absolute small-card-content">
                                                 <div class="hg-semibold font20 leading26 space-0_4 text-white mb-1"><?php echo esc_html($title); ?></div>
-                                                <div class="hg-regular font16 leading18 space-0_28 text-white dmb-10 "><?php echo esc_html($description); ?></div>
+                                                <div class="hg-regular font16 leading18 space-0_28 res-font12 res-leading20 res-space-0_24 text-white dmb-10"><?php echo esc_html($description); ?></div>
                                                 <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/white-right-arrow.svg" class="small-arrow" alt="">
                                             </div>
                                         </a>
@@ -906,7 +910,7 @@
                     <div class="container">
                         <div class="col-lg-9 pe-lg-3">
                             <?php if (!empty($heading)): ?>
-                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30 res-font35 res-leading40 tmb-25 heading">
+                                <div class="hg-regular font50 leading50 space-1 text-white dmb-30 res-font35 res-leading40 res-space-0_7 tmb-25 heading">
                                     <?php echo $heading; ?>
                                 </div>
                             <?php endif; ?>
@@ -916,7 +920,7 @@
                                         $link = $btn['link'];
                                 ?>
                                         <?php if (!empty($link)): ?>
-                                            <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition me-4"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
+                                            <a href="<?php echo $link['url']; ?>" class="btnA bg-EBFF99-btn hg-semibold font16 leading21 space-0_32 text-0F120A d-inline-flex align-items-center text-decoration-none position-relative transition me-4 mb-1 mb-lg-0"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition"> <?php echo $link['title']; ?> </span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></a>
                                         <?php endif; ?>
                                 <?php endforeach;
                                 endif; ?>
@@ -932,7 +936,7 @@
             <section class="main-content-section position-relative z-3 <?php echo $background_color; ?>">
                 <div class="container">
                     <?php if (!empty($content)): ?>
-                        <div class="main-title hg-light font50 leading62 space-1 text-0F120A text-center res-font30 res-leading40">
+                        <div class="main-title hg-light font50 leading62 space-1 text-0F120A text-center res-font30 res-leading40 res-space-0_6">
                             <?php echo $content; ?>
                         </div>
                     <?php endif; ?>
@@ -1053,9 +1057,9 @@
                                     class="filter case-filter-btn active text-nowrap hg-regular font14 leading17 text-0F120A radius5 border-0 py-2 px-3">
                                     View all
                                 </button>
-                               <?php foreach ($cats as $index => $cat): ?>
-                                    <button 
-                                        data-tag="<?php echo $cat->slug; ?>" 
+                                <?php foreach ($cats as $index => $cat): ?>
+                                    <button
+                                        data-tag="<?php echo $cat->slug; ?>"
                                         class="filter case-filter-btn text-nowrap hg-regular font14 leading17 text-0F120A radius5 border-0 py-2 px-3 <?php echo $index >= 3 ? 'extra-cat d-none' : ''; ?>">
                                         <?php echo $cat->name; ?>
                                     </button>
@@ -1068,15 +1072,16 @@
                             </div>
                             <div class="position-absolute top-100 more-filter-options bg-E0E0E0 p-4 radius10 mt-2 d-none">
                                 <div class="">
-                                    <?php foreach ($cats as $index => $cat): if($index >= 3){ ?>
-                                        <div class="text-end filter-item d-none">
-                                            <label for="<?php echo $cat->slug; ?>" class="hg-regular font14 leading17 text-0F120A d-inline-flex align-items-center case-filter-check-container position-relative">
-                                                <input type="checkbox" name="" id="<?php echo $cat->slug; ?>" data-tag="<?php echo $cat->slug; ?>" class="case-filter-check me-2 position-absolute top-0 start-0 w-100 h-100 opacity-0 cursor-pointer">  
-                                                <label for="" class="label bg-20994A position-relative me-2"></label>
-                                                <?php echo $cat->name; ?>
-                                            </label>
-                                        </div>
-                                    <?php } endforeach; ?>
+                                    <?php foreach ($cats as $index => $cat): if ($index >= 3) { ?>
+                                            <div class="text-end filter-item d-none">
+                                                <label for="<?php echo $cat->slug; ?>" class="hg-regular font14 leading17 text-0F120A d-inline-flex align-items-center case-filter-check-container position-relative">
+                                                    <input type="checkbox" name="" id="<?php echo $cat->slug; ?>" data-tag="<?php echo $cat->slug; ?>" class="case-filter-check me-2 position-absolute top-0 start-0 w-100 h-100 opacity-0 cursor-pointer">
+                                                    <label for="" class="label bg-20994A position-relative me-2"></label>
+                                                    <?php echo $cat->name; ?>
+                                                </label>
+                                            </div>
+                                    <?php }
+                                    endforeach; ?>
                                 </div>
                             </div>
                         </div>
@@ -1086,7 +1091,7 @@
                     </div>
 
                     <script id="case-template" type="text/x-handlebars-template">
-                        <div class="col-lg-6 col-12 case-studies-cards dmb-70 tmb-40 wow animate__fadeInUp" data-wow-duration="1.5s">
+                        <div class="col-md-6 col-12 case-studies-cards dmb-70 tmb-40 wow animate__fadeInUp" data-wow-duration="1.5s">
                             <a href="{{link}}" class="case-studies-card d-inline-block text-decoration-none">
                                 <div class="case-studies-img dmb-25 tmb-15 card-hover radius20 res-radius10 overflow-hidden position-relative">
                                     <img src="{{image}}" class="w-100 h-100 object-cover img" alt="{{title}}">
@@ -1102,13 +1107,13 @@
                         </div>
                     </script>
 
-                    <?php if($the_query->found_posts >= 4) : ?>
+                    <?php if ($the_query->found_posts >= 4) : ?>
                         <div class="d-flex justify-content-center tmt-30">
                             <button id="caseLoadmore" class="caseLoadmore btnA bg-EBFF99-btn border-0 hg-semibold font16 leading21 space-0_32 text-0F120A text-decoration-none position-relative transition" data-items="4"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow me-2 arrow-1 position-absolute top-center transition"><span class="transition">Load more</span><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" class="arrow ms-2 arrow-2 position-absolute transition"></button>
                         </div>
-                    </div>
-                    <?php endif; ?>
                 </div>
+            <?php endif; ?>
+            </div>
             </section>
 
         <?php elseif (get_row_layout() == 'contact_section'):
@@ -1120,9 +1125,9 @@
             $account_mail = get_sub_field('account_mail');
             $social_group = get_sub_field('social_group');
         ?>
-            <section class="contact-section h-vh bg-20994A tpt-155">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center justify-content-between">
+            <section class="contact-section bg-20994A tpt-155 dpt-175 dpb-115">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
                         <div class="col-lg-4 tmb-55">
                             <?php if (!empty($prefix)): ?>
                                 <div class="prefix bg-FFFFFC-prefix d-inline-flex align-items-center hg-regular font14 leading18 space-0_28 text-white dmb-5 radius5 dmb-30">
@@ -1181,7 +1186,7 @@
                         </div>
                         <div class="col-lg-7 ps-1">
                             <div class="contact-form radius20 overflow-hidden">
-                                 <?php echo do_shortcode('[contact-form-7 id="a487ced" title="Contact form 1"]'); ?>
+                                <?php echo do_shortcode('[contact-form-7 id="a487ced" title="Contact form 1"]'); ?>
                                 <!-- <div class="row row30">
                                     <div class="col-6">
                                         <input type="text" placeholder="Name…" class="contact-input bg-transparent border-0 w-100 hg-regular font16 leading21 space-0_32 dpb-10 dmb-45">
@@ -1239,7 +1244,7 @@
                                 <div class="accrodion-wrapper">
                                     <div
                                         class="closet-header d-flex align-items-center justify-content-between dpt-20 dpb-20 cursor-pointer tpt-15 tpb-15">
-                                        <div class="hg-regular font28 leading34 space-0_56 text-0F120A res-font20 res-leading30">
+                                        <div class="hg-regular font28 leading34 space-0_56 text-0F120A res-font20 res-leading30 res-space-0_4">
                                             <?php echo $accordion_heading; ?>
                                         </div>
                                         <div class="bottom-arrow d-flex">
@@ -1264,20 +1269,20 @@
             $privacy_img = get_sub_field('privacy_img');
         ?>
             <section class="privacy-section tpt-165 tpb-20">
-                <div class="container">
+                <div class="container px-p-0">
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="position-sticky privacy-links">
                                 <div class="privacy-container">
-                                    <ul class="list-none mb-0 ps-0 d-flex flex-lg-column overflow-auto" id="privacy-links">
+                                    <ul class="list-none mb-0 ps-0 d-flex flex-lg-column ps-0 ps-p-p" id="privacy-links">
                                         <?php if (!empty($policy_data)):
                                             foreach ($policy_data as $policy):
                                                 $prefix = $policy['prefix'];
                                                 $heading = $policy['heading'];
                                         ?>
-                                                <li class="overflow-hidden">
+                                                <li class="">
                                                     <a href="#<?php echo $prefix; ?>"
-                                                        class="privacy-link text-decoration-none font16 space-0_32 leading21 text-0F120A dmb-10 tmb-0 opacity40 d-flex align-items-center hg-semibold transition me-5 me-lg-0">
+                                                        class="privacy-link text-decoration-none font16 space-0_32 leading21 text-0F120A dmb-10 tmb-0 opacity40 d-flex align-items-center hg-semibold transition me-5 me-lg-0 text-nowrap">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/templates/icons/button-arrow.svg" alt="button-arrow" class="arrow">
                                                         <?php echo $heading; ?>
                                                     </a>
@@ -1288,7 +1293,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-9 dpt-200 tpt-45">
+                        <div class="col-lg-9 dpt-200 tpt-45 px-p-p">
                             <div class="col-lg-10 pe-lg-5">
                                 <?php if (!empty($policy_data)):
                                     foreach ($policy_data as $policy):

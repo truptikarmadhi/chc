@@ -4,10 +4,11 @@
     padding: 53px 60px 63px;
 
     .submit-btn {
-        input{
+        input {
             padding-left: 16px !important;
             padding-right: 0px !important;
         }
+
         &:hover {
             input {
                 padding-left: 0px !important;
@@ -16,7 +17,7 @@
         }
     }
 
-    @include media-breakpoint-down(lg){
+    @include media-breakpoint-down(lg) {
         padding: 50px 17px;
     }
 }
@@ -34,32 +35,40 @@
     }
 }
 
-.more-filter-container{
-    &.active{
-        .more-filter-plus{
+.contact-textarea {
+    @include media-breakpoint-down(lg) {
+        height: 100px !important;
+    }
+}
+
+.more-filter-container {
+    &.active {
+        .more-filter-plus {
             transform: rotate(45deg);
         }
-        .more-filter-options{
+
+        .more-filter-options {
             display: block !important;
         }
     }
 }
 
 
-.case-filter-check-container{
-    input{
-         &:checked~.label{
-            &::after{
+.case-filter-check-container {
+    input {
+        &:checked~.label {
+            &::after {
                 display: block;
             }
-         }
+        }
     }
-    .label{
+
+    .label {
         height: 20px;
         width: 20px;
         border-radius: 3px;
 
-        &::after{
+        &::after {
             content: '';
             height: 9px;
             width: 5px;
@@ -72,4 +81,9 @@
             display: none;
         }
     }
+}
+
+.wpcf7-submit {
+    background-color: transparent;
+    border: 0px !important;
 }
