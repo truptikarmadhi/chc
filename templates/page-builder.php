@@ -788,7 +788,7 @@
                                 <div class="col-lg-11 me-lg-auto dmb-45">
                                     <?php if (!empty($image)): ?>
                                         <div class="left-right-img w-100 radius20 overflow-hidden">
-                                            <img src="<?php echo $image['url']; ?>" alt="" class="w-100 h-100">
+                                            <img src="<?php echo $image['url']; ?>" alt="" class="w-100 h-100 object-cover">
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -811,7 +811,7 @@
                                 <div class="col-lg-11 ms-lg-auto dmb-45">
                                     <?php if (!empty($image)): ?>
                                         <div class="left-right-img w-100 radius20 overflow-hidden">
-                                            <img src="<?php echo $image['url']; ?>" alt="" class="w-100 h-100">
+                                            <img src="<?php echo $image['url']; ?>" alt="" class="w-100 h-100 object-cover">
                                         </div>
                                     <?php endif; ?>
                                 </div>

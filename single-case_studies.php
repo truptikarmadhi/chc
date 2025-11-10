@@ -81,12 +81,12 @@ $service_tags = $how_helped['service_tags'];
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="slick-arrows position-absolute p-initial top-0 h-100 start-0 w-100 d-flex align-items-center tmt-25">
-            <div class="container">
-                <div class="d-flex align-items-center justify-content-center justify-content-lg-between">
-                    <div class="prev-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 me-2 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-prev.svg" class="icon" alt=""></div>
-                    <div class="next-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-next.svg" class="icon" alt=""></div>
+            <div class="slick-arrows position-absolute p-initial top-0 h-100 start-0 w-100 d-flex align-items-center tmt-25">
+                <div class="container">
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-between">
+                        <div class="prev-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 me-2 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-prev.svg" class="icon" alt=""></div>
+                        <div class="next-arrow bg-EBFF99 d-flex justify-content-center align-items-center radius3 cursor-pointer"><img src="<?php echo get_template_directory_uri(); ?>/templates/icons/sector-next.svg" class="icon" alt=""></div>
+                    </div>
                 </div>
             </div>
         </div>

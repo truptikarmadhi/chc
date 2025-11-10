@@ -40,8 +40,8 @@ export class Plugins {
         speed: 800,
         slidesToShow: 1,
         arrows: true,
-        prevArrow: '.center-slider-main-section .prev-arrow',
-        nextArrow: '.center-slider-main-section .next-arrow',
+        prevArrow: '.center-slider-section .prev-arrow',
+        nextArrow: '.center-slider-section .next-arrow',
         responsive: [
           {
             breakpoint: 992,
